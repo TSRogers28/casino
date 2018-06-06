@@ -8,6 +8,6 @@ interface Game {
 
     void getWinner();
 
-    void isOver();
+    boolean isOver();
 
 }
