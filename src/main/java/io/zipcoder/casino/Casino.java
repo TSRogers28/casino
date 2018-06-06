@@ -10,7 +10,17 @@ public class Casino {
         message.welcomeMessage();
         message.displayTheCat();
         message.rollTheDice();
+        message.makeItRain();
+        message.mainMenu();
+
+        for (int i = 0; i < message.cardPics.length; i++) {
+            System.out.println(message.cardPics[i]);
+        }
+
+        for (int i = 0; i < message.suits.length; i++) {
+            System.out.println(message.suits[i]);
+        }
+    }
     }
 
 
-}

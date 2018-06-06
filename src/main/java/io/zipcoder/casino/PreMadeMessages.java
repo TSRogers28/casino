@@ -3,9 +3,10 @@ package io.zipcoder.casino;
 public class PreMadeMessages {
 
     public void welcomeMessage() {
-        System.out.println("Welcome To The Hello Kitty Adventure Island Casino!!");
+        System.out.println("Welcome To The Hello Kitty™ Adventure Island Casino!!");
     }
-    public void displayTheCat(){
+
+    public void displayTheCat() {
 
         System.out.println(
                 " _   _         _  _          _   __ _\n" +
@@ -15,7 +16,7 @@ public class PreMadeMessages {
                         "| | | |\\ ,___/| || |\\ \\_/ / | |\\ \\ | | | |_  | |_ | / /\n" +
                         "|_| |_| \\___/ |_||_| \\___/  |_| \\_\\|_| \\___| \\___||  /\n" +
                         "                     _           _                / /\n" +
-                        "                    / \\_______ /|_\\               \\/\n" +
+                        "                    / \\_______ /|_\\™              \\/\n" +
                         "                   /          /_/ \\__\n" +
                         "                  /             \\_/ /\n" +
                         "                _|_              |/|_\n" +
@@ -24,9 +25,10 @@ public class PreMadeMessages {
                         "                 \\                 /\n" +
                         "                  _\\_____________/_\n" +
                         "                 /  \\/  (___)  \\/  \\\n" +
-                        "                  \\__(  o     o  )__/");
+                        "                 \\__(  o     o  )__/");
     }
-    public void rollTheDice(){
+
+    public void rollTheDice() {
         System.out.println(
                 "                           (( _______\n" +
                         "                 _______     /\\O    O\\\n" +
@@ -43,41 +45,61 @@ public class PreMadeMessages {
     public void makeItRain() {
         System.out.println(
                 "                   $$$$                                                            \n" +
-                "           $$$$$$$$$$$$$$$$$                                                       \n" +
-                "       $$$$$$$$$$$$$$$$$$$$$$                                                      \n" +
-                "    $$$$$$         $$$$    $$$$$$$$                                                \n" +
-                "   $$$$$$          $$$$        $$$$$$$                                             \n" +
-                "  $$$$$$           $$$$          $$$$$$                                            \n" +
-                "  $$$$$$           $$$$                                                            \n" +
-                "  $$$$$$           $$$$                             _           _                  \n" +
-                "   $$$$$$          $$$$                            / \\\\\\\\_______ /|_\\\\\\\\   \n" +
-                "     $$$$$$$$      $$$$                                                            \n" +
-                "        $$$$$$$$$$$$$$$                                                            \n" +
-                "          $$$$$$$$$$$$$$$$$$                                                       \n" +
-                "             $$$$$$$$$$$$$$$$                                                      \n" +
-                "                   $$$$ $$$$$$$$$$                                                 \n" +
-                "                   $$$$       $$$$$$$                                              \n" +
-                "                   $$$$          $$$$$$                                            \n" +
-                "                   $$$$           $$$$$$                                           \n" +
-                "$$$$$$$            $$$$          $$$$$$$                                           \n" +
-                " $$$$$$            $$$$          $$$$$$                                            \n" +
-                "  $$$$$$$          $$$$        $$$$$$$                                             \n" +
-                "   $$$$$$$$        $$$$      $$$$$$$                                               \n" +
-                "      $$$$$$$$$$$$$$$$$$$$$$$$$$$$                                                 \n" +
-                "          $$$$$$$$$$$$$$$$$$$$$                                                    \n" +
-                "                   $$$$                                                            \n"
+                        "           $$$$$$$$$$$$$$$$$                                                       \n" +
+                        "       $$$$$$$$$$$$$$$$$$$$$$                                                      \n" +
+                        "    $$$$$$         $$$$    $$$$$$$$                                                \n" +
+                        "   $$$$$$          $$$$        $$$$$$$                                             \n" +
+                        "  $$$$$$           $$$$          $$$$$$                                            \n" +
+                        "  $$$$$$           $$$$                                                            \n" +
+                        "  $$$$$$           $$$$                             _           _                  \n" +
+                        "   $$$$$$          $$$$                            / \\_______ /|_\\™              \n" +
+                        "     $$$$$$$$      $$$$                           /          /_/ \\__\\            \n" +
+                        "        $$$$$$$$$$$$$$$                          /             \\_/ /\\            \n" +
+                        "          $$$$$$$$$$$$$$$$$$                   _|_              |/|_\\             \n" +
+                        "             $$$$$$$$$$$$$$$$                  _|_  O    _    O  _|_               \n" +
+                        "                   $$$$ $$$$$$$$$$             _|_      (_)      _|_               \n" +
+                        "                   $$$$       $$$$$$$           \\                 /               \n" +
+                        "                   $$$$          $$$$$$          _\\_____________/_                \n" +
+                        "                   $$$$           $$$$$$        /  \\/  (___)  \\/  \\             \n" +
+                        "$$$$$$$            $$$$          $$$$$$$        \\__(  o     o  )__/               \n" +
+                        " $$$$$$            $$$$          $$$$$$                                            \n" +
+                        "  $$$$$$$          $$$$        $$$$$$$                                             \n" +
+                        "   $$$$$$$$        $$$$      $$$$$$$                                               \n" +
+                        "      $$$$$$$$$$$$$$$$$$$$$$$$$$$$                                                 \n" +
+                        "          $$$$$$$$$$$$$$$$$$$$$                                                    \n" +
+                        "                   $$$$                                                            \n"
         );
 
     }
 
-            "                        \"
-            "                        \"                   /          /_/ \\\\__\
-            "                        \"                  /             \\\\_/ /\
-            "                        \"                _|_              |/|_\
-            "                        \"                _|_  O    _    O  _|_\\
-            "                        \"                _|_      (_)      _|_\\
-            "                        \"                 \\\\                 /\\n\" +\n"+
-            "                        \"                  _\\\\_____________/_\\n\" +\n"+
-            "                        \"                 /  \\\\/  (___)  \\\\/  \\\\\\n\" +\n"+
-            "                        \"                  \\\\__(  o     o  )__/\"); "
+
+    public void mainMenu(){
+        System.out.println(
+                "Welcome To The Main Menu:\n" +
+                "See Credits: Shows You How Many Hello Kitty™ Fun Bucks You Currently Have.\n" +
+                "Add Credits: Add More Hello Kitty™ Fun Bucks So You Can Continue The Fun!\n" +
+                "Play Games: Get A List To Choose From Of All Our Amazing Games! \n" +
+                "Exit: Leave The Casino And Make Hello Kitty™ Cry  Ó╭╮Ò...\n");
+    }
+
+    public void warMenu(){
+        System.out.println(
+                "Welcome To The War Menu:\n" +
+                "Exit: Leave The War Room And Head Back To The Casino!");
+    }
+
+    public void blackJackMenu(){
+        System.out.println(
+                "Welcome To The Black Jack Menu:\n" +
+                "Bet: Place A Wager.\n" +
+                "Hit: Add Another Card To Your Hand.\n" +
+                "Stay: Keep Your Current Hand Until The End Of The Game. \n" +
+                "Exit: Leave The Black Jack Table And Head Back To The Casino!");
+    }
+
+    public void threesMenu(){}
+    }
+
 }
+
+
