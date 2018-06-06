@@ -73,15 +73,41 @@ public class PreMadeMessages {
     }
 
 
-    public void mainMenu(){
+    public void mainMenu() {
         System.out.println(
                 "Welcome To The Main Menu:\n" +
-                "See Credits: Shows You How Many Hello Kitty™ Fun Bucks You Currently Have.\n" +
-                "Add Credits: Add More Hello Kitty™ Fun Bucks So You Can Continue The Fun!\n" +
-                "Play Games: Get A List To Choose From Of All Our Amazing Games! \n" +
-                "Exit: Leave The Casino And Make Hello Kitty™ Cry  Ó╭╮Ò...\n");
+                        "See Credits: Shows You How Many Hello Kitty™ Fun Bucks You Currently Have.\n" +
+                        "Add Credits: Add More Hello Kitty™ Fun Bucks So You Can Continue The Fun!\n" +
+                        "Play Games: Get A List To Choose From Of All Our Amazing Games! \n" +
+                        "Exit: Leave The Casino And Make Hello Kitty™ Cry  Ó╭╮Ò...\n");
     }
 
+
+    public void warMenu() {
+        System.out.println(
+                "Welcome To The War Menu:\n" +
+                        "Exit: Leave The War Room And Head Back To The Casino!\n");
+    }
+
+    public void blackJackMenu() {
+        System.out.println(
+                "Welcome To The Black Jack Menu:\n" +
+                        "Bet: Place A Wager On The Next Game.\n" +
+                        "Hit: Add Another Card To Your Hand.\n" +
+                        "Stay: Keep Your Current Hand Until The End Of The Game. \n" +
+                        "Exit: Leave The Black Jack Table And Head Back To The Casino!\n");
+    }
+
+    public void threesMenu() {
+        System.out.println(
+                "Welcome To The War Menu:\n" +
+                        "Bet: Place a Wager On The Next Game.\n" +
+                        "Exit: Leave The Three's Room And Head Back To The Casino!\n");
+    }
 }
+
+
+
+
 
 

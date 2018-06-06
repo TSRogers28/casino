@@ -3,7 +3,7 @@ package io.zipcoder.casino;
 public class Player {
     String name;
     int helloKittyFunBucks;
-    Card hand;
+    //Card hand;
     //Dice roll;
 
     public Player(){
@@ -34,13 +34,13 @@ public class Player {
         this.helloKittyFunBucks = getHelloKittyFunBucks()+credits;
     }
 
-    public Card getHand() {
-        return hand;
-    }
-
-    public void setHand(Card hand) {
-        this.hand = hand;
-    }
+//    public Card getHand() {
+//        return hand;
+//    }
+//
+//    public void setHand(Card hand) {
+//        this.hand = hand;
+//    }
 
 //    public Dice getRoll(){return roll;}
 //    public void setRoll(Dice roll){ this.roll = roll;}

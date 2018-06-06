@@ -6,7 +6,7 @@ public class War extends CardGame {
     Player player2;
     Face f;
     Suit s;
-    CardGame.dr
+
 
 
     public War(Player[] players) {
