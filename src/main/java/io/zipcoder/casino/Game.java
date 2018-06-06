@@ -1,8 +1,16 @@
 package io.zipcoder.casino;
 
-public interface Game {
 
 
+interface Game {
+
+    void nextTurn();
+
+    void startGame();
+
+    void getWinner();
+
+    void isOver();
 
 
 }
