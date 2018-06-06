@@ -1,6 +1,6 @@
 package io.zipcoder.casino;
 
-
+/*
 public class War extends CardGame {
     Player player1;
     Player player2;
@@ -53,7 +53,7 @@ public class War extends CardGame {
             case3(p1 == p2): draw 6 each;
             break
             }
-        */
+
         }
     public boolean checkWinner(){
 
@@ -70,3 +70,4 @@ public class War extends CardGame {
     }
 
 }
+*/

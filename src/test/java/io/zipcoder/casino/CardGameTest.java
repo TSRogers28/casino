@@ -1,8 +1,10 @@
 package io.zipcoder.casino;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public class CardGameTest {
+    /*
     @Test
     public void setDeckTest() {
         Card[] expected = { new Card(Face.TWO,Suit.SPADES), new Card(Face.THREE,Suit.SPADES) ,
@@ -34,7 +36,14 @@ public class CardGameTest {
                             new Card(Face.QUEEN,Suit.CLUBS), new Card(Face.KING,Suit.CLUBS),
                             new Card(Face.ACE,Suit.CLUBS) };
 
+        CardGame cg = new CardGame(new Player[0]);
+        Card[] actual = cg.getDeck();
+
+        Assert.assertEquals(expected, actual);
+
+
     }
+    */
 
 }
 

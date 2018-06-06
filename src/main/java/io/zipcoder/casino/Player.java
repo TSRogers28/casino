@@ -34,6 +34,7 @@ public class Player {
         this.helloKittyFunBucks = getHelloKittyFunBucks()+credits;
     }
 
+    /*
     public Card getHand() {
         return hand;
     }
@@ -41,6 +42,7 @@ public class Player {
     public void setHand(Card hand) {
         this.hand = hand;
     }
+    */
 
 //    public Dice getRoll(){return roll;}
 //    public void setRoll(Dice roll){ this.roll = roll;}

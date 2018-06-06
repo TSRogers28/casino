@@ -28,6 +28,7 @@ public class Card implements Comparable<Card>{
 }
 
     public String toString() {
+        System.out.println(suit.getSymbol() + face.getCardImage() + suit.getSymbol());
         return suit.getSymbol() + face.getCardImage() + suit.getSymbol();
     }
 
