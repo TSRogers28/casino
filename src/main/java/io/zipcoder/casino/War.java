@@ -6,6 +6,7 @@ public class War extends CardGame {
     Player player2;
     Face f;
     Suit s;
+    CardGame.dr
 
 
     public War(Player[] players) {
@@ -34,16 +35,17 @@ public class War extends CardGame {
 
 
     }
+    public Card[] deal() {
+      return new Card[0];
+
+    }
+
+    /*public void mainGame(){
 
 
-//    public Card[] deal() {
-//        return new Card[0];
-//
-//    }
 
-    public void mainGame(){
         CardGame.draw();
-        /*while( p1 and p2 deck doesn't equal 0){
+        while( p1 and p2 deck doesn't equal 0){
             continue;
             switch(){
             case1(p1 > p2): give cards to p1;
@@ -57,7 +59,7 @@ public class War extends CardGame {
         }
     public boolean checkWinner(){
 
-        return player1.getCardsCount() !=0 || player2.getCardCount())!=0 ? false: true;
+        return false // player1.getCardsCount() !=0 || player2.getCardCount())!=0 ? false: true;
     }
 
 
