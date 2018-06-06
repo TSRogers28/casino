@@ -5,10 +5,11 @@ public class Casino {
 
     public static void main(String[] args) {
         GameConsole totallyNotTheMob = new GameConsole();
+        PreMadeMessages message = new PreMadeMessages();
 
-        totallyNotTheMob.welcomeMessage();
-        totallyNotTheMob.displayTheCat();
-        totallyNotTheMob.rollTheDice();
+        message.welcomeMessage();
+        message.displayTheCat();
+        message.rollTheDice();
     }
 
 
