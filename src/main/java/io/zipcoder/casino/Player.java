@@ -3,7 +3,7 @@ package io.zipcoder.casino;
 public class Player {
     String name;
     int helloKittyFunBucks;
-    Card hand;
+    //Card hand;
     //Dice roll;
 
     public Player(){

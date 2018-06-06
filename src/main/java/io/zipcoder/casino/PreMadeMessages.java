@@ -80,6 +80,36 @@ public class PreMadeMessages {
                 "Play Games: Get A List To Choose From Of All Our Amazing Games! \n" +
                 "Exit: Leave The Casino And Make Hello Kitty™ Cry  Ó╭╮Ò...\n");
     }
+
+    public void warMenu(){}
+
+    public void blackJackMenu(){}
+
+    public void threesMenu(){}
+
+
+    String[] cardPics = new String[]
+               {"|---|\n" + "| 2 |\n" + "|---|\n" ,
+                "|---|\n" + "| 3 |\n" + "|---|\n" ,
+                "|---|\n" + "| 4 |\n" + "|---|\n" ,
+                "|---|\n" + "| 5 |\n" + "|---|\n" ,
+                "|---|\n" + "| 6 |\n" + "|---|\n" ,
+                "|---|\n" + "| 7 |\n" + "|---|\n" ,
+                "|---|\n" + "| 8 |\n" + "|---|\n" ,
+                "|---|\n" + "| 9 |\n" + "|---|\n" ,
+                "|---|\n" + "| 10|\n" + "|---|\n" ,
+                "|---|\n" + "| J |\n" + "|---|\n" ,
+                "|---|\n" + "| Q |\n" + "|---|\n" ,
+                "|---|\n" + "| K |\n" + "|---|\n" ,
+                "|---|\n" + "| A |\n" + "|---|\n"};
+
+     String[] suits = new String[]{"♠","♥","♣","♦"};
+
+    public String callCard(String suit, String value) {
+        System.out.println();
+
+    }
+
 }
 
 
