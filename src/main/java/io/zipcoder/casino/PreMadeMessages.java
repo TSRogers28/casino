@@ -81,9 +81,20 @@ public class PreMadeMessages {
                 "Exit: Leave The Casino And Make Hello Kitty™ Cry  Ó╭╮Ò...\n");
     }
 
-    public void warMenu(){}
+    public void warMenu(){
+        System.out.println(
+                "Welcome To The War Menu:\n" +
+                "Exit: Leave The War Room And Head Back To The Casino!");
+    }
 
-    public void blackJackMenu(){}
+    public void blackJackMenu(){
+        System.out.println(
+                "Welcome To The Black Jack Menu:\n" +
+                "Bet: Place A Wager.\n" +
+                "Hit: Add Another Card To Your Hand.\n" +
+                "Stay: Keep Your Current Hand Until The End Of The Game. \n" +
+                "Exit: Leave The Black Jack Table And Head Back To The Casino!");
+    }
 
     public void threesMenu(){}
 
