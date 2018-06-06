@@ -51,16 +51,18 @@ public class War2 extends CardGame implements Game {
         //return null;
     }
 
-    public void deal() {
+    public Card[] deal() {
 //        Card[] splitDeck = this.splitDeck(this.players.length);
 //        for(int i = 0; i < splitDeck.length; i++){
 //            this.players[i].setCards(splitDeck[i]);
 //            this.players[i].setCards(splitDeck[i]);
 //        }
+
     }
 
 
     public boolean isOver(){
+        return true;
 //        return player1.getCardsCount() !=0 || player2.getCardCount())!=0 ? false: true;
         return false;
     }
