@@ -28,8 +28,6 @@ public class War extends CardGame {
                 //this.currentCardTo(this.player2);
             // }
 
-
-
         //}
 
 
