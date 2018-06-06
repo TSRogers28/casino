@@ -4,43 +4,6 @@ import java.util.Scanner;
 
 public class GameConsole {
 
-    public void welcomeMessage() {
-        System.out.println("Welcome To The Hello Kitty Adventure Island Casino!!");
-        }
-        public void displayTheCat(){
-
-            System.out.println(
-                    " _   _         _  _          _   __ _\n" +
-                    "| | | |  ___  | || |  ___   | | / /(_)  _     _\n" +
-                    "| |_| | / _ \\ | || | / _ \\  | |/ /  _ _| |_ _| |_  _  _\n" +
-                    "|  _  |/ /_\\ \\| || |/ / \\ \\ |   /  | |_   _|_   _|| |/ /\n" +
-                    "| | | |\\ ,___/| || |\\ \\_/ / | |\\ \\ | | | |_  | |_ | / /\n" +
-                    "|_| |_| \\___/ |_||_| \\___/  |_| \\_\\|_| \\___| \\___||  /\n" +
-                    "                     _           _                / /\n" +
-                    "                    / \\_______ /|_\\               \\/\n" +
-                    "                   /          /_/ \\__\n" +
-                    "                  /             \\_/ /\n" +
-                    "                _|_              |/|_\n" +
-                    "                _|_  O    _    O  _|_\n" +
-                    "                _|_      (_)      _|_\n" +
-                    "                 \\                 /\n" +
-                    "                  _\\_____________/_\n" +
-                    "                 /  \\/  (___)  \\/  \\\n" +
-                    "                  \\__(  o     o  )__/");
-        }
-        public void rollTheDice(){
-            System.out.println(
-                    "                           (( _______\n" +
-                    "                 _______     /\\O    O\\\n" +
-                    "                /O     /\\   /  \\      \\\n" +
-                    "               /   O  /O \\ / O  \\O____O\\ ))\n" +
-                    "            ((/_____O/    \\\\    /O     /\n" +
-                    "              \\O    O\\    / \\  /   O  /\n" +
-                    "               \\O    O\\ O/   \\/_____O/\n" +
-                    "                \\O____O\\/ ))          ))\n" +
-                    "              ((");
-
-        }
 
         public void print(String output, Object... args){
             System.out.printf(output, args);
