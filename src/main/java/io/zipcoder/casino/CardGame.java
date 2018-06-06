@@ -14,6 +14,8 @@ public abstract class CardGame{
         setDeck();
     }
 
+
+
     public Card draw() {
         Card firstCard = deck[0];
         for (int i = 0; i < deck.length - 1; i++) {
@@ -56,6 +58,9 @@ public abstract class CardGame{
         }
     }
 
+    public Card[] getDeck() {
+        return deck;
+    }
 
 
 }

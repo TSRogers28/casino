@@ -28,23 +28,28 @@ public class Card implements Comparable<Card>{
 
 
 
-public Card(Face face, Suit suit){
-    this.face = face;
-    this.suit = suit;
+    public Card(Face face, Suit suit){
+        this.face = face;
+        this.suit = suit;
 
-}
+    }
 
-public Suit getSuit(){
+    public Suit getSuit(){
 
-    return suit;
-}
+        return suit;
+    }
 
-public Face getFace(){
+    public Face getFace(){
 
-    return face;
-}
+        return face;
+    }
 
-public int compareTo(Card card){
+    public int compareTo(Card card){
     return Integer.compare(face.getValue(), card.getFace().getValue());
 }
+
+    public String toString() {
+        return face.toString() + " of " + suit.toString();
+    }
+
 }
