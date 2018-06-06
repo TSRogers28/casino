@@ -10,6 +10,8 @@ public class Casino {
         message.welcomeMessage();
         message.displayTheCat();
         message.rollTheDice();
+        message.makeItRain();
+        message.mainMenu();
     }
 
 
