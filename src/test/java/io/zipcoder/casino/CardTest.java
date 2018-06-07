@@ -19,7 +19,9 @@ public class CardTest {
     }
     @Test
     public void toStringTest() {
-        String expected = "ACE of CLUBS";
+        String expected = "♦|---|\n" +
+                          " | A |\n" +
+                          " |---|♦";
         Card c = new Card(Face.ACE, Suit.CLUBS);
         String actual = c.toString();
         Assert.assertEquals(expected, actual);

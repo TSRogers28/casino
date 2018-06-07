@@ -35,7 +35,9 @@ public class Player {
         this.helloKittyFunBucks = getHelloKittyFunBucks()+credits;
     }
 
+
     public Card playCard() {
+
         return hand[0];
     }
 
