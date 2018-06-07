@@ -135,5 +135,16 @@ public class War extends CardGame implements Game {
         }
     }
 
+//    package io.zipcoder.casino;
+//
+//    public class warTest {
+//
+//        public static void main(String[] args){
+//            Player[] players = new Player[0];
+//            War war = new War(players);
+//            war.startGame();
+//        }
+//    }
+
 
 }
