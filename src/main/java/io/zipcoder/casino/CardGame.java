@@ -4,13 +4,11 @@ import java.util.Random;
 
 public abstract class CardGame{
 
-    private CardDeck deck;
-    Player[] players;
+    protected CardDeck deck;
 
-    public abstract void deal();
+    protected abstract void deal();
 
-    public CardGame(Player[] players) {
-        this.players = players;
+    public CardGame() {
         this.deck = new CardDeck();
     }
 }
