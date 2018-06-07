@@ -57,7 +57,7 @@ public class War2 extends CardGame implements Game {
 //            this.players[i].setCards(splitDeck[i]);
 //            this.players[i].setCards(splitDeck[i]);
 //        }
-
+        return null;
     }
 
 
