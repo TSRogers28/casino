@@ -9,16 +9,16 @@ public class War extends CardGame implements Game {
     ArrayList<Card> pile = new ArrayList<Card>();
 
 
-    public War(Player[] players){
-        super(players);
+    public War(){
+
     }
 
-    @Override
+
     public void nextTurn() {
 
     }
 
-    public void startGame() {
+    public void playGame() {
         deal();
 
         while(!isOver()){
@@ -98,12 +98,13 @@ public class War extends CardGame implements Game {
         return this.player.size() >=  4 && this.opponent.size() >= 4 ? true : false;
     }
 
-    public Card[] deal() {
-        for(int i = 0; i < this.getDeck().length; i+=2){
-            this.player.add(this.getDeck()[i]);
-            this.opponent.add(this.getDeck()[i+1]);
+    public void deal() {
+        CardDeck deck = new CardDeck();
+        deck.shuffle();
+        for(int i = 0; i < deck.getDeck().length; i+=2){
+            this.player.add(deck.getDeck()[i]);
+            this.opponent.add(deck.getDeck()[i+1]);
         }
-        return new Card[1];
     }
 
     public void pileTo(ArrayList<Card> player){
@@ -127,12 +128,8 @@ public class War extends CardGame implements Game {
         return isWin;
     }
 
-    public void getWinner(){
-        if(this.player.size() > this.opponent.size()){
-            //return "You Win";
-        } else {
-            //return "You Lose";
-        }
+    public Player getWinner(){
+        return new Player();
     }
 
 //    package io.zipcoder.casino;

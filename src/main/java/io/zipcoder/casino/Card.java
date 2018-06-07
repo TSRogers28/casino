@@ -27,6 +27,7 @@ public class Card implements Comparable<Card>{
     return Integer.compare(face.getValue(), card.getFace().getValue());
 }
 
+    @Override
     public String toString() {
         return suit.getSymbol() + face.getCardImage() + suit.getSymbol();
     }

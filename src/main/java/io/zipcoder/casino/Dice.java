@@ -1,29 +1,26 @@
 package io.zipcoder.casino;
 
-import java.math.*;
+import java.util.ArrayList;
 
 
-public class Dice
-{
-    private int numDiceRolled;
+public class Dice {
 
-    public Dice(int num){
-        this.numDiceRolled = num;
+    private int numOfDice;
+
+    public  Dice(int numOfDice){
+        this.numOfDice = numOfDice;
 
     }
 
-    public int Roll(){
-        numDiceRolled = 5;
-        int sumOfRoll = 0;
-        //int roll = (int)((6 * Math.random()) + 1);
 
-        for(int i = 0; i < numDiceRolled; i++){
-
-            sumOfRoll += (int)((6 * Math.random()) + 1);
-
-
+    public ArrayList<Integer> toss(){
+        int landedOn = 0;
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        for(int x = 0; x < numOfDice; x++){
+            landedOn = (int) (6*Math.random() +1);
+            result.add(landedOn);
         }
+        return result;
 
-        return sumOfRoll;
     }
 }
