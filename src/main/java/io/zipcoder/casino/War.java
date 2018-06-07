@@ -6,7 +6,7 @@ public class War extends CardGame implements Game {
     Player player2 = new Player();
 
 
-    public War2(Player[] players){
+    public War(Player[] players){
 //        Player[] players = new Player[2];
 //        players[0] = new Player();
 //        players[1] = new Player();
@@ -58,7 +58,7 @@ public class War extends CardGame implements Game {
 //            this.players[i].setCards(splitDeck[i]);
 //        }
 
-    }
+ //   }
 
 
     public boolean isOver(){
