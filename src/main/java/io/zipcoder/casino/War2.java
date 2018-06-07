@@ -1,7 +1,7 @@
 package io.zipcoder.casino;
 
 
-public class War2 extends CardGame implements Game {
+public class War extends CardGame implements Game {
     Player player1 = new Player();
     Player player2 = new Player();
 

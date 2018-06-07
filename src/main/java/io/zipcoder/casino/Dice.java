@@ -7,7 +7,7 @@ public class Dice {
 
     private int numOfDice;
 
-    public Dice(int numOfDice){
+    public  Dice(int numOfDice){
         this.numOfDice = numOfDice;
 
     }
