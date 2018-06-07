@@ -4,13 +4,13 @@ package io.zipcoder.casino;
 
 interface Game {
 
-    void nextTurn();
+    //void nextTurn();
 
-    void startGame();
+    void playGame();
 
-    void getWinner();
+    Player getWinner();
 
-    boolean isOver();
+    //boolean isOver();
 
 
 }

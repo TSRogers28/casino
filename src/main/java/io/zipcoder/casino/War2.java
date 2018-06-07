@@ -1,3 +1,4 @@
+/*
 package io.zipcoder.casino;
 
 
@@ -36,6 +37,11 @@ public class War2 extends CardGame implements Game {
 //        getWinner();
     }
 
+
+    public void playGame() {
+
+    }
+
     public void nextTurn(){
         //System.out.println("");
     }
@@ -58,6 +64,7 @@ public class War2 extends CardGame implements Game {
 //            this.players[i].setCards(splitDeck[i]);
 //        }
 
+    return null;
     }
 
 
@@ -67,7 +74,7 @@ public class War2 extends CardGame implements Game {
 
     }
 
-    public void getWinner(){
+    public Player getWinner(){
 //        if(player1.getCardsCount() == 0){
 //            System.out.println("Player 2 Wins");
 //        } else {
@@ -77,3 +84,4 @@ public class War2 extends CardGame implements Game {
 
 
 }
+*/

@@ -1,3 +1,4 @@
+/*
 package io.zipcoder.casino;
 import java.util.*;
 
@@ -14,6 +15,7 @@ public class Casino {
         message.rollTheDice();
         message.makeItRain();
         message.mainMenu();
+*/
 
 //        for (int i = 0; i < message.cardPics.length; i++) {
 //            System.out.println(message.cardPics[i]);
@@ -22,8 +24,8 @@ public class Casino {
 //        for (int i = 0; i < message.suits.length; i++) {
 //            System.out.println(message.suits[i]);
 //        }
-    }
-}
+//    }
+//}
 
 
 
