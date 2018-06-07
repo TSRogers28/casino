@@ -64,7 +64,7 @@ public class War2 extends CardGame implements Game {
     public boolean isOver(){
         return true;
 //        return player1.getCardsCount() !=0 || player2.getCardCount())!=0 ? false: true;
-        return false;
+
     }
 
     public void getWinner(){

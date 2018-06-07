@@ -2,13 +2,8 @@ package io.zipcoder.casino;
 
 public class BlackJack extends CardGame implements Game{
 
-    Player player1;
-    Player player2;
-    Face f;
-    Suit s;
-
     public void BlackJack(Player[] players){
-        super(player1);
+        super(player);
 
         //this.deal();
         //players = new Player[2];
@@ -22,6 +17,8 @@ public class BlackJack extends CardGame implements Game{
 
     @Override
     public Card[] deal() {
+
+
         return new Card[0];
     }
 
