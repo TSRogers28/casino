@@ -1,9 +1,17 @@
-package io.zipcoder.casino;
+/*
+//package io.zipcoder.casino;
 
 
 public class War2 extends CardGame implements Game {
     Player player1 = new Player();
     Player player2 = new Player();
+
+    public void createPlayers(){
+//        Player[] players = new Player[2];
+//        players[0] = new Player();
+//        players[1] = new Player();
+//        this.players = players;
+    }
 
 
     public War2(Player[] players){
@@ -45,11 +53,16 @@ public class War2 extends CardGame implements Game {
 //        players[0] = new Player();
 //        players[1] = new Player();
 //        this.players = players;
-    }
 
-    private void goToWar(){
-        //return null;
-    }
+
+    public Card[] deal() {
+//        Card[] splitDeck = this.splitDeck(this.players.length);
+//        for(int i = 0; i < splitDeck.length; i++){
+//            this.players[i].setCards(splitDeck[i]);
+//            this.players[i].setCards(splitDeck[i]);
+//        }
+
+    return null;
 
     public Card[] deal() {
 //        Card[] splitDeck = this.splitDeck(this.players.length);
@@ -74,5 +87,4 @@ public class War2 extends CardGame implements Game {
 //        }
     }
 
-
-}
+*/
