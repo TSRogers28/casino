@@ -1,5 +1,5 @@
 /*
-package io.zipcoder.casino;
+//package io.zipcoder.casino;
 
 
 public class War2 extends CardGame implements Game {
