@@ -52,13 +52,6 @@ public class PlayerTest {
         int expected = 2000;
         assertEquals(expected,actual);
     }
-
-    @Test
-    public void getHand() {
-    }
-
-    @Test
-    public void setHand() {
-    }
+    
 
 }
