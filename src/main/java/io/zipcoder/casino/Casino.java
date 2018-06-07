@@ -1,8 +1,16 @@
 package io.zipcoder.casino;
 
-/*
+
 public class Casino {
 
+    private Player player1;
+    private Player house;
+
+
+
+
+}
+/*
     public static void main(String[] args) {
         GameConsole totallyNotTheMob = new GameConsole();
         PreMadeMessages message = new PreMadeMessages();
@@ -21,6 +29,5 @@ public class Casino {
 //            System.out.println(message.suits[i]);
 //        }
     }
-    }
-*/
+    */
 

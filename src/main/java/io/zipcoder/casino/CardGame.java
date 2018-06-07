@@ -24,13 +24,13 @@ public abstract class CardGame{
         deck[deck.length] = null;
         return firstCard;
     }
-    public Card[] draw(int numberOfCards) {
+    /*public Card[] draw(int numberOfCards) {
         Card[] drawnCards = new Card[numberOfCards];
         for (int i = 0; i < drawnCards.length; i++) {
             drawnCards[i] = draw();
         }
         return drawnCards;
-    }
+    }*/
 
     private void shuffle(){
         Card[] shuffled = new Card[deck.length];
