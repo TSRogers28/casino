@@ -7,6 +7,7 @@ import java.util.Scanner;
 
     public class Threes {
 
+
         int sumTemp;
         int rollNumber;
         Player whichPlayer;
@@ -17,6 +18,7 @@ import java.util.Scanner;
         Player winner;
         int ante;
         int numberOfDice; // will set these up for multiple turns and gambling.
+
 
         public static void main(String[] args){
             Threes game = new Threes();

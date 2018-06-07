@@ -5,11 +5,12 @@ import java.util.Random;
 public class CardDeck {
 
     private Card[] deck;
+    private int currIndex;
 
     public CardDeck() {
         setDeck();
+        currIndex = 0;
     }
-
 
     public void shuffle(){
         Card[] shuffled = new Card[deck.length];
@@ -24,6 +25,7 @@ public class CardDeck {
             }
         }
         deck = shuffled;
+        currIndex = 0;
     }
 
     private void setDeck() {
@@ -35,6 +37,13 @@ public class CardDeck {
                 cardIndex++;
             }
         }
+        currIndex = 0;
+    }
+
+    public Card drawCard() {
+        Card drawnCard = deck[currIndex];
+        currIndex++;
+        return drawnCard;
     }
 
     public Card[] getDeck() {
