@@ -18,6 +18,17 @@ public class DummyGame implements Game{
 
     }
 
+
+    public void runGame(){
+
+
+        //put all methods here
+
+
+    }
+
+
+
     public int rand(){
         Random r = new Random();
         return r.nextInt(10)+1;
