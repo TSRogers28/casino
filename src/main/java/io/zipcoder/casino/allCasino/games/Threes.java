@@ -103,7 +103,7 @@
             }
             return sum;
         }
-        git 
+
         public void scoreRoll1(Player player1) {
 
 
