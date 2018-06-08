@@ -1,23 +1,24 @@
 package io.zipcoder.casino;
 
-import org.junit.Test;
-import org.junit.Assert;
+//import org.junit.Test;
+//import org.junit.Assert;
 
+import org.junit.jupiter.api.*;
 
 class WarTest {
 
     @Test
-    void dealCardsTest() {
+    public void dealCardsTest() {
         int expect = 52;
         War war = new War();
         war.deal();
         int actual = war.getPlayer().size() + war.getOpponent().size();
-        Assert.assertEquals(expect, actual);
+        Assertions.assertEquals(expect, actual);
 
     }
 
     @Test
-    void getNextCard() {
+    void getNextCardTest() {
         War war = new War();
         war.deal();
 
@@ -26,10 +27,18 @@ class WarTest {
         war.getNextCard(war.getPlayer());
         int actual = war.getPlayer().size();
 
-        Assert.assertEquals(expect, actual);
+        Assertions.assertEquals(expect, actual);
     }
 
     @Test
-    void pileTo() {
+    void toToWarTest() {
+        int expect = 52;
+        War war = new War();
+        war.deal();
+        war.goToWar();
+
+        int actual = war.getPlayer().size() + war.getOpponent().size();
+        Assertions.assertEquals(expect, actual);
+
     }
 }

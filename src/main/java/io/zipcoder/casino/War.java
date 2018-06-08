@@ -110,7 +110,7 @@ public class War extends CardGame implements Game {
     }
 
     public boolean isOver(){
-        return this.player.size() == 0 || this.opponent.size() == 0 ? true : true;
+        return this.player.size() == 0 || this.opponent.size() == 0 ? true : false;
     }
 
     public boolean isWinner(){
@@ -135,16 +135,6 @@ public class War extends CardGame implements Game {
         return this.opponent;
     }
 
-//    package io.zipcoder.casino;
-//
-//    public class warTest {
-//
-//        public static void main(String[] args){
-//            Player[] players = new Player[0];
-//            War war = new War(players);
-//            war.startGame();
-//        }
-//    }
 
 
 }
