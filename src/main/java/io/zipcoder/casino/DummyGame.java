@@ -12,19 +12,16 @@ public class DummyGame implements Game{
 
 
     public DummyGame(){
-    this.player1 = new Player();
-    this.player2 = new Player();
+    this.player1 = new Player(0, "You");
+    this.player2 = new Player(0,"House");
 
 
     }
 
 
     public void runGame(){
-
-
-        //put all methods here
-
-
+    playGame();
+    determineWinner();
     }
 
 
@@ -45,16 +42,18 @@ public class DummyGame implements Game{
 
     public Player determineWinner(){
         if(p1Score > p2score){
-            System.out.println("player one had: " + p1Score);
-            System.out.println("player 2 score is: "+p2score);
-            return player1;
+            System.out.println("player 1 score is: " + p1Score);
+            System.out.println("player 2 score is: " + p2score);
+            setWinner(player1);
+            return getWinner();
 
         }
 
         else{
             System.out.println(p1Score);
             System.out.println(p2score);
-            return player2;
+            setWinner(player2);
+            return getWinner();
         }
 
 
@@ -69,7 +68,7 @@ public class DummyGame implements Game{
 
     }
     public Player getWinner(){
-        System.out.println(winner.toString());
+        System.out.println(winner.getName() + " Wins!");
         return winner;
 
 

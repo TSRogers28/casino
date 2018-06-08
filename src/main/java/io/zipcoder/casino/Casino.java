@@ -10,6 +10,7 @@ public class Casino {
 
     GameConsole console = new GameConsole();
     PreMadeMessages messages = new PreMadeMessages();
+    DummyGame dummy = new DummyGame();
     Player player1 = new Player(0, "");
 
     public void enterTheCasino() {
@@ -50,14 +51,14 @@ public class Casino {
     public void chooseGame(String choice){
         playingGames = true;
         while(playingGames = true){
-            switch(console.stringScan("What Game Do You Want To Play?")){
+            switch(console.stringScan("What Game Do You Want To Play? War, BlackJack, Threes, or Hi Lo?")){
                 case "war" : ;
                     break;
                 case "blackjack" : ;
                     break;
                 case "threes" : ;
                     break;
-                case "hi lo" :
+                case "hi lo" : dummy.runGame(); playingGames = false;
                     break;
                 case "exit" : console.println("Back To The Casino!"); playingGames = false;
                     break;
