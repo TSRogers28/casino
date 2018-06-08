@@ -1,70 +1,179 @@
 package io.zipcoder.casino;
 
+import java.util.ArrayList;
+import java.util.Scanner;
 
-public class War extends CardGame {
-    Player player1;
-    Player player2;
-    Face f;
-    Suit s;
+public class War extends CardGame implements Game {
+
+    ArrayList<Card> player = new ArrayList<Card>();
+    ArrayList<Card> opponent = new ArrayList<Card>();
+
+    ArrayList<Card> pile = new ArrayList<Card>();
 
 
-    public War(Player[] players) {
-        //super(players);
-        Player player1 = new Player();
-        Player player2 = new Player();
-
-        //dealCards(player1, player2);
-
-        //while((player1.getCardsCount() && player2.getCardCount())!=0){
-
-             //Card player1NextCard = this.player1.getNextCard();
-             //Card player2NextCard = this.player2.getNextCard();
-
-            //if(player1NextCard == player2NextCard){
-                //this.goToWar();
-            //} else if(player1NextCard is greater then player2NextCard){
-                //this.currentCardsTo(this.player1);
-            // } else {
-                //this.currentCardTo(this.player2);
-            // }
-
-        //}
-
+    public War(){
 
     }
 
+    public static void main(String[] args){
+        War war = new War();
+        war.playGame();
+    }
 
-//    public Card[] deal() {
-//        return new Card[0];
-//
-//    }
+    public void playGame() {
+        deal();
 
-    public void mainGame(){
-        CardGame.draw();
-        /*while( p1 and p2 deck doesn't equal 0){
-            continue;
-            switch(){
-            case1(p1 > p2): give cards to p1;
-            break;
-            case2(p1 < p2):give cards to p2;
-            break;
-            case3(p1 == p2): draw 6 each;
-            break
-            }
-        */
+        while(!isOver()){
+
+             Card playerNC   = getNextCard(this.player);
+             Card opponentNC = getNextCard(this.opponent);
+
+             if(!isOver()){
+                 System.out.println("-----------------------------------");
+                 System.out.println(opponentNC.toString());
+                 //getInput("Press Enter to Draw a Card: ");
+                 System.out.println(playerNC.toString());
+                 System.out.println("-----------------------------------");
+
+                 if(playerNC.compareTo(opponentNC) == 0){
+                     this.pile.add(playerNC);
+                     this.pile.add(opponentNC);
+                     if(this.canGoToWar()){
+                         this.goToWar();
+                     } else {
+                         break;
+                     }
+                 } else if(playerNC.compareTo(opponentNC) > 0){
+                     System.out.println("You win this round!");
+                     System.out.println("");
+                     this.player.add(playerNC);
+                     this.player.add(opponentNC);
+                 } else {
+                     System.out.println("You lose this round!");
+                     this.opponent.add(playerNC);
+                     this.opponent.add(opponentNC);
+                 }
+                 System.out.println("P=" +this.player.size() + " - O=" + this.opponent.size());
+
+             } else{
+                 break;
+             }
         }
-    public boolean checkWinner(){
 
-        return player1.getCardsCount() !=0 || player2.getCardCount())!=0 ? false: true;
+        if(isWinner()){
+            System.out.println("You Win");
+        } else {
+            System.out.println("You lose");
+        }
+
+    }
+
+    public Card getNextCard(ArrayList<Card> cards){
+        Card toReturn = cards.get(0);
+        cards.remove(0);
+        return toReturn;
+    }
+
+    public void goToWar(){
+
+        System.out.println("War!!");
+
+        for(int i = 1; i <= 3; i++){
+            this.pile.add(getNextCard(this.player));
+        }
+
+        for(int i = 1; i <= 3; i++){
+            this.pile.add(getNextCard(this.opponent));
+        }
+
+
+
+        Card playerNC  = getNextCard(this.player);
+        Card opponentNC = getNextCard(this.opponent);
+
+        if(!isOver()){
+
+            System.out.println(this.pile.size());
+
+            System.out.println("-----------------------------------");
+            System.out.println(opponentNC.toString());
+            //getInput("Press Enter to Draw a Card: ");
+            System.out.println(playerNC.toString());
+            System.out.println("-----------------------------------");
+
+            if(playerNC.compareTo(opponentNC) == 0){
+                this.pile.add(playerNC);
+                this.pile.add(opponentNC);
+                if(this.canGoToWar()){
+                    this.goToWar();
+                }
+            } else if (playerNC.compareTo(opponentNC) > 0){
+                System.out.println("You win this War!");
+                this.player.add(playerNC);
+                this.player.add(opponentNC);
+                this.pileTo(this.player);
+            } else {
+                System.out.println("You lose this War!");
+                this.opponent.add(playerNC);
+                this.opponent.add(opponentNC);
+                this.pileTo(this.opponent);
+            }
+        }
+
+    }
+
+    public boolean canGoToWar(){
+        return this.player.size() >=  4 && this.opponent.size() >= 4 ? true : false;
+    }
+
+    public void deal() {
+        CardDeck deck = new CardDeck();
+        deck.shuffle();
+        for(int i = 0; i < deck.getDeck().length; i+=2){
+            this.player.add(deck.getDeck()[i]);
+            this.opponent.add(deck.getDeck()[i+1]);
+        }
+    }
+
+    public void pileTo(ArrayList<Card> player){
+        for(int i = 0; i < this.pile.size(); i++){
+            player.add(this.pile.get(i));
+        }
+        this.pile.clear();
+    }
+
+    public boolean isOver(){
+        return this.player.size() == 0 || this.opponent.size() == 0 ? true : false;
+    }
+
+    public boolean isWinner(){
+        boolean isWin = false;
+        if(this.player.size() > this.opponent.size()){
+            isWin = true;
+        } else {
+            isWin = false;
+        }
+        return isWin;
+    }
+
+    public Player getWinner(){
+        return new Player();
+    }
+
+    public ArrayList<Card> getPlayer(){
+        return this.player;
+    }
+
+    public ArrayList<Card> getOpponent(){
+        return this.opponent;
+    }
+
+    public static String getInput(String prompt) {
+        System.out.print(prompt);
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
     }
 
 
-    public Card getWinner(){
-        return null;
-    }
-
-    public void setWinner(){
-
-    }
 
 }

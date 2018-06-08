@@ -1,10 +1,11 @@
 package io.zipcoder.casino;
 
+
 public class Player {
-    String name;
-    int helloKittyFunBucks;
-    Card[] hand = new Card[]{};
-    Dice dice;
+    String name = "A Cat Has No Name";
+    int helloKittyFunBucks = 0;
+
+
 
     public Player(){
 
@@ -35,18 +36,8 @@ public class Player {
         this.helloKittyFunBucks = getHelloKittyFunBucks()+credits;
     }
 
-    public Card getCard() {
-        return hand[0];
-    }
 
-    public void setHand(Card[ ] hand) {
-        this.hand = hand;
-    }
 
-    public Dice getDice(int num){
-
-       return dice = new Dice(num);
-    }
 }
 
 

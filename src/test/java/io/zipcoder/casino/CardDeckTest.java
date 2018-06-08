@@ -1,8 +1,10 @@
 package io.zipcoder.casino;
 
+import org.junit.Assert;
 import org.junit.Test;
 
-public class CardGameTest {
+public class CardDeckTest {
+
     @Test
     public void setDeckTest() {
 //        Card[] expected = { new Card(Face.TWO,Suit.SPADES), new Card(Face.THREE,Suit.SPADES) ,
@@ -33,6 +35,23 @@ public class CardGameTest {
 //                            new Card(Face.TEN,Suit.CLUBS), new Card(Face.JACK,Suit.CLUBS),
 //                            new Card(Face.QUEEN,Suit.CLUBS), new Card(Face.KING,Suit.CLUBS),
 //                            new Card(Face.ACE,Suit.CLUBS) };
+
+        CardDeck cd = new CardDeck();
+        Card[] actual = cd.getDeck();
+
+        Assert.assertEquals(expected[32].toString(), actual[32].toString());
+
+
+    }
+    @Test
+    public void testPrintShuffleDeck() {
+        CardDeck cd = new CardDeck();
+
+        Card preShuffle = cd.getDeck()[0];
+        cd.shuffle();
+        Card postShuffle = cd.getDeck()[0];
+
+        Assert.assertNotEquals(preShuffle.toString(), postShuffle.toString());
 
     }
 
