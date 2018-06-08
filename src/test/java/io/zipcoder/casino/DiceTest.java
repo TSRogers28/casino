@@ -89,8 +89,8 @@ public class DiceTest {
     }
 
     @Test
-    public void tossFiveDiceValues() {
-        Dice diceValue5= new Dice(5);
+    public void tossTenThousandDiceValues() {
+        Dice diceValue5= new Dice(10000);
         ArrayList<Integer> test = diceValue5.toss();
 
         for(int i: test) {

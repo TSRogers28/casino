@@ -11,15 +11,15 @@ import java.util.Scanner;
 
 
 
-        int rollNumber;
-        Player player1;
-        Player player2;
-        int sum;
-        int sumPlayer1;
-        int sumPlayer2;
-        Player winner;
-        int ante;
-        int numberOfDice; // will set these up for multiple turns and gambling.
+        private int rollNumber;
+        private Player player1;
+        private Player player2;
+        private int sum;
+       private int sumPlayer1;
+       private int sumPlayer2;
+       private Player winner;
+       private int ante;
+      private  int numberOfDice; // will set these up for multiple turns and gambling.
 
 
         public static void main(String[] args) {
@@ -116,11 +116,12 @@ import java.util.Scanner;
             setSum(0);
         }
 
-        public void compareForWinner(int sumPlayer1, int sumPlayer2){
-            Player winner = (sumPlayer1 < sumPlayer2) ? player1 : player2;
+        public Player compareForWinner(int sumPlayer1, int sumPlayer2){
+            Player gameWinner = (sumPlayer1 < sumPlayer2) ? player1 : player2;
+            setWinner(gameWinner);
+            System.out.println("\n\n"+ winner.getName() + " won!");
 
-            System.out.println("\n\n\n"+ winner.getName() + " wins!");
-            //game.setWinner(winner);
+            return getWinner();
         }
 
 //        public void getOut(){
