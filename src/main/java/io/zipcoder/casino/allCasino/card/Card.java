@@ -1,4 +1,7 @@
-package io.zipcoder.casino;
+package io.zipcoder.casino.allCasino.card;
+
+import io.zipcoder.casino.allCasino.ioMessages.Face;
+import io.zipcoder.casino.allCasino.ioMessages.Suit;
 
 public class Card implements Comparable<Card>{
 

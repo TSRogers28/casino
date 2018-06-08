@@ -1,6 +1,4 @@
-package io.zipcoder.casino;
-
-import java.util.Random;
+package io.zipcoder.casino.allCasino.card;
 
 public abstract class CardGame{
 

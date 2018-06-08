@@ -1,7 +1,12 @@
+
+
 package io.zipcoder.casino;
 
 import org.junit.Assert;
 import org.junit.Test;
+import io.zipcoder.casino.allCasino.ioMessages.*;
+import io.zipcoder.casino.allCasino.card.*;
+
 
 public class CardDeckTest {
 
@@ -34,7 +39,7 @@ public class CardDeckTest {
                             new Card(Face.EIGHT,Suit.CLUBS), new Card(Face.NINE,Suit.CLUBS),
                             new Card(Face.TEN,Suit.CLUBS), new Card(Face.JACK,Suit.CLUBS),
                             new Card(Face.QUEEN,Suit.CLUBS), new Card(Face.KING,Suit.CLUBS),
-                            new Card(Face.ACE,Suit.CLUBS) };
+                           new Card(Face.ACE,Suit.CLUBS) };
 
         CardDeck cd = new CardDeck();
         Card[] actual = cd.getDeck();
@@ -56,4 +61,6 @@ public class CardDeckTest {
     }
 
 }
+
+
 

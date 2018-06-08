@@ -1,8 +1,16 @@
-package io.zipcoder.casino;
+package io.zipcoder.casino.allCasino.games;
+
+import io.zipcoder.casino.allCasino.card.Card;
+import io.zipcoder.casino.allCasino.card.CardDeck;
+import io.zipcoder.casino.allCasino.card.CardGame;
+import io.zipcoder.casino.allCasino.interfaces.Game;
+import io.zipcoder.casino.allCasino.player.Player;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
+
+
 
 public class War extends CardGame implements Game {
 
@@ -39,34 +47,34 @@ public class War extends CardGame implements Game {
             Card opponentNC = getNextCard(this.opponent);
 
 
-             System.out.println("-----------------------------------");
-             System.out.println(opponentNC.toString());
-             getInput(" ");
-             System.out.println(playerNC.toString());
-             System.out.println("-----------------------------------");
+            System.out.println("-----------------------------------");
+            System.out.println(opponentNC.toString());
+            getInput(" ");
+            System.out.println(playerNC.toString());
+            System.out.println("-----------------------------------");
 
-             if(playerNC.compareTo(opponentNC) == 0){
-                 this.pile.add(playerNC);
-                 this.pile.add(opponentNC);
-                 if(this.canGoToWar()){
-                     this.goToWar();
-                 } else {
-                     if(this.player.size() > 4){
-                         this.pileTo(this.player);
-                     } else {
-                         this.pileTo(this.opponent);
-                     }
-                 }
-             } else if(playerNC.compareTo(opponentNC) > 0){
-                 System.out.println("You win this round!");
-                 System.out.println("");
-                 this.player.add(playerNC);
-                 this.player.add(opponentNC);
-             } else {
-                 System.out.println("You lose this round!");
-                 this.opponent.add(playerNC);
-                 this.opponent.add(opponentNC);
-             }
+            if(playerNC.compareTo(opponentNC) == 0){
+                this.pile.add(playerNC);
+                this.pile.add(opponentNC);
+                if(this.canGoToWar()){
+                    this.goToWar();
+                } else {
+                    if(this.player.size() > 4){
+                        this.pileTo(this.player);
+                    } else {
+                        this.pileTo(this.opponent);
+                    }
+                }
+            } else if(playerNC.compareTo(opponentNC) > 0){
+                System.out.println("You win this round!");
+                System.out.println("");
+                this.player.add(playerNC);
+                this.player.add(opponentNC);
+            } else {
+                System.out.println("You lose this round!");
+                this.opponent.add(playerNC);
+                this.opponent.add(opponentNC);
+            }
 
 
             Collections.shuffle(this.opponent);

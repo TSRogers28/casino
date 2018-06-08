@@ -3,6 +3,8 @@ package io.zipcoder.casino;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
+import io.zipcoder.casino.allCasino.player.*;
+
 
 public class PlayerTest {
 
