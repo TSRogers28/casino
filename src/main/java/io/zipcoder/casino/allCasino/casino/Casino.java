@@ -72,7 +72,8 @@ public class Casino {
                 game.playGame();
                 break;
             case "threes":
-                ;
+                game = new Threes();
+                game.playGame();
                 break;
             case "hi lo":
                 game = new DummyGame();
