@@ -57,7 +57,10 @@
         }
 
        public boolean getWinner() {
-            return false;
+            if (winner == player1)
+                return true;
+            else
+                return false;
         }
 
         public void setWinner(Player winner) {
