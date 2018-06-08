@@ -79,6 +79,7 @@ public class War extends CardGame implements Game {
 
             Collections.shuffle(this.opponent);
             Collections.shuffle(this.player);
+
         }
 
 

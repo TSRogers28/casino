@@ -1,10 +1,11 @@
 
 package io.zipcoder.casino.allCasino.casino;
+import io.zipcoder.casino.allCasino.games.BlackJack;
 import  io.zipcoder.casino.allCasino.ioMessages.*;
 import  io.zipcoder.casino.allCasino.player.*;
 import io.zipcoder.casino.allCasino.ioMessages.PreMadeMessages;
-import io.zipcoder.casino.allCasino.games.DummyGame;
-
+import io.zipcoder.casino.allCasino.games.*;
+import io.zipcoder.casino.allCasino.interfaces.*;
 
 
 
@@ -13,11 +14,15 @@ import io.zipcoder.casino.allCasino.games.DummyGame;
 public class Casino {
 
     private boolean inTheCasino = true;
-    private boolean playingGames = false;
+    //private boolean playingGames = false;
+
 
     GameConsole console = new GameConsole();
     PreMadeMessages messages = new PreMadeMessages();
-    DummyGame dummy = new DummyGame();
+    Game game;
+
+
+
     Player player1 = new Player(0, "");
 
     public void enterTheCasino() {
@@ -43,10 +48,11 @@ public class Casino {
                 case "add credits" : console.println(messages.atm);
                     player1.addHelloKittyFunBucks(console.getIntegerInput("How Many Credits Would You Like To Add?"));
                     break;
-                case "play games" : chooseGame(console.stringScan("What Game Would You Like To Play?"));
+                case "play games" : chooseGame();
 
                     break;
-                case "exit" : console.println(messages.byeBye); inTheCasino = false;
+                case "exit" : console.println(messages.byeBye);
+                    inTheCasino = false;
                     break;
                 default: console.println("You Can't Do That, We Have Rules Here!! Please Choose An Available Option");
                     break;
@@ -55,23 +61,28 @@ public class Casino {
 
     }
 
-    public void chooseGame(String choice){
-        playingGames = true;
-        while(playingGames = true){
-            switch(console.stringScan("What Game Do You Want To Play? War, BlackJack, Threes, or Hi Lo?")){
-                case "war" : ;
-                    break;
-                case "blackjack" : ;
-                    break;
-                case "threes" : ;
-                    break;
-                case "hi lo" : dummy.runGame(); playingGames = false;
-                    break;
-                case "exit" : console.println("Back To The Casino!"); playingGames = false;
-                    break;
-                default:console.println("Please Choose A Game We Have!");
-                    break;
-            }
+
+    public void chooseGame() {
+        switch (console.stringScan("What Game Do You Want To Play? War, BlackJack, Threes, or Hi Lo?")) {
+            case "war":
+                ;
+                break;
+            case "blackjack":
+                game = new BlackJack();
+                game.playGame();
+                break;
+            case "threes":
+                game = new Threes();
+                game.playGame();
+                break;
+            case "hi lo":
+                game = new DummyGame();
+                game.playGame();
+                break;
+            default:
+                console.println("Please Choose A Game We Have!");
+                break;
+
         }
 
     }

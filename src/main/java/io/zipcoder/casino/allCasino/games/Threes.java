@@ -14,24 +14,24 @@
 
 
 
-        int rollNumber;
-        Player player1;
-        Player player2;
-        int sum;
-        int sumPlayer1;
-        int sumPlayer2;
-        Player winner;
-        int ante;
-        int numberOfDice; // will set these up for multiple turns and gambling.
+        private int rollNumber;
+        private Player player1;
+        private Player player2;
+        private int sum;
+       private int sumPlayer1;
+       private int sumPlayer2;
+       private Player winner;
+       private int ante;
+      private  int numberOfDice; // will set these up for multiple turns and gambling.
 
 
-        public static void main(String[] args) {
-            Threes game = new Threes();
-            game.playGame();
-            game.scoreRoll1(game.getPlayer1());
-            game.scoreRoll2(game.getPlayer2());
-            game.compareForWinner(game.getSumPlayer1(), game.getSumPlayer2());
-        }
+//        public static void main(String[] args) {
+//            Threes game = new Threes();
+//            game.playGame();
+//            game.scoreRoll1(game.getPlayer1());
+//            game.scoreRoll2(game.getPlayer2());
+//            game.compareForWinner(game.getSumPlayer1(), game.getSumPlayer2());
+//        }
 
         Dice dice = new Dice(5);
 
@@ -45,9 +45,14 @@
         }
 
         public void playGame(){
-            Scanner scan = new Scanner(System.in);
-            System.out.println("How much would you like to bet?");
-            ante = scan.nextInt();
+//            Scanner scan = new Scanner(System.in);
+//            System.out.println("How much would you like to bet?");
+//            ante = scan.nextInt();
+
+            //playGame();
+            scoreRoll1(this.getPlayer1());
+            scoreRoll2(this.getPlayer2());
+            compareForWinner(this.getSumPlayer1(), this.getSumPlayer2());
         }
 
         public Player getWinner() {
@@ -119,11 +124,12 @@
             setSum(0);
         }
 
-        public void compareForWinner(int sumPlayer1, int sumPlayer2){
-            Player winner = (sumPlayer1 < sumPlayer2) ? player1 : player2;
+        public Player compareForWinner(int sumPlayer1, int sumPlayer2){
+            Player gameWinner = (sumPlayer1 < sumPlayer2) ? player1 : player2;
+            setWinner(gameWinner);
+            System.out.println("\n\n"+ winner.getName() + " won!");
 
-            System.out.println("\n\n\n"+ winner.getName() + " wins!");
-            //game.setWinner(winner);
+            return getWinner();
         }
 
 //        public void getOut(){
