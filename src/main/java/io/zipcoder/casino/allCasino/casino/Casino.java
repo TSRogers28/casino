@@ -25,7 +25,7 @@ public class Casino {
 
     Player player1 = new Player(0, "");
 
-    public void enterTheCasino() {
+    public void welcome() {
          player1.setName(console.stringScan("Whats Your Name?"));
 
          player1.setHelloKittyFunBucks(console.getIntegerInput("How Much Money Did You Bring Today?"));
@@ -34,22 +34,24 @@ public class Casino {
          console.println(messages.rollTheDice);
          console.println(messages.welcomeMessage);
 
-        playGames();
+        enterCasino();
     }
 
-    public void playGames(){
+    public void enterCasino(){
 
         while(inTheCasino == true){
             console.println(messages.mainMenu);
 
             switch(console.stringScan("What Would You Like To Do?")){
-                case "see credits" : console.println("You Currently Have: " + player1.getHelloKittyFunBucks() + " Hello Kitty Fun Bucks!");
+                case "see credits" :
+                    console.println("You Currently Have: " + player1.getHelloKittyFunBucks() + " Hello Kitty Fun Bucks!");
                     break;
-                case "add credits" : console.println(messages.atm);
+                case "add credits" :
+                    console.println(messages.atm);
                     player1.addHelloKittyFunBucks(console.getIntegerInput("How Many Credits Would You Like To Add?"));
                     break;
-                case "play games" : chooseGame();
-
+                case "play games" :
+                    playGames();
                     break;
                 case "exit" : console.println(messages.byeBye);
                     inTheCasino = false;
@@ -58,6 +60,22 @@ public class Casino {
                     break;
             }
         }
+
+    }
+
+    public void playGames() {
+        chooseGame();
+        if (game instanceof Gambling) {
+            int bet = console.getIntegerInput("Place Kitty Bets!");
+            ((Gamble) game).placeBet(bet);
+        }
+        game.playGame();
+        if (game instanceof Gambling) {
+
+        }
+
+
+
 
     }
 

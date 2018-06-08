@@ -7,7 +7,7 @@ public class Main {
 
         Casino totallyNotRunByTheMob = new Casino();
 
-        totallyNotRunByTheMob.enterTheCasino();
+        totallyNotRunByTheMob.welcome();
         System.out.println("                 Thanks For Playing!");
     }
 }

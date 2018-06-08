@@ -41,8 +41,12 @@ public class BlackJack extends CardGame implements Game, Gamble{
         }
     }
 
-    public Player getWinner() {
-        return null;
+    public boolean getWinner() {
+        if (winner == BlackJackPlayer.player) {
+           return true;
+        }
+        else return false;
+
     }
 
 
