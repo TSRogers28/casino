@@ -1,6 +1,6 @@
-package io.zipcoder.casino;
+package io.zipcoder.casino.allCasino.ioMessages;
 
-enum Suit{
+public enum Suit{
     SPADES ("♠"), HEARTS ("♥"), DIAMONDS ("♣"), CLUBS ("♦");
 
     private final String symbol;

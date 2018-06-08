@@ -1,4 +1,5 @@
-package io.zipcoder.casino;
+package io.zipcoder.casino.allCasino.interfaces;
+import io.zipcoder.casino.allCasino.player.Player;
 
 public interface Gamble {
 

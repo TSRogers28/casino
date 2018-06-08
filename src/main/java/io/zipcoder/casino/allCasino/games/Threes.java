@@ -1,9 +1,12 @@
 
-    package io.zipcoder.casino;
+    package io.zipcoder.casino.allCasino.games;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Scanner;
+    import java.util.ArrayList;
+    import java.util.Iterator;
+    import java.util.Scanner;
+    import io.zipcoder.casino.allCasino.player.Player;
+    import io.zipcoder.casino.allCasino.interfaces.Game;
+    import io.zipcoder.casino.allCasino.dice.Dice;
 
 
 
