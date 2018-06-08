@@ -9,8 +9,8 @@ import io.zipcoder.casino.allCasino.player.*;
 
 
 public class DummyGame implements Game{
-    protected Player player1;
-    protected Player player2;
+    public Player player1;
+    public Player player2;
     private int p1Score;
     private int p2score;
     private Player winner;
