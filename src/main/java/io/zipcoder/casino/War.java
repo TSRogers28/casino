@@ -1,6 +1,7 @@
 package io.zipcoder.casino;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class War extends CardGame implements Game {
@@ -20,45 +21,62 @@ public class War extends CardGame implements Game {
         war.playGame();
     }
 
+    public static String getInput(String prompt) {
+        System.out.print(prompt);
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
+    }
+
     public void playGame() {
         deal();
 
         while(!isOver()){
 
-             Card playerNC   = getNextCard(this.player);
-             Card opponentNC = getNextCard(this.opponent);
+            System.out.println("Players = " +this.player.size() + " \nOpponent = " + this.opponent.size());
+            System.out.println("Press Enter to Draw a Card: ");
 
-             if(!isOver()){
-                 System.out.println("-----------------------------------");
-                 System.out.println(opponentNC.toString());
-                 //getInput("Press Enter to Draw a Card: ");
-                 System.out.println(playerNC.toString());
-                 System.out.println("-----------------------------------");
+            Card playerNC   = getNextCard(this.player);
+            Card opponentNC = getNextCard(this.opponent);
 
-                 if(playerNC.compareTo(opponentNC) == 0){
-                     this.pile.add(playerNC);
-                     this.pile.add(opponentNC);
-                     if(this.canGoToWar()){
-                         this.goToWar();
-                     } else {
-                         break;
-                     }
-                 } else if(playerNC.compareTo(opponentNC) > 0){
-                     System.out.println("You win this round!");
-                     System.out.println("");
-                     this.player.add(playerNC);
-                     this.player.add(opponentNC);
+
+             System.out.println("-----------------------------------");
+             System.out.println(opponentNC.toString());
+             //getInput(" ");
+             System.out.println(playerNC.toString());
+             System.out.println("-----------------------------------");
+
+             if(playerNC.compareTo(opponentNC) == 0){
+                 this.pile.add(playerNC);
+                 this.pile.add(opponentNC);
+                 if(this.canGoToWar()){
+                     this.goToWar();
                  } else {
-                     System.out.println("You lose this round!");
-                     this.opponent.add(playerNC);
-                     this.opponent.add(opponentNC);
+                     if(this.player.size() > 4){
+                         this.pileTo(this.player);
+                     } else {
+                         this.pileTo(this.opponent);
+                     }
                  }
-                 System.out.println("P=" +this.player.size() + " - O=" + this.opponent.size());
-
-             } else{
-                 break;
+             } else if(playerNC.compareTo(opponentNC) > 0){
+                 System.out.println("You win this round!");
+                 System.out.println("");
+                 this.player.add(playerNC);
+                 this.player.add(opponentNC);
+             } else {
+                 System.out.println("You lose this round!");
+                 this.opponent.add(playerNC);
+                 this.opponent.add(opponentNC);
              }
+
+
+            Collections.shuffle(this.opponent);
+            Collections.shuffle(this.player);
         }
+
+
+
+
+        System.out.println("Players = " +this.player.size() + " \nOpponent = " + this.opponent.size());
 
         if(isWinner()){
             System.out.println("You Win");
@@ -91,33 +109,37 @@ public class War extends CardGame implements Game {
         Card playerNC  = getNextCard(this.player);
         Card opponentNC = getNextCard(this.opponent);
 
-        if(!isOver()){
 
-            System.out.println(this.pile.size());
+        System.out.println(" Pile size -  " + this.pile.size());
 
-            System.out.println("-----------------------------------");
-            System.out.println(opponentNC.toString());
-            //getInput("Press Enter to Draw a Card: ");
-            System.out.println(playerNC.toString());
-            System.out.println("-----------------------------------");
+        System.out.println("-----------------------------------");
+        System.out.println(opponentNC.toString());
+        //getInput("Press Enter to Draw a Card: ");
+        System.out.println(playerNC.toString());
+        System.out.println("-----------------------------------");
 
-            if(playerNC.compareTo(opponentNC) == 0){
-                this.pile.add(playerNC);
-                this.pile.add(opponentNC);
-                if(this.canGoToWar()){
-                    this.goToWar();
+        if(playerNC.compareTo(opponentNC) == 0){
+            this.pile.add(playerNC);
+            this.pile.add(opponentNC);
+            if(this.canGoToWar()){
+                this.goToWar();
+            } else{
+                if(this.player.size() > 4){
+                    this.pileTo(this.player);
+                } else {
+                    this.pileTo(this.opponent);
                 }
-            } else if (playerNC.compareTo(opponentNC) > 0){
-                System.out.println("You win this War!");
-                this.player.add(playerNC);
-                this.player.add(opponentNC);
-                this.pileTo(this.player);
-            } else {
-                System.out.println("You lose this War!");
-                this.opponent.add(playerNC);
-                this.opponent.add(opponentNC);
-                this.pileTo(this.opponent);
             }
+        } else if (playerNC.compareTo(opponentNC) > 0){
+            System.out.println("You win this War!");
+            this.player.add(playerNC);
+            this.player.add(opponentNC);
+            this.pileTo(this.player);
+        } else {
+            System.out.println("You lose this War!");
+            this.opponent.add(playerNC);
+            this.opponent.add(opponentNC);
+            this.pileTo(this.opponent);
         }
 
     }
@@ -134,6 +156,13 @@ public class War extends CardGame implements Game {
             this.opponent.add(deck.getDeck()[i+1]);
         }
     }
+
+//    public void pileTo(ArrayList<Card> to, ArrayList<Card> from){
+//        for(int i = 0; i < from.size(); i++){
+//            to.add(getNextCard(from));
+//        }
+//        from.clear();
+//    }
 
     public void pileTo(ArrayList<Card> player){
         for(int i = 0; i < this.pile.size(); i++){
@@ -156,7 +185,17 @@ public class War extends CardGame implements Game {
         return isWin;
     }
 
-    public Player getWinner(){
+    public ArrayList<Card> getWin() {
+        ArrayList<Card> winner = null;
+        if(this.player.size() > this.opponent.size()){
+            winner = this.player;
+        }else {
+            winner =this.opponent;
+        }
+        return winner;
+    }
+
+    public Player getWinner() {
         return new Player();
     }
 
@@ -166,12 +205,6 @@ public class War extends CardGame implements Game {
 
     public ArrayList<Card> getOpponent(){
         return this.opponent;
-    }
-
-    public static String getInput(String prompt) {
-        System.out.print(prompt);
-        Scanner scanner = new Scanner(System.in);
-        return scanner.nextLine();
     }
 
 
