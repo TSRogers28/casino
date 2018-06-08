@@ -13,12 +13,11 @@
     public class Threes implements Game{
 
 
-        int sumTemp;
+
         int rollNumber;
-        Player firstPlayer;
-        Player secondPlayer;
         Player player1;
         Player player2;
+        int sum;
         int sumPlayer1;
         int sumPlayer2;
         Player winner;
@@ -28,8 +27,8 @@
 
         public static void main(String[] args) {
             Threes game = new Threes();
-
-            game.scoreRoll1(game.choosePlayer());
+            game.playGame();
+            game.scoreRoll1(game.getPlayer1());
             game.scoreRoll2(game.getPlayer2());
             game.compareForWinner(game.getSumPlayer1(), game.getSumPlayer2());
         }
@@ -39,12 +38,16 @@
 
         public Threes() {
             rollNumber = 1;
-            this.player1 = new Player(500 , "Tommy");
-            this.player2 = new Player(500, "Dave");
+            sum = 0;
+            ante = 0;
+            this.player1 = new Player(500, "You");
+            this.player2 = new Player(100_000,"House");
         }
 
         public void playGame(){
-
+            Scanner scan = new Scanner(System.in);
+            System.out.println("How much would you like to bet?");
+            ante = scan.nextInt();
         }
 
         public Player getWinner() {
@@ -55,41 +58,34 @@
             this.winner = winner;
         }
 
-        public void setSumPlayer1(int sumTemp){
-            sumPlayer1 = sumTemp;
+        public void setSum(int sum){
+            this.sum = sum;
         }
+
 
         public int getSumPlayer1() {
             return sumPlayer1;
         }
 
-        public void setSumPlayer2(int sumTemp){
-            sumPlayer2 =sumTemp;
-        }
 
         public int getSumPlayer2() {
             return sumPlayer2;
         }
 
-        public void setSumTemp(int sumTemp) {
-            this.sumTemp = sumTemp;
-        }
+        //public void setPlayer1(int credits, int ante){
+        //    player1(credits - ante);
+        //}
 
         public Player getPlayer1(){
             return player1;
         }
 
-        public Player getPlayer2(){
-            return player2;
+        public void setPlayer2(){
+
         }
 
-        public Player choosePlayer() {
-            Scanner scan = new Scanner(System.in);
-            System.out.println("Who wants to start?");
-            String pickedPlayer = scan.next();
-            firstPlayer = (pickedPlayer.equals(getPlayer1())) ? getPlayer1() : getPlayer2();
-            secondPlayer = (pickedPlayer.equals(getPlayer2())) ? getPlayer2() : getPlayer1();
-            return null;
+        public Player getPlayer2(){
+            return player2;
         }
 
 
@@ -103,38 +99,24 @@
                 if (3 == die) {
                     die = 0;
                 }
-                sumTemp += die;
+                sum += die;
             }
-            return sumTemp;
+            return sum;
+        }
+        git 
+        public void scoreRoll1(Player player1) {
+
+
+            sumPlayer1 = roll();
+            System.out.println("\t" + player1.getName() +" roll #" + rollNumber + " was "+ sumPlayer1);
+            setSum(0);
         }
 
+        public void scoreRoll2(Player player2) {
 
-        public void scoreRoll1(Player firstPlayer) {
-            roll();
-            sumPlayer1 = sumTemp;
-            System.out.println("\t" + firstPlayer.getName() +" roll #" + rollNumber + " was "+ sumPlayer1);
-            setSumTemp(0);
-        }
-
-        public void scoreRoll2(Player secondPlayer) {
-            roll();
-            sumPlayer2 = sumTemp;
-            System.out.println("\t" + secondPlayer.getName() + " roll #" + rollNumber + " was " + sumPlayer2);
-            setSumTemp(0);
-        }
-
-        public void turn() {
-
-
-            while (rollNumber <= 1) {
-                if (firstPlayer == player1) {
-
-
-                } else {
-
-
-                }
-            }
+            sumPlayer2 = roll();
+            System.out.println("\t" + player2.getName() + " roll #" + rollNumber + " was " + sumPlayer2);
+            setSum(0);
         }
 
         public void compareForWinner(int sumPlayer1, int sumPlayer2){
