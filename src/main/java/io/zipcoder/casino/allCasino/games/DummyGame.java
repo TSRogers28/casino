@@ -23,8 +23,8 @@ public class DummyGame implements Game{
     }
 
 
-    public void runGame(){
-    playGame();
+    public void playGame(){
+    runGame();
     determineWinner();
     }
 
@@ -36,7 +36,7 @@ public class DummyGame implements Game{
     }
 
 
-    public void playGame() {
+    public void runGame() {
 
         p1Score = rand();
         p2score = rand();
