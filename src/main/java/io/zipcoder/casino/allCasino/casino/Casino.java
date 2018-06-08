@@ -11,7 +11,6 @@ import io.zipcoder.casino.allCasino.interfaces.*;
 
 
 
-
 public class Casino {
 
     private boolean inTheCasino = true;
@@ -21,6 +20,7 @@ public class Casino {
     GameConsole console = new GameConsole();
     PreMadeMessages messages = new PreMadeMessages();
     Game game;
+
 
 
     Player player1 = new Player(0, "");
@@ -73,11 +73,8 @@ public class Casino {
         if (game instanceof Gambling) {
 
         }
-
-
-
-
     }
+
 
     public void chooseGame() {
         switch (console.stringScan("What Game Do You Want To Play? War, BlackJack, Threes, or Hi Lo?")) {
@@ -89,7 +86,8 @@ public class Casino {
                 game.playGame();
                 break;
             case "threes":
-                ;
+                game = new Threes();
+                game.playGame();
                 break;
             case "hi lo":
                 game = new DummyGame();
@@ -98,6 +96,7 @@ public class Casino {
             default:
                 console.println("Please Choose A Game We Have!");
                 break;
+
         }
 
     }

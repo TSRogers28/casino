@@ -1,11 +1,10 @@
 package io.zipcoder.casino;
 
-//import org.junit.Test;
-//import org.junit.Assert;
+import org.junit.Test;
+import org.junit.Assert;
+import io.zipcoder.casino.allCasino.games.*;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-import io.zipcoder.casino.allCasino.games.War;
+import org.junit.jupiter.api.*;
 
 
 class WarTest {
@@ -42,17 +41,11 @@ class WarTest {
 
         int actual = war.getPlayer().size() + war.getOpponent().size();
         Assertions.assertEquals(expect, actual);
-
     }
 
-    @Test
-    void startGameTest() {
-        //int expect = 52;
-        War war = new War();
-        war.playGame();
-
-//        int actual = war.getPlayer().size() + war.getOpponent().size();
-//        Assertions.assertEquals(expect, actual);
-
-    }
+//    @Test
+//    void startGameTest() {
+//        War war = new War();
+//        war.playGame();
+//    }
 }
