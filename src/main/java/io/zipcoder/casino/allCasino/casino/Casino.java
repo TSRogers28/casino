@@ -1,5 +1,6 @@
 
 package io.zipcoder.casino.allCasino.casino;
+import io.zipcoder.casino.allCasino.games.BlackJack;
 import  io.zipcoder.casino.allCasino.ioMessages.*;
 import  io.zipcoder.casino.allCasino.player.*;
 import io.zipcoder.casino.allCasino.ioMessages.PreMadeMessages;
@@ -19,6 +20,9 @@ public class Casino {
     GameConsole console = new GameConsole();
     PreMadeMessages messages = new PreMadeMessages();
     DummyGame dummy = new DummyGame();
+    BlackJack twentyOne = new BlackJack();
+
+
     Player player1 = new Player(0, "");
 
     public void enterTheCasino() {
@@ -61,7 +65,7 @@ public class Casino {
             switch(console.stringScan("What Game Do You Want To Play? War, BlackJack, Threes, or Hi Lo?")){
                 case "war" : ;
                     break;
-                case "blackjack" : ;
+                case "blackjack" : twentyOne.playGame();
                     break;
                 case "threes" : ;
                     break;
