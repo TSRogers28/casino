@@ -38,7 +38,8 @@ public class War extends CardGame implements Game {
              if(!isOver()){
                  System.out.println("-----------------------------------");
                  System.out.println(opponentNC.toString());
-                 //getInput("Press Enter to Draw a Card: ");
+
+                // getInput("Press Enter to Draw a Card: ");
                  System.out.println(playerNC.toString());
                  System.out.println("-----------------------------------");
 
