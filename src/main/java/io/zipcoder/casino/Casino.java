@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Casino {
 
     private boolean inTheCasino = true;
-    private boolean playingGames = false;
+    //private boolean playingGames = false;
 
 
     GameConsole console = new GameConsole();
@@ -37,10 +37,10 @@ public class Casino {
                 case "add credits" : console.println(messages.atm);
                     player1.addHelloKittyFunBucks(console.getIntegerInput("How Many Credits Would You Like To Add?"));
                     break;
-                case "play games" : playingGames = true; chooseGame();
+                case "play games" : chooseGame();
 
                     break;
-                case "exit" : console.println(messages.byeBye); inTheCasino = false;
+                case "exit" : console.println(messages.byeBye); setInTheCasino();
                     break;
                 default: console.println("You Can't Do That, We Have Rules Here!! Please Choose An Available Option");
                     break;
@@ -51,7 +51,6 @@ public class Casino {
 
     public void chooseGame(){
 
-        while(playingGames = true){
             switch(console.stringScan("What Game Do You Want To Play? War, BlackJack, Threes, or Hi Lo?")){
                 case "war" : ;
                     break;
@@ -61,15 +60,24 @@ public class Casino {
                     break;
                 case "hi lo" : dummy.runGame();
                     break;
-                case "exit" : console.println("Back To The Casino!"); playGames();
+                case "exit" : console.println("Back To The Casino!");
                     break;
                 default:console.println("Please Choose A Game We Have!");
                     break;
             }
         }
 
+
+    public void setInTheCasino(){
+        if (this.inTheCasino == true){
+
+            this.inTheCasino = false;
+        }
     }
 
+    public boolean isInTheCasino() {
+        return inTheCasino;
+    }
 }
 
 
