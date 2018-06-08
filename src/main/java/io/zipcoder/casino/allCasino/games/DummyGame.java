@@ -1,10 +1,14 @@
-package io.zipcoder.casino;
+package io.zipcoder.casino.allCasino.games;
+
 import java.util.Random;
+
+import io.zipcoder.casino.allCasino.interfaces.Game;
+import io.zipcoder.casino.allCasino.player.*;
 
 
 public class DummyGame implements Game{
-    protected Player player1;
-    protected Player player2;
+    public Player player1;
+    public Player player2;
     private int p1Score;
     private int p2score;
     private Player winner;
@@ -19,8 +23,8 @@ public class DummyGame implements Game{
     }
 
 
-    public void runGame(){
-    playGame();
+    public void playGame(){
+    runGame();
     determineWinner();
     }
 
@@ -32,7 +36,7 @@ public class DummyGame implements Game{
     }
 
 
-    public void playGame() {
+    public void runGame() {
 
         p1Score = rand();
         p2score = rand();

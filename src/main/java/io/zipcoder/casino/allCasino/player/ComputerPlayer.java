@@ -1,4 +1,4 @@
-package io.zipcoder.casino;
+package io.zipcoder.casino.allCasino.player;
 
 public class ComputerPlayer extends Player {
 

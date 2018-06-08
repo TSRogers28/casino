@@ -3,6 +3,8 @@ package io.zipcoder.casino;
 import java.util.ArrayList;
 import static org.junit.Assert.*;
 import org.junit.Test;
+import io.zipcoder.casino.allCasino.dice.*;
+
 
 public class DiceTest {
 

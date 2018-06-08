@@ -1,4 +1,4 @@
-package io.zipcoder.casino;
+package io.zipcoder.casino.allCasino.ioMessages;
 
 import java.util.Scanner;
 
