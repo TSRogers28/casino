@@ -1,9 +1,7 @@
 package io.zipcoder.casino.allCasino.games;
 
 import java.util.Random;
-import io.zipcoder.casino.allCasino.card.Card;
-import io.zipcoder.casino.allCasino.card.CardDeck;
-import io.zipcoder.casino.allCasino.card.CardGame;
+
 import io.zipcoder.casino.allCasino.interfaces.Game;
 import io.zipcoder.casino.allCasino.player.*;
 
