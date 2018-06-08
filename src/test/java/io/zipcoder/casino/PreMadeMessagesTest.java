@@ -1,4 +1,4 @@
-/*
+
 package io.zipcoder.casino;
 
 import org.junit.Assert;
@@ -8,6 +8,7 @@ import static org.junit.Assert.*;
 
 public class PreMadeMessagesTest {
 PreMadeMessages messages = new PreMadeMessages();
+
     @Test
     public void welcomeMessage() {
        String actual = messages.welcomeMessage;
@@ -92,6 +93,20 @@ PreMadeMessages messages = new PreMadeMessages();
     }
 
     @Test
+    public void atmTest() {
+        String actual = messages.atm;
+        String expected =
+                "       _             \n" +
+                        "      | |            \n" +
+                        "  __ _| |_ _ __ ___  \n" +
+                        " / _` | __| '_ ` _ \\ \n" +
+                        "| (_| | |_| | | | | |\n" +
+                        " \\__,_|\\__|_| |_| |_|";
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
     public void mainMenu() {
         String actual = messages.mainMenu;
         String expected =
@@ -133,4 +148,4 @@ PreMadeMessages messages = new PreMadeMessages();
                 "Exit: Leave The Three's Room And Head Back To The Casino!\n" ;
         Assert.assertEquals(expected, actual);
     }
-}*/
+}
