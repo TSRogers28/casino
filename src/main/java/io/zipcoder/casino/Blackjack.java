@@ -22,8 +22,13 @@ public class BlackJack extends CardGame implements Game{
 
     public void playGame() {
         deal();
+<<<<<<< HEAD
        // displayHand(playerHand, "This is your hand!");
        // displayHandOneHidden(dealerHand);
+=======
+        displayHand(playerHand, "This is your hand!");
+        displayHandOneHidden(dealerHand);
+>>>>>>> cbad99e941f3ff94407375e8a52f4c101cd1da50
 
         while(!playerStands) {
             nextTurn();
@@ -50,18 +55,30 @@ public class BlackJack extends CardGame implements Game{
     }
 
     private void nextTurn() {
+<<<<<<< HEAD
         displayHand(playerHand, "This is your hand!");
         displayHandOneHidden(dealerHand);
+=======
+>>>>>>> cbad99e941f3ff94407375e8a52f4c101cd1da50
         if (hit()) {
             playerHand.add(deck.drawCard());
         }
         else {
             playerStands = true;
         }
+<<<<<<< HEAD
         printEndOfTurn();
     }
 
     void displayHand(ArrayList<Card> hand) {
+=======
+        displayHand(playerHand);
+        displayHandOneHidden(dealerHand);
+        printEndOfTurn();
+    }
+
+     void displayHand(ArrayList<Card> hand) {
+>>>>>>> cbad99e941f3ff94407375e8a52f4c101cd1da50
         for (int i = 0; i < hand.size(); i++) {
             System.out.println(hand.get(i).toString());
         }
@@ -83,6 +100,10 @@ public class BlackJack extends CardGame implements Game{
         String yesNo = s.nextLine();
         if (yesNo.equals("y")) {
             return true;
+<<<<<<< HEAD
+=======
+
+>>>>>>> cbad99e941f3ff94407375e8a52f4c101cd1da50
         }
         else return false;
     }
@@ -96,16 +117,31 @@ public class BlackJack extends CardGame implements Game{
     }
     private void printEndOfTurn() {
         int total = getTotal(playerHand);
+<<<<<<< HEAD
         if (total == 21) {
             displayHand(playerHand, "Woo Black Jack! You win!");
+=======
+        System.out.println("Your new total is: " + total);
+        if (total == 21) {
+            System.out.println("Woo Black Jack! You win!");
+>>>>>>> cbad99e941f3ff94407375e8a52f4c101cd1da50
             playerStands = true;
             isOver = true;
             winner = BlackJackPlayer.player;
         } else if (total > 21) {
+<<<<<<< HEAD
             displayHand(playerHand, "You Busted! Game over.");
             playerStands = true;
             isOver = true;
             winner = BlackJackPlayer.computer;
+=======
+            System.out.println("You Busted! Game over.");
+            playerStands = true;
+            isOver = true;
+            winner = BlackJackPlayer.computer;
+        } else {
+            System.out.println("On to the next turn!");
+>>>>>>> cbad99e941f3ff94407375e8a52f4c101cd1da50
         }
     }
     private void dealerTurn() {
@@ -133,4 +169,8 @@ public class BlackJack extends CardGame implements Game{
             winner = BlackJackPlayer.player;
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> cbad99e941f3ff94407375e8a52f4c101cd1da50
