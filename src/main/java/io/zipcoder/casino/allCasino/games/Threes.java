@@ -45,17 +45,17 @@
         }
 
         public void playGame(){
-//            Scanner scan = new Scanner(System.in);
-//            System.out.println("How much would you like to bet?");
-//            ante = scan.nextInt();
+            Scanner scan = new Scanner(System.in);
+            System.out.println("How much would you like to bet?");
+            ante = scan.nextInt();
 
-            playGame();
+
             scoreRoll1(this.getPlayer1());
             scoreRoll2(this.getPlayer2());
             compareForWinner(this.getSumPlayer1(), this.getSumPlayer2());
         }
 
-        public Player getWinner() {
+        public Boolean getWinner() {
             return winner;
         }
 
@@ -124,12 +124,12 @@
             setSum(0);
         }
 
-        public Player compareForWinner(int sumPlayer1, int sumPlayer2){
+
+
+        public void compareForWinner(int sumPlayer1, int sumPlayer2){
             Player gameWinner = (sumPlayer1 < sumPlayer2) ? player1 : player2;
             setWinner(gameWinner);
             System.out.println("\n\n"+ winner.getName() + " won!");
-
-            return getWinner();
         }
 
 //        public void getOut(){
