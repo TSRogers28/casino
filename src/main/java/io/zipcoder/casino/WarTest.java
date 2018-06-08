@@ -41,4 +41,15 @@ class WarTest {
         Assertions.assertEquals(expect, actual);
 
     }
+
+    @Test
+    void startGameTest() {
+        //int expect = 52;
+        War war = new War();
+        war.playGame();
+
+//        int actual = war.getPlayer().size() + war.getOpponent().size();
+//        Assertions.assertEquals(expect, actual);
+
+    }
 }
