@@ -1,10 +1,16 @@
 package io.zipcoder.casino;
 
+import io.zipcoder.casino.allCasino.games.BlackJackHand;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import java.util.Scanner;
 
-import static org.junit.Assert.*;
+import io.zipcoder.casino.allCasino.ioMessages.*;
+import io.zipcoder.casino.allCasino.card.Card;
+import io.zipcoder.casino.allCasino.card.CardGame;
+import io.zipcoder.casino.allCasino.interfaces.*;
+import io.zipcoder.casino.allCasino.player.*;
 
 public class BlackJackHandTest {
 

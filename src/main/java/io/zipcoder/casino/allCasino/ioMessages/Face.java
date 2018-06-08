@@ -1,6 +1,6 @@
-package io.zipcoder.casino;
+package io.zipcoder.casino.allCasino.ioMessages;
 
-enum Face{
+public enum Face{
     TWO (2, "|---|\n" + " | 2 |\n" + " |---|"), THREE (3, "|---|\n" + " | 3 |\n" + " |---|"),
     FOUR (4, "|---|\n" + " | 4 |\n" + " |---|"), FIVE (5, "|---|\n" + " | 5 |\n" + " |---|"),
     SIX (6, "|---|\n" + " | 6 |\n" + " |---|"), SEVEN (7, "|---|\n" + " | 7 |\n" + " |---|"),

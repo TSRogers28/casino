@@ -2,6 +2,9 @@ package io.zipcoder.casino;
 
 import org.junit.Assert;
 import org.junit.Test;
+import io.zipcoder.casino.allCasino.ioMessages.*;
+import io.zipcoder.casino.allCasino.card.*;
+
 
 public class CardTest {
     @Test

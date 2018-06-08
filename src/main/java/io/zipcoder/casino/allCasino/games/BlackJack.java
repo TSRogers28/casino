@@ -1,6 +1,13 @@
-package io.zipcoder.casino;
+package io.zipcoder.casino.allCasino.games;
+
 
 import java.util.Scanner;
+
+import io.zipcoder.casino.allCasino.ioMessages.*;
+import io.zipcoder.casino.allCasino.card.Card;
+import io.zipcoder.casino.allCasino.card.CardGame;
+import io.zipcoder.casino.allCasino.interfaces.*;
+import io.zipcoder.casino.allCasino.player.*;
 
 public class BlackJack extends CardGame implements Game, Gamble{
 

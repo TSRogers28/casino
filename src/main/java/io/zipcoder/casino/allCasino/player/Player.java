@@ -1,5 +1,4 @@
-package io.zipcoder.casino;
-
+package io.zipcoder.casino.allCasino.player;
 
 public class Player {
     String name = "A Cat Has No Name";
