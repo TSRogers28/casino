@@ -22,6 +22,8 @@ public class BlackJack extends CardGame implements Game{
 
     public void playGame() {
         deal();
+       // displayHand(playerHand, "This is your hand!");
+       // displayHandOneHidden(dealerHand);
 
         while(!playerStands) {
             nextTurn();
@@ -88,16 +90,7 @@ public class BlackJack extends CardGame implements Game{
     private int getTotal(ArrayList<Card> hand) {
         int total = 0;
         for (Card c : hand) {
-            if (c.getFace().equals(Face.JACK) || c.getFace().equals(Face.QUEEN) || c.getFace().equals(Face.KING)){
-                total += 10;
-            }
-            else if (c.getFace().equals(Face.ACE)) {
-                if (total + 11 <= 21) {
-                    total += 11;
-                }
-                else total += 1;
-            }
-            else total += c.getFace().getValue();
+            total += c.getFace().getValue();
         }
         return total;
     }
