@@ -49,7 +49,7 @@
 //            System.out.println("How much would you like to bet?");
 //            ante = scan.nextInt();
 
-            playGame();
+            //playGame();
             scoreRoll1(this.getPlayer1());
             scoreRoll2(this.getPlayer2());
             compareForWinner(this.getSumPlayer1(), this.getSumPlayer2());
