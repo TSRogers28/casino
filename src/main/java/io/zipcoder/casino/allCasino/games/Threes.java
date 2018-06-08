@@ -50,13 +50,14 @@
             ante = scan.nextInt();
 
 
+
             scoreRoll1(this.getPlayer1());
             scoreRoll2(this.getPlayer2());
             compareForWinner(this.getSumPlayer1(), this.getSumPlayer2());
         }
 
-        public Boolean getWinner() {
-            return winner;
+       public boolean getWinner() {
+            return false;
         }
 
         public void setWinner(Player winner) {

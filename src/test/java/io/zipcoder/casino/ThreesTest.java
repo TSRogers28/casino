@@ -2,12 +2,6 @@ package io.zipcoder.casino;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-import io.zipcoder.casino.allCasino.player.*;
-import io.zipcoder.casino.allCasino.dice.*;
-import io.zipcoder.casino.allCasino.games.Threes;
-import io.zipcoder.casino.allCasino.interfaces.*;
-
 
 public class ThreesTest {
 
