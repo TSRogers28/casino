@@ -8,6 +8,7 @@ public class Casino {
     private boolean inTheCasino = true;
     private boolean playingGames = false;
 
+
     GameConsole console = new GameConsole();
     PreMadeMessages messages = new PreMadeMessages();
     DummyGame dummy = new DummyGame();
@@ -36,7 +37,7 @@ public class Casino {
                 case "add credits" : console.println(messages.atm);
                     player1.addHelloKittyFunBucks(console.getIntegerInput("How Many Credits Would You Like To Add?"));
                     break;
-                case "play games" : chooseGame(console.stringScan("What Game Would You Like To Play?"));
+                case "play games" : playingGames = true; chooseGame();
 
                     break;
                 case "exit" : console.println(messages.byeBye); inTheCasino = false;
@@ -48,8 +49,8 @@ public class Casino {
 
     }
 
-    public void chooseGame(String choice){
-        playingGames = true;
+    public void chooseGame(){
+
         while(playingGames = true){
             switch(console.stringScan("What Game Do You Want To Play? War, BlackJack, Threes, or Hi Lo?")){
                 case "war" : ;
@@ -58,9 +59,9 @@ public class Casino {
                     break;
                 case "threes" : ;
                     break;
-                case "hi lo" : dummy.runGame(); playingGames = false;
+                case "hi lo" : dummy.runGame();
                     break;
-                case "exit" : console.println("Back To The Casino!"); playingGames = false;
+                case "exit" : console.println("Back To The Casino!"); playGames();
                     break;
                 default:console.println("Please Choose A Game We Have!");
                     break;
