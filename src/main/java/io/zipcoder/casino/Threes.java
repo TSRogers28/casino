@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 
+
     public class Threes implements Game{
 
 
@@ -99,8 +100,9 @@ import java.util.Scanner;
             }
             return sum;
         }
-
+        git 
         public void scoreRoll1(Player player1) {
+
 
             sumPlayer1 = roll();
             System.out.println("\t" + player1.getName() +" roll #" + rollNumber + " was "+ sumPlayer1);
