@@ -65,14 +65,23 @@ public class Casino {
 
     public void playGames() {
         chooseGame();
-        if (game instanceof Gambling) {
+        if (game instanceof Gamble) {
             int bet = console.getIntegerInput("Place Kitty Bets!");
+            player1.addHelloKittyFunBucks(bet*-1);
             ((Gamble) game).placeBet(bet);
         }
         game.playGame();
-        if (game instanceof Gambling) {
-
+        if (game instanceof Gamble) {
+            boolean playeriswinner = game.getWinner();
+            if (playeriswinner) {
+                player1.addHelloKittyFunBucks(((Gamble) game).payOut());
+                console.println(messages.makeItRain);
+            }
+            else {
+                console.println("Booooooooo. You lose.");
+            }
         }
+
     }
 
 
@@ -83,15 +92,12 @@ public class Casino {
                 break;
             case "blackjack":
                 game = new BlackJack();
-                game.playGame();
                 break;
             case "threes":
                 game = new Threes();
-                game.playGame();
                 break;
             case "hi lo":
                 game = new DummyGame();
-                game.playGame();
                 break;
             default:
                 console.println("Please Choose A Game We Have!");
