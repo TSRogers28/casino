@@ -24,6 +24,7 @@ public class GameConsole {
         public Integer getIntegerInput(String prompt) {
 
         Integer userInput = 0;
+        println(prompt);
         while(userInput == 0) {
             Scanner integerIn = new Scanner(System.in);
             if (integerIn.hasNextInt()) {
