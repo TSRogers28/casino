@@ -6,7 +6,7 @@ import org.junit.Test;
 public class ThreesTest {
 
 
-    private Player player1;
+    //private Player player1;
 
 
 
