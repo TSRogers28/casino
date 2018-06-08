@@ -4,7 +4,6 @@ import io.zipcoder.casino.allCasino.card.Card;
 import io.zipcoder.casino.allCasino.card.CardDeck;
 import io.zipcoder.casino.allCasino.card.CardGame;
 import io.zipcoder.casino.allCasino.interfaces.Game;
-import io.zipcoder.casino.allCasino.player.Player;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -204,8 +203,8 @@ public class War extends CardGame implements Game {
         return winner;
     }
 
-    public Player getWinner() {
-        return new Player();
+    public boolean getWinner() {
+        return false;
     }
 
     public ArrayList<Card> getPlayer(){

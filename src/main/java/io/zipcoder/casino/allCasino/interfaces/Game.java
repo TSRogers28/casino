@@ -6,7 +6,7 @@ public interface Game {
 
     void playGame();
 
-    Player getWinner();
+    boolean getWinner();
 
 
 }

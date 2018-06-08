@@ -25,7 +25,7 @@ public class Casino {
 
     Player player1 = new Player(0, "");
 
-    public void enterTheCasino() {
+    public void welcome() {
          player1.setName(console.stringScan("Whats Your Name?"));
 
          player1.setHelloKittyFunBucks(console.getIntegerInput("How Much Money Did You Bring Today?"));
@@ -34,28 +34,51 @@ public class Casino {
          console.println(messages.rollTheDice);
          console.println(messages.welcomeMessage);
 
-        playGames();
+        enterCasino();
     }
 
-    public void playGames(){
+    public void enterCasino(){
 
         while(inTheCasino == true){
             console.println(messages.mainMenu);
 
             switch(console.stringScan("What Would You Like To Do?")){
-                case "see credits" : console.println("You Currently Have: " + player1.getHelloKittyFunBucks() + " Hello Kitty Fun Bucks!");
+                case "see credits" :
+                    console.println("You Currently Have: " + player1.getHelloKittyFunBucks() + " Hello Kitty Fun Bucks!");
                     break;
-                case "add credits" : console.println(messages.atm);
+                case "add credits" :
+                    console.println(messages.atm);
                     player1.addHelloKittyFunBucks(console.getIntegerInput("How Many Credits Would You Like To Add?"));
                     break;
-                case "play games" : chooseGame();
-
+                case "play games" :
+                    playGames();
                     break;
                 case "exit" : console.println(messages.byeBye);
                     inTheCasino = false;
                     break;
                 default: console.println("You Can't Do That, We Have Rules Here!! Please Choose An Available Option");
                     break;
+            }
+        }
+
+    }
+
+    public void playGames() {
+        chooseGame();
+        if (game instanceof Gamble) {
+            int bet = console.getIntegerInput("Place Kitty Bets!");
+            player1.addHelloKittyFunBucks(bet*-1);
+            ((Gamble) game).placeBet(bet);
+        }
+        game.playGame();
+        if (game instanceof Gamble) {
+            boolean playeriswinner = game.getWinner();
+            if (playeriswinner) {
+                player1.addHelloKittyFunBucks(((Gamble) game).payOut());
+                console.println(messages.makeItRain);
+            }
+            else {
+                console.println("Booooooooo. You lose.");
             }
         }
 
@@ -70,15 +93,12 @@ public class Casino {
                 break;
             case "blackjack":
                 game = new BlackJack();
-                game.playGame();
                 break;
             case "threes":
                 game = new Threes();
-                game.playGame();
                 break;
             case "hi lo":
                 game = new DummyGame();
-                game.playGame();
                 break;
             default:
                 console.println("Please Choose A Game We Have!");
