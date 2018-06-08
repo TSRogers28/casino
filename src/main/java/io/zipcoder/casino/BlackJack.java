@@ -1,9 +1,8 @@
 package io.zipcoder.casino;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
-public class BlackJack extends CardGame implements Game{
+public class BlackJack extends CardGame implements Game, Gamble{
 
     enum BlackJackPlayer {player, computer};
     private BlackJackPlayer winner;
@@ -11,6 +10,8 @@ public class BlackJack extends CardGame implements Game{
     private boolean playerStands;
     private BlackJackHand playerHand;
     private BlackJackHand dealerHand;
+
+    private int pot;
 
     public BlackJack(){
         super();
@@ -35,6 +36,17 @@ public class BlackJack extends CardGame implements Game{
 
     public Player getWinner() {
         return null;
+    }
+
+
+    public void placeBet(int helloKittyFunBucks) {
+        pot = helloKittyFunBucks*2;
+    }
+    public int payOut() {
+        return pot;
+    }
+    public int checkKittyBucksBalance(Player p) {
+        return p.getHelloKittyFunBucks();
     }
 
     protected void deal(){

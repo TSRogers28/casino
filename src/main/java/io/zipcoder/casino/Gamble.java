@@ -6,5 +6,4 @@ public interface Gamble {
     public int payOut();
     public int checkKittyBucksBalance(Player p);
 
-
 }

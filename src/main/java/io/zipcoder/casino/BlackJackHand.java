@@ -56,7 +56,7 @@ public class BlackJackHand {
 
     private int tallyAces(int aceCount, int tally) {
         for(int i =1; i <= aceCount; i++) {
-            if ((21 - tally) + (aceCount - i) >=11) {
+            if (21 - (tally + aceCount - i) >=11) {
                 tally += 11;
             }
             else {
