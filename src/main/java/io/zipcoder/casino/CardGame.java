@@ -10,5 +10,6 @@ public abstract class CardGame{
 
     public CardGame() {
         this.deck = new CardDeck();
+        deck.shuffle();
     }
 }
