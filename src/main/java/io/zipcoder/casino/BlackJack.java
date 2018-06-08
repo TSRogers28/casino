@@ -19,21 +19,18 @@ public class BlackJack extends CardGame implements Game{
         playerHand = new ArrayList<Card>();
         dealerHand = new ArrayList<Card>();
     }
-
     public void playGame() {
         deal();
 
         while(!playerStands) {
             nextTurn();
         }
-
         if (!isOver) {
             System.out.println("These are your cards!");
             displayHand(playerHand);
             System.out.println("Now it's the dealer's turn. Your score to beat is " + getTotal(playerHand));
             dealerTurn();
         }
-
     }
 
     public Player getWinner() {
@@ -123,7 +120,7 @@ public class BlackJack extends CardGame implements Game{
             total = getTotal(dealerHand);
         }
         System.out.println("Dealer stands!");
-        System.out.println("This is the dealer's hand (including super secret mystery card!");
+        System.out.println("This is the dealer's hand (including super secret mystery card!)");
         displayHand(dealerHand);
 
         if (total > 21) {
