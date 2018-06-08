@@ -1,6 +1,13 @@
 
-package io.zipcoder.casino;
-import java.util.Scanner;
+package io.zipcoder.casino.allCasino.casino;
+import  io.zipcoder.casino.allCasino.ioMessages.*;
+import  io.zipcoder.casino.allCasino.player.*;
+import io.zipcoder.casino.allCasino.ioMessages.PreMadeMessages;
+import io.zipcoder.casino.allCasino.games.DummyGame;
+
+
+
+
 
 
 public class Casino {
