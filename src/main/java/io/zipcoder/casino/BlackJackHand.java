@@ -40,10 +40,6 @@ public class BlackJackHand {
             }
             else if (c.getFace().equals(Face.ACE)) {
                 aceCount++;
-//                if (total + 11 <= 21) {
-//                    total += 11;
-//                }
-//                else total += 1;
             }
             else total += c.getFace().getValue();
         }
@@ -64,19 +60,6 @@ public class BlackJackHand {
             }
         }
         return tally;
-
-//
-//        int remainingPoints = 21 - currTotal;
-//        if (remainingPoints < 0) {
-//            return (aceCount);
-//        }
-//        else {
-//            //add 11's
-//            int maxNumElevens = remainingPoints/11;
-//            //add 1's
-//
-//        }
-//        return 0;
     }
 
 }
