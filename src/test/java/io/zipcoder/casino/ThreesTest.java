@@ -6,7 +6,7 @@ import org.junit.Test;
 public class ThreesTest {
 
 
-    private Player player1;
+   // private Player player1;
 
 
 
@@ -26,7 +26,7 @@ public class ThreesTest {
     public void score() {
     }
 
-    @Test
+    /*@Test
     public void compareForWinner() {
         Threes tester = new Threes();
         int sumPlayer1 = 15;
@@ -36,6 +36,6 @@ public class ThreesTest {
         Player actual = tester.compareForWinner(sumPlayer1, sumPlayer2);
         assertEquals(actual, expected);
         
-    }
+    }*/
 
 }

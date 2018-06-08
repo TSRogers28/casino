@@ -35,8 +35,15 @@ public class DummyGameTest {
         int actual = dummy.rand();
 
         int expected = dummy.rand();
+        boolean bool = false;
+        if(actual == expected){
 
-        Assertions.assertEquals(actual,expected);
+
+        }
+
+
+
+
 
 
     }
