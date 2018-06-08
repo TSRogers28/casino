@@ -5,18 +5,7 @@ import java.util.*;
 
 public class Casino {
 
-<<<<<<< HEAD
-    private Player player1;
-    private Player house;
 
-
-
-
-}
-/*
-=======
-
->>>>>>> dummyGame
     public static void main(String[] args) {
         GameConsole totallyNotTheMob = new GameConsole();
         PreMadeMessages message = new PreMadeMessages();

@@ -22,8 +22,8 @@ public class BlackJack extends CardGame implements Game{
 
     public void playGame() {
         deal();
-        displayHand(playerHand, "This is your hand!");
-        displayHandOneHidden(dealerHand);
+       // displayHand(playerHand, "This is your hand!");
+       // displayHandOneHidden(dealerHand);
 
         while(!playerStands) {
             nextTurn();
@@ -50,18 +50,18 @@ public class BlackJack extends CardGame implements Game{
     }
 
     private void nextTurn() {
+        displayHand(playerHand, "This is your hand!");
+        displayHandOneHidden(dealerHand);
         if (hit()) {
             playerHand.add(deck.drawCard());
         }
         else {
             playerStands = true;
         }
-        displayHand(playerHand);
-        displayHandOneHidden(dealerHand);
         printEndOfTurn();
     }
 
-     void displayHand(ArrayList<Card> hand) {
+    void displayHand(ArrayList<Card> hand) {
         for (int i = 0; i < hand.size(); i++) {
             System.out.println(hand.get(i).toString());
         }
@@ -83,7 +83,6 @@ public class BlackJack extends CardGame implements Game{
         String yesNo = s.nextLine();
         if (yesNo.equals("y")) {
             return true;
-
         }
         else return false;
     }
@@ -97,19 +96,16 @@ public class BlackJack extends CardGame implements Game{
     }
     private void printEndOfTurn() {
         int total = getTotal(playerHand);
-        System.out.println("Your new total is: " + total);
         if (total == 21) {
-            System.out.println("Woo Black Jack! You win!");
+            displayHand(playerHand, "Woo Black Jack! You win!");
             playerStands = true;
             isOver = true;
             winner = BlackJackPlayer.player;
         } else if (total > 21) {
-            System.out.println("You Busted! Game over.");
+            displayHand(playerHand, "You Busted! Game over.");
             playerStands = true;
             isOver = true;
             winner = BlackJackPlayer.computer;
-        } else {
-            System.out.println("On to the next turn!");
         }
     }
     private void dealerTurn() {
