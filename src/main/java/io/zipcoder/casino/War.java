@@ -13,11 +13,6 @@ public class War extends CardGame implements Game {
 
     }
 
-
-    public void nextTurn() {
-
-    }
-
     public void playGame() {
         deal();
 
@@ -57,13 +52,13 @@ public class War extends CardGame implements Game {
 
     }
 
-    private Card getNextCard(ArrayList<Card> cards){
+    public Card getNextCard(ArrayList<Card> cards){
         Card toReturn = cards.get(0);
         cards.remove(0);
         return toReturn;
     }
 
-    private void goToWar(){
+    public void goToWar(){
 
         for(int i = 1; i <= 3; i++){
             this.pile.add(getNextCard(this.player));
@@ -94,7 +89,7 @@ public class War extends CardGame implements Game {
 
     }
 
-    private boolean canGoToWar(){
+    public boolean canGoToWar(){
         return this.player.size() >=  4 && this.opponent.size() >= 4 ? true : false;
     }
 
@@ -130,6 +125,14 @@ public class War extends CardGame implements Game {
 
     public Player getWinner(){
         return new Player();
+    }
+
+    public ArrayList<Card> getPlayer(){
+        return this.player;
+    }
+
+    public ArrayList<Card> getOpponent(){
+        return this.opponent;
     }
 
 //    package io.zipcoder.casino;
