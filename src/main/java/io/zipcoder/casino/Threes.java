@@ -3,7 +3,7 @@ package io.zipcoder.casino;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Threes {
+public class git Threes {
     int numberOfDice;
     int sum;
     int rollNumber;
@@ -29,7 +29,7 @@ public class Threes {
             System.out.print("\t" + result.get(arrayIterator.next()));
         }
         rollNumber++;
-        System.out.print("\t Your roll #" + rollNumber + " was " + sum);
+        System.out.print("\t Yourgit  roll #" + rollNumber + " was " + sum);
 
         return sum;
     }
