@@ -23,10 +23,10 @@ public class War extends CardGame implements Game {
 
     }
 
-    public static void main(String[] args){
+  /*  public static void main(String[] args){
         War war = new War();
         war.playGame();
-    }
+    }*/
 
     public static String getInput(String prompt) {
         System.out.print(prompt);
