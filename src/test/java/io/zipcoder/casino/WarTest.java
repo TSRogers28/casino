@@ -3,7 +3,7 @@ package io.zipcoder.casino;
 import org.junit.Test;
 import org.junit.Assert;
 import io.zipcoder.casino.allCasino.games.*;
-import io.zipcoder.casino.allCasino.
+//import io.zipcoder.casino.allCasino.
 
 import org.junit.jupiter.api.*;
 
@@ -21,7 +21,7 @@ class WarTest {
     }
 
     @Test
-    void getNextCardTest() {cle
+    void getNextCardTest() {//cle
         War war = new War();
         war.deal();
 
