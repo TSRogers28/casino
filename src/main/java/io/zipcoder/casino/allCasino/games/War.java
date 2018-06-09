@@ -55,14 +55,8 @@ public class War extends CardGame implements Game {
             if(playerNC.compareTo(opponentNC) == 0){
                 this.pile.add(playerNC);
                 this.pile.add(opponentNC);
-                if(this.canGoToWar()){
+                if(this.canGoToWarAndResult()){
                     this.goToWar();
-                } else {
-                    if(this.player.size() > 4){
-                        this.pileTo(this.player);
-                    } else {
-                        this.pileTo(this.opponent);
-                    }
                 }
             } else if(playerNC.compareTo(opponentNC) > 0){
                 System.out.println("You win this round!");
@@ -75,13 +69,10 @@ public class War extends CardGame implements Game {
                 this.opponent.add(opponentNC);
             }
 
-
             Collections.shuffle(this.opponent);
             Collections.shuffle(this.player);
 
         }
-
-
 
 
         System.out.println("Players = " +this.player.size() + " \nOpponent = " + this.opponent.size());
@@ -112,31 +103,23 @@ public class War extends CardGame implements Game {
             this.pile.add(getNextCard(this.opponent));
         }
 
-
-
         Card playerNC  = getNextCard(this.player);
         Card opponentNC = getNextCard(this.opponent);
 
-
-        System.out.println(" Pile size -  " + this.pile.size());
+        System.out.println("Pile size -  " + this.pile.size());
+        System.out.println("Press Enter to Draw a Card: ");
 
         System.out.println("-----------------------------------");
         System.out.println(opponentNC.toString());
-        getInput("Press Enter to Draw a Card: ");
+        getInput("");
         System.out.println(playerNC.toString());
         System.out.println("-----------------------------------");
 
         if(playerNC.compareTo(opponentNC) == 0){
             this.pile.add(playerNC);
             this.pile.add(opponentNC);
-            if(this.canGoToWar()){
+            if(this.canGoToWarAndResult()){
                 this.goToWar();
-            } else{
-                if(this.player.size() > 4){
-                    this.pileTo(this.player);
-                } else {
-                    this.pileTo(this.opponent);
-                }
             }
         } else if (playerNC.compareTo(opponentNC) > 0){
             System.out.println("You win this War!");
@@ -152,8 +135,23 @@ public class War extends CardGame implements Game {
 
     }
 
-    public boolean canGoToWar(){
-        return this.player.size() >=  4 && this.opponent.size() >= 4 ? true : false;
+    public boolean canGoToWarAndResult(){
+        boolean canWar;
+        if(this.player.size() >=  4 && this.opponent.size() >= 4){
+            canWar = true;
+        } else {
+            canWar = false;
+            if(this.player.size() > 4){
+                System.out.println("The opponent doesn't have enough cards to go to war");
+                this.pileTo(this.player);
+                this.cardsTo(this.player,this.opponent);
+            } else {
+                System.out.println("The Player doesn't have enough cards to go to war");
+                this.pileTo(this.opponent);
+                this.cardsTo(this.opponent,this.player);
+            }
+        }
+        return canWar;
     }
 
     public void deal() {
@@ -165,12 +163,12 @@ public class War extends CardGame implements Game {
         }
     }
 
-//    public void pileTo(ArrayList<Card> to, ArrayList<Card> from){
-//        for(int i = 0; i < from.size(); i++){
-//            to.add(getNextCard(from));
-//        }
-//        from.clear();
-//    }
+    public void cardsTo(ArrayList<Card> to, ArrayList<Card> from){
+        for(int i = 0; i < from.size(); i++){
+            to.add(getNextCard(from));
+        }
+        from.clear();
+    }
 
     public void pileTo(ArrayList<Card> player){
         for(int i = 0; i < this.pile.size(); i++){
