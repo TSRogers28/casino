@@ -44,7 +44,7 @@ public class BaccaratHand {
             else total += c.getFace().getValue();
         }
 
-        if(total > 10) {
+        if(total >= 11) {
             finalTotal = total - 10;
         }
         else finalTotal = total;

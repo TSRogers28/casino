@@ -108,7 +108,7 @@ public class Casino {
 
 
     public void chooseGame() {
-        switch (console.stringScan("What Game Do You Want To Play? War, BlackJack, Threes, or Hi Lo?")) {
+        switch (console.stringScan("What Game Do You Want To Play? War, BlackJack, Threes, Hi Lo, or Baccarat?")) {
             case "war": game = new War();
                 game.playGame();
                 ;
@@ -121,6 +121,9 @@ public class Casino {
                 break;
             case "hi lo":
                 game = new DummyGame();
+                break;
+            case "baccarat":
+                game = new Baccarat();
                 break;
             default:
                 console.println("Please Choose A Game We Have!");
