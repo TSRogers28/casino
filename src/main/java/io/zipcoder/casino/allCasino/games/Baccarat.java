@@ -31,16 +31,11 @@ public class Baccarat extends CardGame implements Game, Gamble {
         bankerHand = new BaccaratHand();
     }
 
-    public static void main(String[] args) {
-        Game game = new Baccarat();
-        game.playGame();
-    }
-
     public void playGame() {
         deal();
-        playerHand.displayHand("Player Hand!\n");
+        playerHand.showHand("Player Hand!\n");
         console.println("Player Has: " + playerHand.getTotal());
-        bankerHand.displayHand("Banker Hand!\n");
+        bankerHand.showHand("Banker Hand!\n");
         console.println("Banker Has: " + bankerHand.getTotal());
 
         if (playerHand.getTotal() > 7 && (playerHand.getTotal() != bankerHand.getTotal())) {
@@ -98,10 +93,10 @@ public class Baccarat extends CardGame implements Game, Gamble {
     private void playerTurn() {
         if (playerHand.getTotal() < 6) {
             playerHand.add(deck.drawCard());
-            playerHand.displayHand("Player Has:\n");
+            playerHand.showHand("Player Has:\n");
             playerStands = true;
         } else if (playerHand.getTotal() > 6) {
-            playerHand.displayHand("Player Has:\n");
+            playerHand.showHand("Player Has:\n");
             playerStands = true;
         }
     }
@@ -111,10 +106,10 @@ public class Baccarat extends CardGame implements Game, Gamble {
         if ((playerHand.getHandLength() == 2) && (bankerHand.getTotal() < 6)) {
             if (bankerHand.getTotal() < 6) {
                 bankerHand.add(deck.drawCard());
-                bankerHand.displayHand("Banker Has: \n");
+                bankerHand.showHand("Banker Has: \n");
                 bankerStands = true;
             } else if ((playerHand.getHandLength() == 2) && (bankerHand.getTotal() < 8)) {
-                bankerHand.displayHand("Banker Has: \n");
+                bankerHand.showHand("Banker Has: \n");
                 bankerStands = true;
             }
         } else if (playerHand.getHandLength() == 3) {
@@ -122,49 +117,49 @@ public class Baccarat extends CardGame implements Game, Gamble {
                     playerHand.getCardValue(playerHand.getCard(2)) < 1) {
                 if (bankerHand.getTotal() < 4) {
                     bankerHand.add(deck.drawCard());
-                    bankerHand.displayHand("Banker Has: \n");
+                    bankerHand.showHand("Banker Has: \n");
                     bankerStands = true;
                 } else if (bankerHand.getTotal() > 3 && bankerHand.getTotal() < 8) {
-                    bankerHand.displayHand("Banker Has: \n");
+                    bankerHand.showHand("Banker Has: \n");
                     bankerStands = true;
                 }
             } else if (playerHand.getCardValue(playerHand.getCard(2)) == 8) {
                 if (bankerHand.getTotal() < 3) {
                     bankerHand.add(deck.drawCard());
-                    bankerHand.displayHand("Banker Has: \n");
+                    bankerHand.showHand("Banker Has: \n");
                     bankerStands = true;
                 } else if (bankerHand.getTotal() > 2 && bankerHand.getTotal() < 8) {
-                    bankerHand.displayHand("Banker Has: \n");
+                    bankerHand.showHand("Banker Has: \n");
                     bankerStands = true;
                 }
             } else if ((playerHand.getCardValue(playerHand.getCard(2)) < 8) &&
                     (playerHand.getCardValue(playerHand.getCard(2)) > 5)) {
                 if (bankerHand.getTotal() < 7) {
                     bankerHand.add(deck.drawCard());
-                    bankerHand.displayHand("Banker Has: \n");
+                    bankerHand.showHand("Banker Has: \n");
                     bankerStands = true;
                 } else if (bankerHand.getTotal() > 6) {
-                    bankerHand.displayHand("Banker Has: \n");
+                    bankerHand.showHand("Banker Has: \n");
                     bankerStands = true;
                 }
             } else if ((playerHand.getCardValue(playerHand.getCard(2)) < 6) &&
                     (playerHand.getCardValue(playerHand.getCard(2)) > 3)) {
                 if (bankerHand.getTotal() < 6) {
                     bankerHand.add(deck.drawCard());
-                    bankerHand.displayHand("Banker Has: \n");
+                    bankerHand.showHand("Banker Has: \n");
                     bankerStands = true;
                 } else if (bankerHand.getTotal() > 5) {
-                    bankerHand.displayHand("Banker Has: \n");
+                    bankerHand.showHand("Banker Has: \n");
                     bankerStands = true;
                 }
             } else if ((playerHand.getCardValue(playerHand.getCard(2)) < 4) &&
                     (playerHand.getCardValue(playerHand.getCard(2)) > 1)) {
                 if (bankerHand.getTotal() < 5) {
                     bankerHand.add(deck.drawCard());
-                    bankerHand.displayHand("Banker Has: \n");
+                    bankerHand.showHand("Banker Has: \n");
                     bankerStands = true;
                 } else if (bankerHand.getTotal() > 4) {
-                    bankerHand.displayHand("Banker Has: \n");
+                    bankerHand.showHand("Banker Has: \n");
                     bankerStands = true;
                 }
             }
@@ -175,21 +170,21 @@ public class Baccarat extends CardGame implements Game, Gamble {
 
         if (Math.abs(9 - playerHand.getTotal()) < Math.abs(9 - bankerHand.getTotal())) {
             winner = BaccaratPlayer.player;
-            playerHand.displayHand("Final Player Hand: \n");
+            playerHand.showHand("Final Player Hand: \n");
             console.println("Player Has: " + playerHand.getTotal());
-            bankerHand.displayHand("Final Banker Hand: \n");
+            bankerHand.showHand("Final Banker Hand: \n");
             console.println("Banker Has: " + bankerHand.getTotal());
             console .println("Player Wins!");
         } else if (Math.abs(9 - bankerHand.getTotal()) < Math.abs(9 - playerHand.getTotal())) {
             winner = BaccaratPlayer.computer;
-            playerHand.displayHand("Final Player Hand: \n");
-            bankerHand.displayHand("Final Banker Hand: \n");
+            playerHand.showHand("Final Player Hand: \n");
+            bankerHand.showHand("Final Banker Hand: \n");
             console.println("Banker Wins!");
         } else {
             winner = null;
             System.out.println("Tie! Return All Bets!");
-            playerHand.displayHand("Final Player Hand: \n");
-            bankerHand.displayHand("Final Banker Hand: \n");
+            playerHand.showHand("Final Player Hand: \n");
+            bankerHand.showHand("Final Banker Hand: \n");
         }
     }
 }

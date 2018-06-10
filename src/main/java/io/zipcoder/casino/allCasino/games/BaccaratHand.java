@@ -21,7 +21,7 @@ public class BaccaratHand {
         }
     }
 
-    public void displayHand(String message) {
+    public void showHand(String message) {
         System.out.println(message);
         displayHand();
     }
