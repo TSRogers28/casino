@@ -15,16 +15,15 @@ public class Baccarat extends CardGame implements Game, Gamble {
 
     GameConsole console = new GameConsole();
     private BaccaratPlayer winner;
-    private boolean isOver;
     private boolean playerStands;
     private boolean bankerStands;
     private BaccaratHand playerHand;
     private BaccaratHand bankerHand;
+    private boolean playing = true;
     private int pot;
 
     public Baccarat() {
         super();
-        isOver = false;
         playerStands = false;
         bankerStands = false;
         playerHand = new BaccaratHand();
@@ -50,7 +49,7 @@ public class Baccarat extends CardGame implements Game, Gamble {
             playerStands = true;
             console.println("Banker Has A Natural Win!");
             getWinner();
-        } else if(playerHand.getTotal() > 7 && (playerHand.getTotal() == bankerHand.getTotal())){
+        } else if (playerHand.getTotal() > 7 && (playerHand.getTotal() == bankerHand.getTotal())) {
             winner = null;
             console.println("Tie! Return All Bets!");
         } else {

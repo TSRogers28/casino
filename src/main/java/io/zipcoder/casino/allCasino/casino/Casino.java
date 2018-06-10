@@ -13,15 +13,12 @@ import io.zipcoder.casino.allCasino.interfaces.*;
 
 public class Casino {
 
-    private boolean inTheCasino = true;
-    //private boolean playingGames = false;
-
-
     GameConsole console = new GameConsole();
     PreMadeMessages messages = new PreMadeMessages();
     Game game;
 
-
+    private boolean inTheCasino = true;
+    private String gameSelection = null;
 
     Player player1 = new Player(0, "");
 
@@ -60,6 +57,7 @@ public class Casino {
                     player1.addHelloKittyFunBucks(console.getIntegerInput("How Many Credits Would You Like To Add?"));
                     break;
                 case "play games" :
+                    chooseGame(console.stringScan("What Game Do You Want To Play? War, BlackJack, Threes, Hi Lo, or Baccarat?"));
                     playGames();
                     break;
                 case "exit" : leaveCasino();
@@ -83,53 +81,58 @@ public class Casino {
     }
 
     public void playGames() {
-        chooseGame();
-        if (game instanceof Gamble) {
-            int bet = console.getIntegerInput("Place Kitty Bets!");
-            player1.addHelloKittyFunBucks(bet*-1);
-            ((Gamble) game).placeBet(bet);
-        }
-        game.playGame();
-        if (game instanceof Gamble) {
-            boolean playeriswinner = game.getWinner();
-            if (playeriswinner) {
-                player1.addHelloKittyFunBucks(((Gamble) game).payOut());
-                if(player1.getName().equalsIgnoreCase("froilan")) {
-                    console.println(messages.batmanWins);
-                } else {
-                    console.println(messages.makeItRain);}
-            }
-            else {
-                console.println("Booooooooo. You lose.");
-            }
-        }
 
+            if (game instanceof Gamble) {
+                int bet = console.getIntegerInput("Place Kitty Bets!");
+                player1.addHelloKittyFunBucks(bet * -1);
+                ((Gamble) game).placeBet(bet);
+            }
+            game.playGame();
+            if (game instanceof Gamble) {
+                boolean playeriswinner = game.getWinner();
+                if (playeriswinner) {
+                    player1.addHelloKittyFunBucks(((Gamble) game).payOut());
+                    if (player1.getName().equalsIgnoreCase("froilan")) {
+                        console.println(messages.batmanWins);
+                    } else {
+                        console.println(messages.makeItRain);
+                    }
+                } else {
+                    console.println("Booooooooo. You lose.");
+                }
+            }
     }
 
 
-    public void chooseGame() {
-        switch (console.stringScan("What Game Do You Want To Play? War, BlackJack, Threes, Hi Lo, or Baccarat?")) {
-            case "war": game = new War();
-                game.playGame();
-                ;
+    public void chooseGame(String prompt) {
+        do{
+        switch (prompt) {
+            case "war":
+                game = new War();
+                gameSelection = "war";
                 break;
             case "blackjack":
                 game = new BlackJack();
+                gameSelection = "blackjack";
                 break;
             case "threes":
                 game = new Threes();
+                gameSelection = "threes";
                 break;
             case "hi lo":
                 game = new DummyGame();
+                gameSelection = "hi lo";
                 break;
             case "baccarat":
                 game = new Baccarat();
+                gameSelection = "baccarat";
                 break;
             default:
                 console.println("Please Choose A Game We Have!");
+                chooseGame(console.stringScan("What Game Do You Want To Play? War, BlackJack, Threes, Hi Lo, or Baccarat?"));
                 break;
-
         }
+        } while(game == null);
 
     }
 
