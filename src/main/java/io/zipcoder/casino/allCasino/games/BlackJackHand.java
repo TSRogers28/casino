@@ -62,7 +62,7 @@ public class BlackJackHand {
             if (21 - (tally + aceCount - i) >=11) {
                 tally += 11;
             }
-            else {
+             else {
                 tally += 1;
             }
         }
