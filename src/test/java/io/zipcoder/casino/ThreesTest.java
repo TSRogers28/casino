@@ -5,9 +5,10 @@ import org.junit.Test;
 
 public class ThreesTest {
 
+    
 
    // private Player player1;
-    //private Player player1;
+
 
 
 
@@ -27,6 +28,7 @@ public class ThreesTest {
     public void score() {
     }
 
+
     /*@Test
     public void compareForWinner() {
         Threes tester = new Threes();
@@ -38,6 +40,5 @@ public class ThreesTest {
         assertEquals(actual, expected);
         
     }*/
-
 
 }
