@@ -3,8 +3,10 @@ package io.zipcoder.casino.allCasino.games;
 import io.zipcoder.casino.allCasino.card.Card;
 import io.zipcoder.casino.allCasino.ioMessages.Face;
 import io.zipcoder.casino.allCasino.ioMessages.Suit;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import java.util.function.BooleanSupplier;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -18,7 +20,7 @@ class BaccaratHandTest {
     @Test
     void add() {
         test.add(new Card(Face.JACK, Suit.CLUBS));
-        assertTrue(test.getHandLength() > 0);
+        Assertions.assertTrue(test.getHandLength() > 0);
     }
 
     @Test

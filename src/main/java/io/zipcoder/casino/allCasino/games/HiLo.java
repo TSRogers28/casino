@@ -38,7 +38,7 @@ public class HiLo implements Game{
 
     public int rand(){
         Random r = new Random();
-        return r.nextInt(100)+1;
+        return r.nextInt(1000)+1;
     }
 
 
