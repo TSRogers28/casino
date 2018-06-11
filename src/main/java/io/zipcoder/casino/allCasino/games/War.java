@@ -125,9 +125,9 @@ public class War extends CardGame implements Game {
         gc.print("Players = " +this.player.size() + " \nOpponent = " + this.opponent.size());
 
         if(getWinner()){
-            gc.print("You Win");
+            gc.println("You Win");
         } else {
-            gc.print("You lose");
+            gc.println("You lose");
         }
     }
     //////////////////////////////////////////////////////////////
@@ -213,6 +213,5 @@ public class War extends CardGame implements Game {
         return this.opponent;
     }
     ///////////////////////////////////////////////////////////////
-
 
 }
