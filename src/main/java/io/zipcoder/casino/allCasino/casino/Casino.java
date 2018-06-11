@@ -30,9 +30,15 @@ public class Casino {
 
          player1.setHelloKittyFunBucks(console.getIntegerInput("How Much Money Did You Bring Today?"));
 
-         console.println(messages.displayTheCat);
-         console.println(messages.rollTheDice);
-         console.println(messages.welcomeMessage);
+        if(player1.getName().equalsIgnoreCase("froilan")){
+            console.println(messages.bringMeTheBat);
+            console.println(messages.rollTheDice);
+            console.println(messages.froilanWelcome);
+        }else {
+            console.println(messages.displayTheCat);
+            console.println(messages.rollTheDice);
+            console.println(messages.welcomeMessage);
+        }
 
         enterCasino();
     }
@@ -40,7 +46,10 @@ public class Casino {
     public void enterCasino(){
 
         while(inTheCasino == true){
-            console.println(messages.mainMenu);
+            if(player1.getName().equalsIgnoreCase("froilan")){
+                console.println(messages.gothamMenu);
+            } else {
+            console.println(messages.mainMenu);}
 
             switch(console.stringScan("What Would You Like To Do?")){
                 case "see credits" :
@@ -53,7 +62,7 @@ public class Casino {
                 case "play games" :
                     playGames();
                     break;
-                case "exit" : console.println(messages.byeBye);
+                case "exit" : leaveCasino();
                     inTheCasino = false;
                     break;
                 default: console.println("You Can't Do That, We Have Rules Here!! Please Choose An Available Option");
@@ -61,6 +70,16 @@ public class Casino {
             }
         }
 
+    }
+
+    public void leaveCasino(){
+        if(player1.getName().equalsIgnoreCase("froilan")) {
+            console.println(messages.batBye);
+            console.println("Not The Gambler That Gotham Needs, The Gambler That Gotham Deserves....");
+        }else {
+
+            console.println(messages.byeBye);
+        }
     }
 
     public void playGames() {
@@ -75,7 +94,10 @@ public class Casino {
             boolean playeriswinner = game.getWinner();
             if (playeriswinner) {
                 player1.addHelloKittyFunBucks(((Gamble) game).payOut());
-                console.println(messages.makeItRain);
+                if(player1.getName().equalsIgnoreCase("froilan")) {
+                    console.println(messages.batmanWins);
+                } else {
+                    console.println(messages.makeItRain);}
             }
             else {
                 console.println("Booooooooo. You lose.");
@@ -86,7 +108,7 @@ public class Casino {
 
 
     public void chooseGame() {
-        switch (console.stringScan("What Game Do You Want To Play? War, BlackJack, Threes, or Hi Lo?")) {
+        switch (console.stringScan("What Game Do You Want To Play? War, BlackJack, Threes, Hi Lo, or Baccarat?")) {
             case "war": game = new War();
                 game.playGame();
                 ;
@@ -99,6 +121,9 @@ public class Casino {
                 break;
             case "hi lo":
                 game = new DummyGame();
+                break;
+            case "baccarat":
+                game = new Baccarat();
                 break;
             default:
                 console.println("Please Choose A Game We Have!");
