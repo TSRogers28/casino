@@ -27,12 +27,12 @@ public class BlackJackHandTest {
         bjh.displayHand();
 
     }
-    @Test
-    public void displayDealerHandTest() {
-        bjh.add(new Card(Face.SIX, Suit.CLUBS));
-        bjh.add(new Card(Face.EIGHT, Suit.CLUBS));
-        bjh.displayDealerHand();
-    }
+//    @Test
+//    public void displayDealerHandTest() {
+//        bjh.add(new Card(Face.SIX, Suit.CLUBS));
+//        bjh.add(new Card(Face.EIGHT, Suit.CLUBS));
+//        bjh.displayDealerHand();
+//    }
     @Test
     public void tallyTest() {
         bjh.add(new Card(Face.ACE, Suit.SPADES));

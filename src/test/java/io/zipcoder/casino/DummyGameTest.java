@@ -1,6 +1,7 @@
 package io.zipcoder.casino;
 
 
+import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import io.zipcoder.casino.allCasino.player.Player;
@@ -26,7 +27,7 @@ public class DummyGameTest {
 
         Player expected = dummy.player1;
 
-        //Assertions.assertEquals(actual,expected);
+        Assert.assertNotNull(expected);
 
     }
     @Test
@@ -35,11 +36,8 @@ public class DummyGameTest {
         int actual = dummy.rand();
 
         int expected = dummy.rand();
-        boolean bool = false;
-        if(actual == expected){
 
-
-        }
+        Assert.assertNotEquals(actual,expected);
 
 
 
