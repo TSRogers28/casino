@@ -1,9 +1,12 @@
 package io.zipcoder.casino;
 
-import java.util.ArrayList;
-import static org.junit.Assert.*;
+import io.zipcoder.casino.allCasino.dice.Dice;
 import org.junit.Test;
-import io.zipcoder.casino.allCasino.dice.*;
+
+import java.util.ArrayList;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 
 public class DiceTest {

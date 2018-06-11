@@ -1,18 +1,9 @@
 package io.zipcoder.casino;
 
 
+import io.zipcoder.casino.allCasino.games.BlackJack;
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.io.ByteArrayInputStream;
-import java.io.Console;
-import java.io.InputStream;
-import java.io.PrintStream;
-import java.util.ArrayList;
-
-import static org.junit.Assert.*;
-
-import io.zipcoder.casino.allCasino.games.BlackJack;
 
 public class BlackJackTest {
 
