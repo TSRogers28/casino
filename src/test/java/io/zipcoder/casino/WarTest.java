@@ -21,7 +21,7 @@ class WarTest {
     }
 
     @Test
-    void getNextCardTest() {//cle
+    public void getNextCardTest() {//cle
         War war = new War();
         war.deal();
 
@@ -34,7 +34,7 @@ class WarTest {
     }
 
     @Test
-    void toToWarTest() {
+   public void toToWarTest() {
         int expect = 52;
         War war = new War();
         war.deal();
