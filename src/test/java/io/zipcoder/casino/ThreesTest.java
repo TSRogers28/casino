@@ -17,7 +17,14 @@ public class ThreesTest {
 
 
     @Test
-    public void setSumTemp() {
+    public void testSetSum() {
+        Threes threes = new Threes();
+        threes.setSum(15);
+
+        int expected = 15;
+        int actual =  threes.getSum();
+
+        assertEquals(actual, expected);
     }
 
     @Test
@@ -26,11 +33,22 @@ public class ThreesTest {
 
     @Test
     public void roll() {
+
     }
 
     @Test
-    public void score() {
+    public void rollThreesEqualsZero() {
+
     }
+
+
+    @Test
+    public void score() {
+
+
+    }
+
+
 
     @Test
     public void compareForWinner() {
