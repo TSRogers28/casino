@@ -51,17 +51,17 @@ public class HiLo implements Game{
     }
 
     public void determineWinner(){
+        System.out.println("player 1 score is: " + p1Score);
+        System.out.println("player 2 score is: " + p2score);
         if(p1Score > p2score){
-            System.out.println("player 1 score is: " + p1Score);
-            System.out.println("player 2 score is: " + p2score);
+
             setWinner(player1);
            // return getWinner();
 
         }
 
         else{
-            System.out.println("player 1 score is: " + p1Score);
-            System.out.println("player 2 score is: " + p2score);
+
             setWinner(player2);
             //return getWinner();
         }
