@@ -13,15 +13,12 @@ import io.zipcoder.casino.allCasino.interfaces.*;
 
 public class Casino {
 
-    private boolean inTheCasino = true;
-    //private boolean playingGames = false;
-
-
     GameConsole console = new GameConsole();
     PreMadeMessages messages = new PreMadeMessages();
     Game game;
 
-
+    private boolean inTheCasino = true;
+    private String gameSelection = null;
 
     Player player1 = new Player(0, "");
 
@@ -83,7 +80,7 @@ public class Casino {
     }
 
     public void playGames() {
-        chooseGame();
+        chooseGame(console.stringScan("What Game Do You Want To Play? War, BlackJack, Threes, HiLo, or Baccarat?"));
         do {
             if (game instanceof Gamble) {
                 int bet = console.getIntegerInput("Place Kitty Bets!");
@@ -112,8 +109,10 @@ public class Casino {
     }
 
 
-    public void chooseGame() {
-        switch (console.stringScan("What Game Do You Want To Play? War, BlackJack, Threes, HiLo, or Baccarat?")) {
+
+    public void chooseGame(String choice) {
+        do {
+        switch (choice) {
             case "war": game = new War();
                 break;
             case "blackjack":
@@ -131,11 +130,15 @@ public class Casino {
             default:
                 console.println("Please Choose A Game We Have!");
                 break;
-
         }
-
+        } while(game == null);
     }
 
+    //methods for testing purposes only
+
+    public Game getGame() {
+        return game;
+    }
 }
 
 

@@ -2,10 +2,12 @@
 
 package io.zipcoder.casino;
 
+import io.zipcoder.casino.allCasino.card.Card;
+import io.zipcoder.casino.allCasino.card.CardDeck;
+import io.zipcoder.casino.allCasino.ioMessages.Face;
+import io.zipcoder.casino.allCasino.ioMessages.Suit;
 import org.junit.Assert;
 import org.junit.Test;
-import io.zipcoder.casino.allCasino.ioMessages.*;
-import io.zipcoder.casino.allCasino.card.*;
 
 
 public class CardDeckTest {

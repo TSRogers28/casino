@@ -1,10 +1,10 @@
 package io.zipcoder.casino;
 
 
+import io.zipcoder.casino.allCasino.games.HiLo;
+import io.zipcoder.casino.allCasino.player.Player;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
-import io.zipcoder.casino.allCasino.player.Player;
-import io.zipcoder.casino.allCasino.games.HiLo;
 
 
 

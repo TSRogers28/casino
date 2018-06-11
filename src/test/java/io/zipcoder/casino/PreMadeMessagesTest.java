@@ -1,11 +1,9 @@
 
 package io.zipcoder.casino;
 
+import io.zipcoder.casino.allCasino.ioMessages.PreMadeMessages;
 import org.junit.Assert;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
-import io.zipcoder.casino.allCasino.ioMessages.PreMadeMessages;
 
 public class PreMadeMessagesTest {
 PreMadeMessages messages = new PreMadeMessages();
