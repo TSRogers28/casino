@@ -31,7 +31,8 @@ public class BlackJackHand {
     }
 
     public void displayDealerHand() {
-        System.out.println("This is the dealer's hand (She has one more. It's hidden!)");
+        System.out.println("This is the dealer's hand =^.^=");
+        System.out.println(Card.getBackOfCard());
         for (int i = 1; i < hand.size(); i++) {
             System.out.println(hand.get(i).toString() + "\n");
         }
@@ -61,7 +62,7 @@ public class BlackJackHand {
             if (21 - (tally + aceCount - i) >=11) {
                 tally += 11;
             }
-            else {
+             else {
                 tally += 1;
             }
         }

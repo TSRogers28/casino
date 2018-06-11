@@ -22,6 +22,10 @@ public class DummyGame implements Game{
 
     }
 
+    public void reset(){
+
+    }
+
 
     public void playGame(){
     runGame();
@@ -44,12 +48,12 @@ public class DummyGame implements Game{
 
     }
 
-    public Player determineWinner(){
+    public void determineWinner(){
         if(p1Score > p2score){
             System.out.println("player 1 score is: " + p1Score);
             System.out.println("player 2 score is: " + p2score);
             setWinner(player1);
-            return getWinner();
+           // return getWinner();
 
         }
 
@@ -57,7 +61,7 @@ public class DummyGame implements Game{
             System.out.println(p1Score);
             System.out.println(p2score);
             setWinner(player2);
-            return getWinner();
+            //return getWinner();
         }
 
 
@@ -71,9 +75,12 @@ public class DummyGame implements Game{
 
 
     }
-    public Player getWinner(){
+    public boolean getWinner(){
         System.out.println(winner.getName() + " Wins!");
-        return winner;
+        if (player1 == winner) {
+            return true;
+        }
+        else return false;
 
 
 

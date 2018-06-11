@@ -45,15 +45,23 @@
             return p.getHelloKittyFunBucks();
         }
 
+        public void reset(){
+
+        }
+
         public void playGame(){
             playGame();
             scoreRoll1(this.getPlayer1());
             scoreRoll2(this.getPlayer2());
             compareForWinner(this.getSumPlayer1(), this.getSumPlayer2());
+
         }
 
-        public Player getWinner() {
-            return winner;
+       public boolean getWinner() {
+            if (winner == player1)
+                return true;
+            else
+                return false;
         }
 
         public void setWinner(Player winner) {
@@ -118,17 +126,16 @@
             setSum(0);
         }
 
-        public Player compareForWinner(int sumPlayer1, int sumPlayer2){
-            winner = (sumPlayer1 < sumPlayer2) ? player1 : player2;
-            setWinner(winner);
-            System.out.println("\n\n"+ winner.getName() + " won!");
 
-            return getWinner();
+
+
+        public Player compareForWinner(int sumPlayer1, int sumPlayer2){
+            Player gameWinner = (sumPlayer1 < sumPlayer2) ? player1 : player2;
+            setWinner(gameWinner);
+            System.out.println("\n\n"+ winner.getName() + " won!");
+            return gameWinner;
         }
 
-//        public void getOut(){
-//
-//        } This will return back into the casino when ready;
 
 
     }

@@ -3,6 +3,7 @@ package io.zipcoder.casino.allCasino.games;
 
 import java.util.Scanner;
 
+import io.zipcoder.casino.allCasino.card.CardDeck;
 import io.zipcoder.casino.allCasino.ioMessages.*;
 import io.zipcoder.casino.allCasino.card.Card;
 import io.zipcoder.casino.allCasino.card.CardGame;
@@ -11,8 +12,7 @@ import io.zipcoder.casino.allCasino.player.*;
 
 public class BlackJack extends CardGame implements Game, Gamble{
 
-    enum BlackJackPlayer {player, computer};
-    private BlackJackPlayer winner;
+    private boolean playerIsWinner;
     private boolean isOver;
     private boolean playerStands;
     private BlackJackHand playerHand;
@@ -28,21 +28,29 @@ public class BlackJack extends CardGame implements Game, Gamble{
         dealerHand = new BlackJackHand();
     }
     public void playGame() {
-        deal();
+            deal();
 
-        while(!playerStands) {
-            nextTurn();
-        }
-        if (!isOver) {
-            System.out.println("These are your cards!");
-            playerHand.displayHand();
-            System.out.println("Now it's the dealer's turn. Your score to beat is " + playerHand.getTotal());
-            dealerTurn();
-        }
+            while (!playerStands) {
+                nextTurn();
+            }
+            if (!isOver) {
+                System.out.println("These are your cards!");
+                playerHand.displayHand();
+                System.out.println("Now it's the dealer's turn. Your score to beat is " + playerHand.getTotal());
+                dealerTurn();
+            }
     }
 
-    public Player getWinner() {
-        return null;
+    public void reset() {
+        deck = new CardDeck();
+        playerHand = new BlackJackHand();
+        dealerHand = new BlackJackHand();
+        playerStands = false;
+        isOver = false;
+    }
+
+    public boolean getWinner() {
+        return playerIsWinner;
     }
 
 
@@ -91,12 +99,12 @@ public class BlackJack extends CardGame implements Game, Gamble{
             playerHand.displayHand("Woo Black Jack! You win!");
             playerStands = true;
             isOver = true;
-            winner = BlackJackPlayer.player;
+            playerIsWinner = true;
         } else if (total > 21) {
             playerHand.displayHand("You Busted! Game over.");
             playerStands = true;
             isOver = true;
-            winner = BlackJackPlayer.computer;
+            playerIsWinner = false;
         }
     }
     private void dealerTurn() {
@@ -112,16 +120,17 @@ public class BlackJack extends CardGame implements Game, Gamble{
 
         if (total > 21) {
             System.out.println("Dealer busted! You win!");
-            winner = BlackJackPlayer.player;
+            playerIsWinner = true;
         }
         else if (total == 21 || total > playerHand.getTotal()) {
             System.out.println("Womp womp. Dealer's score was " + total + ". Dealer Wins.");
-            winner = BlackJackPlayer.computer;
+            playerIsWinner = false;
         }
         else {
             System.out.println("Woo! Dealer's score was " + total + ", but yours was " + playerHand.getTotal() + "!");
             System.out.println("You win!");
-            winner = BlackJackPlayer.player;
+            playerIsWinner = true;
         }
     }
 }
+

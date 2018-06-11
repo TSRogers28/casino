@@ -30,6 +30,10 @@ public class Card implements Comparable<Card>{
     return Integer.compare(face.getValue(), card.getFace().getValue());
 }
 
+    public static String getBackOfCard() {
+        return "?|---|\n" + " |???|\n" + " |---|?\n";
+    }
+
     @Override
     public String toString() {
         return suit.getSymbol() + face.getCardImage() + suit.getSymbol();
