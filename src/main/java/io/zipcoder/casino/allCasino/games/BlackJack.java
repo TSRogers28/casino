@@ -70,16 +70,16 @@ public class BlackJack extends CardGame implements Game, Gamble{
     }
 
     public void playGame() {
-            deal();
-            while (!playerStands) {
-                nextTurn();
-            }
-            if (!isOver) {
-                gameConsole.println("These are your cards!");
-                playerHand.displayHand();
-                gameConsole.println("Now it's the dealer's turn. Your score to beat is " + playerHand.getTotal());
-                dealerTurn();
-            }
+        deal();
+        while (!playerStands) {
+            nextTurn();
+        }
+        if (!isOver) {
+            gameConsole.println("These are your cards!");
+            playerHand.displayHand();
+            gameConsole.println("Now it's the dealer's turn. Your score to beat is " + playerHand.getTotal());
+            dealerTurn();
+        }
     }
 
     private void nextTurn() {
@@ -120,7 +120,6 @@ public class BlackJack extends CardGame implements Game, Gamble{
             playerIsWinner = true;
         }
     }
-
     public void endOfTurn(int total) {
         if (total == 21) {
             playerHand.displayHand("Woo Black Jack! You win!");
