@@ -22,6 +22,10 @@ public class DummyGame implements Game{
 
     }
 
+    public void reset(){
+
+    }
+
 
     public void playGame(){
     runGame();

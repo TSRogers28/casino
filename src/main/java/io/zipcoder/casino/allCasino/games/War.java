@@ -97,8 +97,7 @@ public class War extends CardGame implements Game {
 //            }
 //        }
 
-        this.player.clear();
-        this.opponent.clear();
+
 
 
     }
@@ -225,6 +224,8 @@ public class War extends CardGame implements Game {
 
     @Override
     public void reset() {
+        this.player.clear();
+        this.opponent.clear();
         this.playGame();
     }
 
