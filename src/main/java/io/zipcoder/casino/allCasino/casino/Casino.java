@@ -80,7 +80,7 @@ public class Casino {
     }
 
     public void playGames() {
-        chooseGame();
+        chooseGame(console.stringScan("What Game Do You Want To Play? War, BlackJack, Threes, HiLo, or Baccarat?"));
         do {
             if (game instanceof Gamble) {
                 int bet = console.getIntegerInput("Place Kitty Bets!");
@@ -110,9 +110,9 @@ public class Casino {
 
 
 
-    public void chooseGame() {
+    public void chooseGame(String choice) {
         do {
-        switch (console.stringScan("What Game Do You Want To Play? War, BlackJack, Threes, HiLo, or Baccarat?")) {
+        switch (choice) {
             case "war": game = new War();
                 break;
             case "blackjack":
@@ -132,6 +132,12 @@ public class Casino {
                 break;
         }
         } while(game == null);
+    }
+
+    //methods for testing purposes only
+
+    public Game getGame() {
+        return game;
     }
 }
 
