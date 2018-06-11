@@ -20,7 +20,7 @@ public class WarTest {
     }
 
     @Test
-    public void getNextCardTest() {//cle
+    public void getNextCardTest() {
         War war = new War();
         war.deal();
 
@@ -32,20 +32,4 @@ public class WarTest {
         Assert.assertEquals(expect, actual);
     }
 
-    @Test
-    public void toToWarTest() {
-        int expect = 52;
-        War war = new War();
-        war.deal();
-        war.goToWar();
-
-        int actual = war.getPlayer().size() + war.getOpponent().size();
-        Assert.assertEquals(expect, actual);
-    }
-
-//    @Test
-//    void startGameTest() {
-//        War war = new War();
-//        war.playGame();
-//    }
 }
