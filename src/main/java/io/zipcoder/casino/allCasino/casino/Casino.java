@@ -57,7 +57,6 @@ public class Casino {
                     player1.addHelloKittyFunBucks(console.getIntegerInput("How Many Credits Would You Like To Add?"));
                     break;
                 case "play games" :
-                    chooseGame(console.stringScan("What Game Do You Want To Play? War, BlackJack, Threes, Hi Lo, or Baccarat?"));
                     playGames();
                     break;
                 case "exit" : leaveCasino();
@@ -81,7 +80,8 @@ public class Casino {
     }
 
     public void playGames() {
-
+        chooseGame();
+        do {
             if (game instanceof Gamble) {
                 int bet = console.getIntegerInput("Place Kitty Bets!");
                 player1.addHelloKittyFunBucks(bet * -1);
@@ -101,41 +101,38 @@ public class Casino {
                     console.println("Booooooooo. You lose.");
                 }
             }
+            String playAgain = console.stringScan("Do you Want To Play Again? y/n ");
+            if(!playAgain.equalsIgnoreCase("y")){
+                break;
+            } else game.reset();
+        } while(true);
     }
 
 
-    public void chooseGame(String prompt) {
-        do{
-        switch (prompt) {
-            case "war":
-                game = new War();
-                gameSelection = "war";
+
+    public void chooseGame() {
+        do {
+        switch (console.stringScan("What Game Do You Want To Play? War, BlackJack, Threes, HiLo, or Baccarat?")) {
+            case "war": game = new War();
                 break;
             case "blackjack":
                 game = new BlackJack();
-                gameSelection = "blackjack";
                 break;
             case "threes":
                 game = new Threes();
-                gameSelection = "threes";
                 break;
-            case "hi lo":
+            case "hilo":
                 game = new DummyGame();
-                gameSelection = "hi lo";
                 break;
             case "baccarat":
                 game = new Baccarat();
-                gameSelection = "baccarat";
                 break;
             default:
                 console.println("Please Choose A Game We Have!");
-                chooseGame(console.stringScan("What Game Do You Want To Play? War, BlackJack, Threes, Hi Lo, or Baccarat?"));
                 break;
         }
         } while(game == null);
-
     }
-
 }
 
 

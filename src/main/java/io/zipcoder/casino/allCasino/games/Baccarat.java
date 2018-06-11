@@ -3,6 +3,7 @@ package io.zipcoder.casino.allCasino.games;
 
 import java.util.Scanner;
 
+import io.zipcoder.casino.allCasino.card.CardDeck;
 import io.zipcoder.casino.allCasino.ioMessages.*;
 import io.zipcoder.casino.allCasino.card.Card;
 import io.zipcoder.casino.allCasino.card.CardGame;
@@ -21,6 +22,8 @@ public class Baccarat extends CardGame implements Game, Gamble {
     private BaccaratHand bankerHand;
     private boolean playing = true;
     private int pot;
+    private String playerBetOn;
+    private boolean natWin = false;
 
     public Baccarat() {
         super();
@@ -37,22 +40,9 @@ public class Baccarat extends CardGame implements Game, Gamble {
         bankerHand.showHand("Banker Hand!\n");
         console.println("Banker Has: " + bankerHand.getTotal());
 
-        if (playerHand.getTotal() > 7 && (playerHand.getTotal() != bankerHand.getTotal())) {
-            winner = BaccaratPlayer.player;
-            playerStands = true;
-            bankerStands = true;
-            console.println("Player Has A Natural Win!");
-            getWinner();
-        } else if (bankerHand.getTotal() > 7 && (bankerHand.getTotal() != bankerHand.getTotal())) {
-            winner = BaccaratPlayer.computer;
-            playerStands = true;
-            playerStands = true;
-            console.println("Banker Has A Natural Win!");
-            getWinner();
-        } else if (playerHand.getTotal() > 7 && (playerHand.getTotal() == bankerHand.getTotal())) {
-            winner = null;
-            console.println("Tie! Return All Bets!");
-        } else {
+        naturalWinner();
+
+        if (natWin == false) {
             while (!playerStands && !bankerStands) {
                 playerTurn();
                 playerStands = true;
@@ -64,14 +54,59 @@ public class Baccarat extends CardGame implements Game, Gamble {
         }
     }
 
+    public void reset() {
+        deck = new CardDeck();
+        playerHand = new BaccaratHand();
+        bankerHand = new BaccaratHand();
+        playerStands = false;
+        bankerStands = false;
+    }
+
     public boolean getWinner() {
-        if (winner == BaccaratPlayer.player) {
+        if ((winner == BaccaratPlayer.player) && (playerBetOn.equalsIgnoreCase("player"))) {
+            return true;
+        }else if ((winner == BaccaratPlayer.computer) && (playerBetOn.equalsIgnoreCase("banker"))){
             return true;
         } else return false;
     }
 
+    public boolean naturalWinner() {
+        if ((playerHand.getTotal() > 7 && playerHand.getTotal() < 10) && (playerHand.getTotal() != bankerHand.getTotal())) {
+            winner = BaccaratPlayer.player;
+            playerStands = true;
+            bankerStands = true;
+            console.println("Player Has A Natural Win!");
+            getWinner();
+            return true;
+        } else if ((bankerHand.getTotal() > 7 && playerHand.getTotal() < 10) && (bankerHand.getTotal() != bankerHand.getTotal())) {
+            winner = BaccaratPlayer.computer;
+            playerStands = true;
+            playerStands = true;
+            console.println("Banker Has A Natural Win!");
+            getWinner();
+            return true;
+        } else if (playerHand.getTotal() > 7 && (playerHand.getTotal() == bankerHand.getTotal())) {
+            winner = null;
+            console.println("Tie! Return All Bets!");
+            return true;
+        } else {return false;}
+    }
+
     public void placeBet(int helloKittyFunBucks) {
         pot = helloKittyFunBucks * 2;
+        String betOn;
+        betOn = console.stringScan("Are You Betting On Player or Banker?");
+        do{
+        if(betOn.equalsIgnoreCase("Player")){
+            playerBetOn = betOn;
+        }
+        else if(betOn.equalsIgnoreCase("Banker")){
+            playerBetOn = betOn;
+        }
+        else {
+            console.println("Please Choose Player of Banker");
+        }
+        } while(playerBetOn == null);
     }
 
     public int payOut() {
@@ -102,67 +137,71 @@ public class Baccarat extends CardGame implements Game, Gamble {
 
 
     private void bankerTurn() {
-        if ((playerHand.getHandLength() == 2) && (bankerHand.getTotal() < 6)) {
-            if (bankerHand.getTotal() < 6) {
-                bankerHand.add(deck.drawCard());
-                bankerHand.showHand("Banker Has: \n");
-                bankerStands = true;
-            } else if ((playerHand.getHandLength() == 2) && (bankerHand.getTotal() < 8)) {
-                bankerHand.showHand("Banker Has: \n");
-                bankerStands = true;
+        if (playerHand.getHandLength() == 2) {
+            bankerVs2PlayerCards();
             }
-        } else if (playerHand.getHandLength() == 3) {
-            if (playerHand.getCardValue(playerHand.getCard(2)) > 8 ||
-                    playerHand.getCardValue(playerHand.getCard(2)) < 1) {
-                if (bankerHand.getTotal() < 4) {
-                    bankerHand.add(deck.drawCard());
-                    bankerHand.showHand("Banker Has: \n");
-                    bankerStands = true;
-                } else if (bankerHand.getTotal() > 3 && bankerHand.getTotal() < 8) {
-                    bankerHand.showHand("Banker Has: \n");
-                    bankerStands = true;
-                }
-            } else if (playerHand.getCardValue(playerHand.getCard(2)) == 8) {
-                if (bankerHand.getTotal() < 3) {
-                    bankerHand.add(deck.drawCard());
-                    bankerHand.showHand("Banker Has: \n");
-                    bankerStands = true;
-                } else if (bankerHand.getTotal() > 2 && bankerHand.getTotal() < 8) {
-                    bankerHand.showHand("Banker Has: \n");
-                    bankerStands = true;
-                }
-            } else if ((playerHand.getCardValue(playerHand.getCard(2)) < 8) &&
-                    (playerHand.getCardValue(playerHand.getCard(2)) > 5)) {
-                if (bankerHand.getTotal() < 7) {
-                    bankerHand.add(deck.drawCard());
-                    bankerHand.showHand("Banker Has: \n");
-                    bankerStands = true;
-                } else if (bankerHand.getTotal() > 6) {
-                    bankerHand.showHand("Banker Has: \n");
-                    bankerStands = true;
-                }
-            } else if ((playerHand.getCardValue(playerHand.getCard(2)) < 6) &&
-                    (playerHand.getCardValue(playerHand.getCard(2)) > 3)) {
-                if (bankerHand.getTotal() < 6) {
-                    bankerHand.add(deck.drawCard());
-                    bankerHand.showHand("Banker Has: \n");
-                    bankerStands = true;
-                } else if (bankerHand.getTotal() > 5) {
-                    bankerHand.showHand("Banker Has: \n");
-                    bankerStands = true;
-                }
-            } else if ((playerHand.getCardValue(playerHand.getCard(2)) < 4) &&
-                    (playerHand.getCardValue(playerHand.getCard(2)) > 1)) {
-                if (bankerHand.getTotal() < 5) {
-                    bankerHand.add(deck.drawCard());
-                    bankerHand.showHand("Banker Has: \n");
-                    bankerStands = true;
-                } else if (bankerHand.getTotal() > 4) {
-                    bankerHand.showHand("Banker Has: \n");
-                    bankerStands = true;
-                }
+        else if (playerHand.getHandLength() == 3) {
+            bankerVs3PlayerCards();
             }
         }
+
+
+    public void bankerVs2PlayerCards() {
+        if (bankerHand.getTotal() < 6) {
+                bankerHand.add(deck.drawCard());
+                bankerHandAndStand();
+            }
+            else if (bankerHand.getTotal() < 8) {
+                bankerHandAndStand();
+            }
+        }
+    public void bankerVs3PlayerCards(){
+        if (playerHand.getCardValue(playerHand.getCard(2)) > 8 ||
+                playerHand.getCardValue(playerHand.getCard(2)) < 1) {
+            if (bankerHand.getTotal() < 4) {
+                bankerHand.add(deck.drawCard());
+                bankerHandAndStand();
+            } else if (bankerHand.getTotal() > 3 && bankerHand.getTotal() < 8) {
+                bankerHandAndStand();
+            }
+        } else if (playerHand.getCardValue(playerHand.getCard(2)) == 8) {
+            if (bankerHand.getTotal() < 3) {
+                bankerHand.add(deck.drawCard());
+                bankerHandAndStand();
+            } else if (bankerHand.getTotal() > 2 && bankerHand.getTotal() < 8) {
+                bankerHandAndStand();
+            }
+        } else if ((playerHand.getCardValue(playerHand.getCard(2)) < 8) &&
+                (playerHand.getCardValue(playerHand.getCard(2)) > 5)) {
+            if (bankerHand.getTotal() < 7) {
+                bankerHand.add(deck.drawCard());
+                bankerHandAndStand();
+            } else if (bankerHand.getTotal() > 6) {
+                bankerHandAndStand();
+            }
+        } else if ((playerHand.getCardValue(playerHand.getCard(2)) < 6) &&
+                (playerHand.getCardValue(playerHand.getCard(2)) > 3)) {
+            if (bankerHand.getTotal() < 6) {
+                bankerHand.add(deck.drawCard());
+                bankerHandAndStand();
+            } else if (bankerHand.getTotal() > 5) {
+                bankerHandAndStand();
+            }
+        } else if ((playerHand.getCardValue(playerHand.getCard(2)) < 4) &&
+                (playerHand.getCardValue(playerHand.getCard(2)) > 1)) {
+            if (bankerHand.getTotal() < 5) {
+                bankerHand.add(deck.drawCard());
+                bankerHandAndStand();
+            } else if (bankerHand.getTotal() > 4) {
+                bankerHandAndStand();
+            }
+        }
+
+    }
+    
+    public void bankerHandAndStand() {
+        bankerHand.showHand("Banker Has: \n");
+        bankerStands = true;
     }
 
     public void determineWinner() {

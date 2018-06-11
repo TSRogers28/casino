@@ -72,6 +72,8 @@ public class War extends CardGame implements Game {
             Collections.shuffle(this.opponent);
             Collections.shuffle(this.player);
 
+
+
         }
 
 
@@ -82,6 +84,10 @@ public class War extends CardGame implements Game {
         } else {
             System.out.println("You lose");
         }
+
+
+
+
 
     }
 
@@ -203,6 +209,13 @@ public class War extends CardGame implements Game {
 
     public boolean getWinner() {
         return false;
+    }
+
+    @Override
+    public void reset() {
+        this.player.clear();
+        this.opponent.clear();
+        //this.playGame();
     }
 
     public ArrayList<Card> getPlayer(){

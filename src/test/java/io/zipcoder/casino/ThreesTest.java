@@ -1,19 +1,25 @@
 package io.zipcoder.casino;
 
+import io.zipcoder.casino.allCasino.games.Threes;
 import org.junit.Test;
+import io.zipcoder.casino.allCasino.player.*;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ThreesTest {
 
 
-
-   // private Player player1;
-
-
-
+    private Player player1;
 
     @Test
-    public void setSumTemp() {
+    public void testSetSum() {
+        Threes threes = new Threes();
+        threes.setSum(15);
+
+        int expected = 15;
+        int actual =  threes.getSum();
+
+        assertEquals(actual, expected);
     }
 
     @Test
@@ -22,14 +28,23 @@ public class ThreesTest {
 
     @Test
     public void roll() {
+
     }
 
     @Test
-    public void score() {
+    public void rollThreesEqualsZero() {
+
     }
 
 
-    /*@Test
+    @Test
+    public void score() {
+
+
+    }
+
+    @Test
+
     public void compareForWinner() {
         Threes tester = new Threes();
         int sumPlayer1 = 15;
@@ -38,7 +53,8 @@ public class ThreesTest {
         Player expected = player1;
         Player actual = tester.compareForWinner(sumPlayer1, sumPlayer2);
         assertEquals(actual, expected);
-        
-    }*/
+
+    }
+
 
 }
