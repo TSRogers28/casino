@@ -2,20 +2,19 @@ package io.zipcoder.casino;
 
 
 import org.junit.Assert;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import io.zipcoder.casino.allCasino.player.Player;
-import io.zipcoder.casino.allCasino.games.DummyGame;
+import io.zipcoder.casino.allCasino.games.HiLo;
 
 
 
 
-public class DummyGameTest {
+public class HiLoTest {
     private Player player1;
     private Player player2;
 
 
-    private DummyGame dummy = new DummyGame();
+    private HiLo dummy = new HiLo();
 
 
 
@@ -66,17 +65,7 @@ public class DummyGameTest {
 
     }
 
-    @Test
-    public void testScore(){
 
-        int actual = dummy.rand();
-
-        int expected = dummy.rand();
-
-        Assertions.assertNotEquals(actual,expected);
-
-
-    }
 
 
 

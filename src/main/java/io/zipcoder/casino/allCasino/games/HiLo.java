@@ -6,7 +6,7 @@ import io.zipcoder.casino.allCasino.interfaces.Game;
 import io.zipcoder.casino.allCasino.player.*;
 
 
-public class DummyGame implements Game{
+public class HiLo implements Game{
     public Player player1;
     public Player player2;
     private int p1Score;
@@ -15,7 +15,7 @@ public class DummyGame implements Game{
 
 
 
-    public DummyGame(){
+    public HiLo(){
     this.player1 = new Player(0, "You");
     this.player2 = new Player(0,"House");
 
