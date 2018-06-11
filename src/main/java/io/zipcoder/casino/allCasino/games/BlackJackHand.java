@@ -20,6 +20,12 @@ public class BlackJackHand {
         hand.add(c);
     }
 
+    public Card[] getCards() {
+        Card [] cards = new Card[hand.size()];
+        return hand.toArray(cards);
+    }
+
+
     public void displayHand() {
         for (int i = 0; i < hand.size(); i++) {
             System.out.println(hand.get(i).toString() + "\n");
