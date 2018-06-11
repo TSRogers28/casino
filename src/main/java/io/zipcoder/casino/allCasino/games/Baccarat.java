@@ -75,9 +75,9 @@ public class Baccarat extends CardGame implements Game, Gamble {
     }
 
     public boolean getWinner() {
-        if ((winner == BaccaratPlayer.player) && (playerBetOn == "player")) {
+        if ((winner == BaccaratPlayer.player) && (playerBetOn.equalsIgnoreCase("player"))) {
             return true;
-        }else if ((winner == BaccaratPlayer.computer) && (playerBetOn == "banker")){
+        }else if ((winner == BaccaratPlayer.computer) && (playerBetOn.equalsIgnoreCase("banker"))){
             return true;
         } else return false;
     }
