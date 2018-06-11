@@ -32,7 +32,7 @@ public class BlackJackHand {
 
     public void displayDealerHand() {
         System.out.println("This is the dealer's hand =^.^=");
-        System.out.println(getBackOfCard());
+        System.out.println(Card.getBackOfCard());
         for (int i = 1; i < hand.size(); i++) {
             System.out.println(hand.get(i).toString() + "\n");
         }
@@ -67,10 +67,6 @@ public class BlackJackHand {
             }
         }
         return tally;
-    }
-
-    private String getBackOfCard() {
-        return "?|---|\n" + " |???|\n" + " |---|?\n";
     }
 
 }

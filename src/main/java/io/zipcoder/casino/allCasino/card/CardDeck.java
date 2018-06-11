@@ -51,4 +51,7 @@ public class CardDeck {
         return deck;
     }
 
+    public int getNumberOfCardsRemaining() {
+        return 52 - currIndex;
+    }
 }

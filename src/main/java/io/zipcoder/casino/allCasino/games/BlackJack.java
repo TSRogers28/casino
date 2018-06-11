@@ -125,5 +125,3 @@ public class BlackJack extends CardGame implements Game, Gamble{
     }
 }
 
-//I realize that I didn't write this to be super testable. Next time I will do better. Fewer instance variables.
-//More methods with inputs and returns. Oh well.
