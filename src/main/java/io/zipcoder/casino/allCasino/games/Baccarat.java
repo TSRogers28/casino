@@ -16,12 +16,12 @@ public class Baccarat extends CardGame implements Game, Gamble {
 
     GameConsole console = new GameConsole();
     private BaccaratPlayer winner;
-    private boolean isOver;
     private boolean playerStands;
     private boolean bankerStands;
     private BaccaratHand playerHand;
     private BaccaratHand bankerHand;
     private int pot;
+    private String playerBetOn;
 
     public Baccarat() {
         super();
@@ -31,10 +31,6 @@ public class Baccarat extends CardGame implements Game, Gamble {
         bankerHand = new BaccaratHand();
     }
 
-    public static void main(String[] args) {
-        Game game = new Baccarat();
-        game.playGame();
-    }
 
     public void playGame() {
         deal();
@@ -79,13 +75,28 @@ public class Baccarat extends CardGame implements Game, Gamble {
     }
 
     public boolean getWinner() {
-        if (winner == BaccaratPlayer.player) {
+        if ((winner == BaccaratPlayer.player) && (playerBetOn.equalsIgnoreCase("player"))) {
+            return true;
+        }else if ((winner == BaccaratPlayer.computer) && (playerBetOn.equalsIgnoreCase("banker"))){
             return true;
         } else return false;
     }
 
     public void placeBet(int helloKittyFunBucks) {
         pot = helloKittyFunBucks * 2;
+        String betOn;
+        betOn = console.stringScan("Are You Betting On Player or Banker?");
+        do{
+        if(betOn.equalsIgnoreCase("Player")){
+            playerBetOn = betOn;
+        }
+        else if(betOn.equalsIgnoreCase("Banker")){
+            playerBetOn = betOn;
+        }
+        else {
+            console.println("Please Choose Player of Banker");
+        }
+        } while(playerBetOn == null);
     }
 
     public int payOut() {

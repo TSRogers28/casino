@@ -115,7 +115,6 @@ public class Casino {
     public void chooseGame() {
         switch (console.stringScan("What Game Do You Want To Play? War, BlackJack, Threes, HiLo, or Baccarat?")) {
             case "war": game = new War();
-                game.playGame();
                 break;
             case "blackjack":
                 game = new BlackJack();
