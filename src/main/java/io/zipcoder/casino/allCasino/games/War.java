@@ -83,6 +83,10 @@ public class War extends CardGame implements Game {
             System.out.println("You lose");
         }
 
+        this.player.clear();
+        this.opponent.clear();
+
+
     }
 
     public Card getNextCard(ArrayList<Card> cards){
