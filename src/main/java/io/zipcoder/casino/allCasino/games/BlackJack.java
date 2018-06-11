@@ -18,11 +18,12 @@ public class BlackJack extends CardGame implements Game, Gamble{
     private boolean playerStands;
     private BlackJackHand playerHand;
     private BlackJackHand dealerHand;
-
+    private GameConsole gameConsole = new GameConsole();
     private int pot;
 
     public BlackJack(){
         super();
+        gameConsole = new GameConsole();
         isOver = false;
         playerStands = false;
         playerIsWinner = false;
@@ -40,6 +41,7 @@ public class BlackJack extends CardGame implements Game, Gamble{
         return playerHand.getCards();
     }
     public boolean getIsOver() { return isOver; }
+
     public void reset() {
         deck = new CardDeck();
         playerHand = new BlackJackHand();
@@ -47,14 +49,12 @@ public class BlackJack extends CardGame implements Game, Gamble{
         playerStands = false;
         isOver = false;
     }
-
     public void deal(){
         playerHand.add(deck.drawCard());
         dealerHand.add(deck.drawCard());
         playerHand.add(deck.drawCard());
         dealerHand.add(deck.drawCard());
     }
-
     public void placeBet(int helloKittyFunBucks) {
         pot = helloKittyFunBucks*2;
     }
@@ -75,9 +75,9 @@ public class BlackJack extends CardGame implements Game, Gamble{
                 nextTurn();
             }
             if (!isOver) {
-                System.out.println("These are your cards!");
+                gameConsole.println("These are your cards!");
                 playerHand.displayHand();
-                System.out.println("Now it's the dealer's turn. Your score to beat is " + playerHand.getTotal());
+                gameConsole.println("Now it's the dealer's turn. Your score to beat is " + playerHand.getTotal());
                 dealerTurn();
             }
     }
@@ -85,7 +85,6 @@ public class BlackJack extends CardGame implements Game, Gamble{
     private void nextTurn() {
         playerHand.displayHand("This is your hand!");
         dealerHand.displayDealerHand();
-        GameConsole gameConsole = new GameConsole();
         String yesNo = gameConsole.stringScan("Do you want a card? y/n ");
         if (yesNo.equalsIgnoreCase("y")) {
             hit();
@@ -108,11 +107,11 @@ public class BlackJack extends CardGame implements Game, Gamble{
         dealerHand.displayHand();
 
         if (total > 21) {
-            System.out.println("Dealer busted! You win!");
+            gameConsole.println("Dealer busted! You win!");
             playerIsWinner = true;
         }
         else if (total == 21 || total > playerHand.getTotal()) {
-            System.out.println("Womp womp. Dealer's score was " + total + ". Dealer Wins.");
+            gameConsole.println("Womp womp. Dealer's score was " + total + ". Dealer Wins.");
             playerIsWinner = false;
         }
         else {
