@@ -3,6 +3,7 @@ package io.zipcoder.casino.allCasino.games;
 
 import java.util.Scanner;
 
+import io.zipcoder.casino.allCasino.card.CardDeck;
 import io.zipcoder.casino.allCasino.ioMessages.*;
 import io.zipcoder.casino.allCasino.card.Card;
 import io.zipcoder.casino.allCasino.card.CardGame;
@@ -24,7 +25,6 @@ public class Baccarat extends CardGame implements Game, Gamble {
 
     public Baccarat() {
         super();
-        isOver = false;
         playerStands = false;
         bankerStands = false;
         playerHand = new BaccaratHand();
@@ -68,6 +68,14 @@ public class Baccarat extends CardGame implements Game, Gamble {
             determineWinner();
             getWinner();
         }
+    }
+
+    public void reset() {
+        deck = new CardDeck();
+        playerHand = new BaccaratHand();
+        bankerHand = new BaccaratHand();
+        playerStands = false;
+        bankerStands = false;
     }
 
     public boolean getWinner() {

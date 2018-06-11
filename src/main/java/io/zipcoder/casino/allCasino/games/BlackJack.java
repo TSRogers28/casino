@@ -3,6 +3,7 @@ package io.zipcoder.casino.allCasino.games;
 
 import java.util.Scanner;
 
+import io.zipcoder.casino.allCasino.card.CardDeck;
 import io.zipcoder.casino.allCasino.ioMessages.*;
 import io.zipcoder.casino.allCasino.card.Card;
 import io.zipcoder.casino.allCasino.card.CardGame;
@@ -27,17 +28,25 @@ public class BlackJack extends CardGame implements Game, Gamble{
         dealerHand = new BlackJackHand();
     }
     public void playGame() {
-        deal();
+            deal();
 
-        while(!playerStands) {
-            nextTurn();
-        }
-        if (!isOver) {
-            System.out.println("These are your cards!");
-            playerHand.displayHand();
-            System.out.println("Now it's the dealer's turn. Your score to beat is " + playerHand.getTotal());
-            dealerTurn();
-        }
+            while (!playerStands) {
+                nextTurn();
+            }
+            if (!isOver) {
+                System.out.println("These are your cards!");
+                playerHand.displayHand();
+                System.out.println("Now it's the dealer's turn. Your score to beat is " + playerHand.getTotal());
+                dealerTurn();
+            }
+    }
+
+    public void reset() {
+        deck = new CardDeck();
+        playerHand = new BlackJackHand();
+        dealerHand = new BlackJackHand();
+        playerStands = false;
+        isOver = false;
     }
 
     public boolean getWinner() {
