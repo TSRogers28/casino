@@ -2,13 +2,10 @@ package io.zipcoder.casino;
 
 import org.junit.Test;
 import org.junit.Assert;
-import io.zipcoder.casino.allCasino.games.*;
-//import io.zipcoder.casino.allCasino.
-
-import org.junit.jupiter.api.*;
 
 
-class WarTest {
+
+public class WarTest {
 
     @Test
     public void dealCardsTest() {
@@ -16,7 +13,7 @@ class WarTest {
         War war = new War();
         war.deal();
         int actual = war.getPlayer().size() + war.getOpponent().size();
-        Assertions.assertEquals(expect, actual);
+        Assert.assertEquals(expect, actual);
 
     }
 
@@ -30,7 +27,7 @@ class WarTest {
         war.getNextCard(war.getPlayer());
         int actual = war.getPlayer().size();
 
-        Assertions.assertEquals(expect, actual);
+        Assert.assertEquals(expect, actual);
     }
 
     @Test
@@ -41,7 +38,7 @@ class WarTest {
         war.goToWar();
 
         int actual = war.getPlayer().size() + war.getOpponent().size();
-        Assertions.assertEquals(expect, actual);
+        Assert.assertEquals(expect, actual);
     }
 
 //    @Test
