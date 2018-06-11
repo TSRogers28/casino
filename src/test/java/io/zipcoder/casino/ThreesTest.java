@@ -1,8 +1,8 @@
 package io.zipcoder.casino;
 
 import io.zipcoder.casino.allCasino.games.Threes;
+import io.zipcoder.casino.allCasino.player.Player;
 import org.junit.Test;
-import io.zipcoder.casino.allCasino.player.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

@@ -1,40 +1,142 @@
 package io.zipcoder.casino;
 
-import org.junit.Test;
-import org.junit.Assert;
+
+import io.zipcoder.casino.allCasino.card.Card;
+
 import io.zipcoder.casino.allCasino.games.War;
-
-
-
+import org.junit.Assert;
+import org.junit.Test;
 
 public class WarTest {
 
     @Test
     public void dealCardsTest() {
-        int expect = 52;
+        //When
         War war = new War();
         war.deal();
+
+        //Expect
+        int expect = 52;
+
+        //Actual
         int actual = war.getPlayer().size() + war.getOpponent().size();
+
         Assert.assertEquals(expect, actual);
 
     }
 
     @Test
-
-
     public void getNextCardTest() {
-
-        War war = new War();
+        //When
+        War war =  new War();
         war.deal();
-
-        int expect = war.getPlayer().size() - 1;
-
         war.getNextCard(war.getPlayer());
-        int actual = war.getPlayer().size();
 
+        //Expect
+        int expect = 25;
+
+        //Actual
+        int actual = war.getPlayer().size();
 
         Assert.assertEquals(expect, actual);
     }
+
+    @Test
+    public void resetTest(){
+        //When
+        War war =  new War();
+        war.deal();
+        war.reset();
+
+        //Expect
+        int expect = 0;
+
+        //Actual
+        int actual = war.getPlayer().size() + war.getOpponent().size();
+
+        Assert.assertEquals(expect, actual);
+    }
+
+    @Test
+    public void isOverTest(){
+        //When
+        War war = new War();
+
+        //Expect
+        //boolean expect = true;
+        boolean expect = war.isOver();
+
+        //Actual
+        //boolean actual = war.isOver();
+
+        Assert.assertTrue(expect);
+    }
+
+    @Test
+    public void canGoToWarTest(){
+        //When
+        War war = new War();
+        war.deal();
+        war.cardsTo(war.player, war.opponent);
+
+        //Expect
+        boolean expect = war.canGoToWar();
+
+        Assert.assertFalse(expect);
+
+    }
+
+    @Test
+    public void getWinnerTest(){
+        //When
+        War war = new War();
+        war.deal();
+        war.cardsTo(war.player, war.opponent);
+
+        //Actual
+        boolean actual = war.getWinner();
+
+        Assert.assertTrue(actual);
+
+    }
+
+    @Test
+    public void allCardsTo(){
+        //When
+        War war = new War();
+        war.deal();
+        war.cardsTo(war.player, war.opponent);
+
+        //Expect
+        int expect = 52;
+
+        //Actual
+        int actual = war.player.size();
+
+        Assert.assertEquals(expect, actual);
+    }
+
+    @Test
+    public void roundCardsTo(){
+        //When
+        War war = new War();
+        war.deal();
+
+        Card playerNC = war.getNextCard(war.player);
+        Card opponentNC = war.getNextCard(war.opponent);
+        war.cardsTo(war.player, playerNC, opponentNC);
+
+        //Expect
+        int expect = 27;
+
+        //Actual
+        int actual = war.player.size();
+
+        Assert.assertEquals(expect, actual);
+
+    }
+
+
 
 
 

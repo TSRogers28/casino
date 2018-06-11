@@ -122,7 +122,7 @@ public class Casino {
                 game = new Threes();
                 break;
             case "hilo":
-                game = new DummyGame();
+                game = new HiLo();
                 break;
             case "baccarat":
                 game = new Baccarat();

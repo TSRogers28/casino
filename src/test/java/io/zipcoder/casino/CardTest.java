@@ -1,9 +1,10 @@
 package io.zipcoder.casino;
 
+import io.zipcoder.casino.allCasino.card.Card;
+import io.zipcoder.casino.allCasino.ioMessages.Face;
+import io.zipcoder.casino.allCasino.ioMessages.Suit;
 import org.junit.Assert;
 import org.junit.Test;
-import io.zipcoder.casino.allCasino.ioMessages.*;
-import io.zipcoder.casino.allCasino.card.*;
 
 
 public class CardTest {
@@ -25,7 +26,7 @@ public class CardTest {
         String expected = "♦|---|\n" +
                           " | A |\n" +
                           " |---|♦";
-        Card c = new Card(Face.ACE, Suit.CLUBS);
+        Card c = new Card(Face.ACE, Suit.DIAMONDS);
         String actual = c.toString();
         Assert.assertEquals(expected, actual);
 
@@ -50,6 +51,12 @@ public class CardTest {
         Card c2 = new Card(Face.JACK, Suit.DIAMONDS);
         int actual = c.compareTo(c2);
         Assert.assertTrue(actual == 0);
+    }
+    @Test
+    public void getBackOfCardTest() {
+        String expected = "?|---|\n |???|\n |---|?\n";
+        String actual = Card.getBackOfCard();
+        Assert.assertEquals(expected, actual);
     }
 
 }

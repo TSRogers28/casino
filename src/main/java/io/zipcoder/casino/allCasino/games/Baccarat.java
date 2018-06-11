@@ -10,7 +10,7 @@ import io.zipcoder.casino.allCasino.card.CardGame;
 import io.zipcoder.casino.allCasino.interfaces.*;
 import io.zipcoder.casino.allCasino.player.*;
 
-public class Baccarat extends CardGame implements Game, Gamble {
+public class  Baccarat extends CardGame implements Game, Gamble {
 
     enum BaccaratPlayer {player, computer}
 
