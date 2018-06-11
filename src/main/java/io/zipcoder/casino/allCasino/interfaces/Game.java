@@ -8,5 +8,5 @@ public interface Game {
 
     boolean getWinner();
 
-
+    void reset();
 }
