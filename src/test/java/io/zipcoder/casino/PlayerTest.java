@@ -1,9 +1,9 @@
 package io.zipcoder.casino;
 
+import io.zipcoder.casino.allCasino.player.Player;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-import io.zipcoder.casino.allCasino.player.*;
+import static org.junit.Assert.assertEquals;
 
 
 public class PlayerTest {

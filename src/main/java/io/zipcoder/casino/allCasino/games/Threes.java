@@ -52,6 +52,7 @@
         public void playGame(){
             scoreRollPlayer1(this.getPlayer1());
             scoreRollPlayer2(this.getPlayer2());
+
             compareForWinner(this.getSumPlayer1(), this.getSumPlayer2());
         }
 

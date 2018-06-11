@@ -6,7 +6,7 @@ import io.zipcoder.casino.allCasino.interfaces.Game;
 import io.zipcoder.casino.allCasino.player.*;
 
 
-public class DummyGame implements Game{
+public class HiLo implements Game{
     public Player player1;
     public Player player2;
     private int p1Score;
@@ -15,7 +15,7 @@ public class DummyGame implements Game{
 
 
 
-    public DummyGame(){
+    public HiLo(){
     this.player1 = new Player(0, "You");
     this.player2 = new Player(0,"House");
 
@@ -23,6 +23,8 @@ public class DummyGame implements Game{
     }
 
     public void reset(){
+        this.runGame();
+
 
     }
 
@@ -36,7 +38,7 @@ public class DummyGame implements Game{
 
     public int rand(){
         Random r = new Random();
-        return r.nextInt(10)+1;
+        return r.nextInt(1000)+1;
     }
 
 
@@ -49,17 +51,17 @@ public class DummyGame implements Game{
     }
 
     public void determineWinner(){
+        System.out.println("player 1 score is: " + p1Score);
+        System.out.println("player 2 score is: " + p2score);
         if(p1Score > p2score){
-            System.out.println("player 1 score is: " + p1Score);
-            System.out.println("player 2 score is: " + p2score);
+
             setWinner(player1);
            // return getWinner();
 
         }
 
         else{
-            System.out.println(p1Score);
-            System.out.println(p2score);
+
             setWinner(player2);
             //return getWinner();
         }
@@ -76,13 +78,21 @@ public class DummyGame implements Game{
 
     }
     public boolean getWinner(){
+        boolean win;
         System.out.println(winner.getName() + " Wins!");
+
         if (player1 == winner) {
-            return true;
+            win = true;
         }
-        else return false;
+        else if(player2 == winner){
+            win = true;
+        }
+        else {
+            win =  false;
 
+        }
 
+        return win;
 
     }
 
