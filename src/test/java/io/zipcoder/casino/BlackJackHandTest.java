@@ -8,6 +8,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+
 public class BlackJackHandTest {
 
     BlackJackHand bjh;
@@ -21,14 +22,8 @@ public class BlackJackHandTest {
         bjh.add(new Card(Face.JACK, Suit.CLUBS));
         bjh.add(new Card(Face.QUEEN, Suit.HEARTS));
         bjh.displayHand();
-
     }
-//    @Test
-//    public void displayDealerHandTest() {
-//        bjh.add(new Card(Face.SIX, Suit.CLUBS));
-//        bjh.add(new Card(Face.EIGHT, Suit.CLUBS));
-//        bjh.displayDealerHand();
-//    }
+
     @Test
     public void tallyTest() {
         bjh.add(new Card(Face.ACE, Suit.SPADES));

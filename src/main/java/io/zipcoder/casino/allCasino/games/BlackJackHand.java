@@ -11,28 +11,36 @@ import java.util.ArrayList;
 public class BlackJackHand {
 
     ArrayList<Card> hand;
+    GameConsole gameConsole;
 
     public BlackJackHand() {
         hand = new ArrayList<Card>();
+        gameConsole = new GameConsole();
     }
 
     public void add(Card c) {
         hand.add(c);
     }
 
+    public Card[] getCards() {
+        Card [] cards = new Card[hand.size()];
+        return hand.toArray(cards);
+    }
+
+
     public void displayHand() {
         for (int i = 0; i < hand.size(); i++) {
-            System.out.println(hand.get(i).toString() + "\n");
+            gameConsole.println(hand.get(i).toString() + "\n");
         }
     }
     public void displayHand(String message) {
-        System.out.println(message);
+        gameConsole.println(message);
         displayHand();
     }
 
     public void displayDealerHand() {
-        System.out.println("This is the dealer's hand =^.^=");
-        System.out.println(Card.getBackOfCard());
+        gameConsole.println("This is the dealer's hand =^.^=");
+        gameConsole.println(Card.getBackOfCard());
         for (int i = 1; i < hand.size(); i++) {
             System.out.println(hand.get(i).toString() + "\n");
         }
