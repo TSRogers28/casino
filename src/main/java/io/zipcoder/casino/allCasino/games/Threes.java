@@ -46,7 +46,11 @@
         }
 
         public void reset(){
-
+            setSumPlayer1(0);
+            setSumPlayer2(0);
+            setRollNumber(0);
+            setPot(0);
+            setSum(0);
         }
 
         public void playGame(){
@@ -54,6 +58,7 @@
             scoreRollPlayer2(this.getPlayer2());
 
             compareForWinner(this.getSumPlayer1(), this.getSumPlayer2());
+
         }
 
        public boolean getWinner() {
@@ -61,8 +66,16 @@
                 return answer;
         }
 
+        public void setPot(int pot){
+            this.pot = pot;
+        }
+
         public void setWinner(Player winner) {
             this.winner = winner;
+        }
+
+        public void setSum(int sum){
+            this.sum = sum;
         }
 
         public void setSumPlayer1(int sum){
@@ -102,10 +115,6 @@
             this.result = result;
         }
 
-        public ArrayList<Integer> getResult(){
-            return result;
-        }
-
 
         public ArrayList<Integer> roll() {
             setResult(dice.toss());
@@ -133,12 +142,13 @@
             setSumPlayer1(displayDiceAndSum(roll()));
             setRollNumber(1);
             console.println("\t" + player1.getName() +" roll #" + getRollNumber() + " was "+ getSumPlayer1());
+            setSum(0);
         }
 
         public void scoreRollPlayer2(Player player2) {
             console.println("");
             setSumPlayer2(displayDiceAndSum(roll()));
-            console.println("\t" + player2.getName() + " roll #" + getRollNumber() + " was " + getSumPlayer1());
+            console.println("\t" + player2.getName() + " roll #" + getRollNumber() + " was " + getSumPlayer2());
         }
 
         public Player compareForWinner(int sumPlayer1, int sumPlayer2){
