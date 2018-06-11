@@ -20,7 +20,7 @@ public class DummyGameTest {
 
 
     @Test
-    public void dummyTestWinner(){
+    public void dummyTestSetWinner(){
         dummy.setWinner(dummy.player1);
 
         //Player actual = dummy.getWinner();
@@ -28,6 +28,29 @@ public class DummyGameTest {
         Player expected = dummy.player1;
 
         Assert.assertNotNull(expected);
+
+    }
+
+    @Test
+    public void testGetWinnerUserWins(){
+        dummy.playGame();
+
+        boolean expected = true;
+        boolean actual = dummy.getWinner();
+
+        Assert.assertEquals(expected,actual);
+
+
+    }
+    @Test
+    public void testHouseWins(){
+        dummy.playGame();
+
+        boolean expected = true;
+        boolean actual = dummy.getWinner();
+
+        Assert.assertEquals(expected,actual);
+
 
     }
     @Test
@@ -38,9 +61,6 @@ public class DummyGameTest {
         int expected = dummy.rand();
 
         Assert.assertNotEquals(actual,expected);
-
-
-
 
 
 
@@ -57,6 +77,8 @@ public class DummyGameTest {
 
 
     }
+
+
 
 
 

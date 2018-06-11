@@ -38,7 +38,7 @@ public class DummyGame implements Game{
 
     public int rand(){
         Random r = new Random();
-        return r.nextInt(10)+1;
+        return r.nextInt(100)+1;
     }
 
 
@@ -60,8 +60,8 @@ public class DummyGame implements Game{
         }
 
         else{
-            System.out.println(p1Score);
-            System.out.println(p2score);
+            System.out.println("player 1 score is: " + p1Score);
+            System.out.println("player 2 score is: " + p2score);
             setWinner(player2);
             //return getWinner();
         }
@@ -78,13 +78,21 @@ public class DummyGame implements Game{
 
     }
     public boolean getWinner(){
+        boolean win;
         System.out.println(winner.getName() + " Wins!");
+
         if (player1 == winner) {
-            return true;
+            win = true;
         }
-        else return false;
+        else if(player2 == winner){
+            win = true;
+        }
+        else {
+            win =  false;
 
+        }
 
+        return win;
 
     }
 
