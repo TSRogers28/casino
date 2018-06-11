@@ -23,10 +23,10 @@ public class War extends CardGame implements Game {
 
     }
 
-   public static void main(String[] args){
-        War war = new War();
-        war.playGame();
-    }
+//   public static void main(String[] args){
+//        War war = new War();
+//        war.playGame();
+//    }
 
     public static String getInput(String prompt) {
         System.out.print(prompt);
@@ -85,19 +85,9 @@ public class War extends CardGame implements Game {
             System.out.println("You lose");
         }
 
-//        String playAgain  = "";
-//
-//        while(playAgain.equals("y") || playAgain.equals("n")){
-//            playAgain = getInput("Would you like to play again ?");
-//
-//            if(playAgain.equals("y")){
-//                this.playGame();
-//            } else {
-//                break;
-//            }
-//        }
 
-
+        this.player.clear();
+        this.opponent.clear();
 
 
     }
@@ -224,8 +214,6 @@ public class War extends CardGame implements Game {
 
     @Override
     public void reset() {
-        this.player.clear();
-        this.opponent.clear();
         this.playGame();
     }
 
