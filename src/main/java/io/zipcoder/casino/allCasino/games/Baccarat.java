@@ -13,7 +13,7 @@ public class Baccarat extends CardGame implements Game, Gamble {
 
     enum BaccaratPlayer {player, computer}
 
-    ;
+    GameConsole console = new GameConsole();
     private BaccaratPlayer winner;
     private boolean isOver;
     private boolean playerStands;
@@ -39,20 +39,25 @@ public class Baccarat extends CardGame implements Game, Gamble {
     public void playGame() {
         deal();
         playerHand.displayHand("Player Hand!\n");
+        console.println("Player Has: " + playerHand.getTotal());
         bankerHand.displayHand("Banker Hand!\n");
+        console.println("Banker Has: " + bankerHand.getTotal());
 
-        if (playerHand.getTotal() > 7) {
+        if (playerHand.getTotal() > 7 && (playerHand.getTotal() != bankerHand.getTotal())) {
             winner = BaccaratPlayer.player;
             playerStands = true;
             bankerStands = true;
-            System.out.println("Player Wins!");
+            console.println("Player Has A Natural Win!");
             getWinner();
-        } else if (bankerHand.getTotal() > 7) {
+        } else if (bankerHand.getTotal() > 7 && (bankerHand.getTotal() != bankerHand.getTotal())) {
             winner = BaccaratPlayer.computer;
             playerStands = true;
             playerStands = true;
-            System.out.println("Banker Wins!");
+            console.println("Banker Has A Natural Win!");
             getWinner();
+        } else if(playerHand.getTotal() > 7 && (playerHand.getTotal() == bankerHand.getTotal())){
+            winner = null;
+            console.println("Tie! Return All Bets!");
         } else {
             while (!playerStands && !bankerStands) {
                 playerTurn();
@@ -168,16 +173,18 @@ public class Baccarat extends CardGame implements Game, Gamble {
 
     public void determineWinner() {
 
-        if (playerHand.getTotal() - 9 < bankerHand.getTotal() - 9) {
+        if (Math.abs(9 - playerHand.getTotal()) < Math.abs(9 - bankerHand.getTotal())) {
             winner = BaccaratPlayer.player;
             playerHand.displayHand("Final Player Hand: \n");
+            console.println("Player Has: " + playerHand.getTotal());
             bankerHand.displayHand("Final Banker Hand: \n");
-            System.out.println("Player Wins!");
-        } else if (bankerHand.getTotal() - 9 < playerHand.getTotal() - 9) {
+            console.println("Banker Has: " + bankerHand.getTotal());
+            console .println("Player Wins!");
+        } else if (Math.abs(9 - bankerHand.getTotal()) < Math.abs(9 - playerHand.getTotal())) {
             winner = BaccaratPlayer.computer;
             playerHand.displayHand("Final Player Hand: \n");
             bankerHand.displayHand("Final Banker Hand: \n");
-            System.out.println("Banker Wins!");
+            console.println("Banker Wins!");
         } else {
             winner = null;
             System.out.println("Tie! Return All Bets!");
