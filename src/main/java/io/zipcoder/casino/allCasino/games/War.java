@@ -4,34 +4,30 @@ import io.zipcoder.casino.allCasino.card.Card;
 import io.zipcoder.casino.allCasino.card.CardDeck;
 import io.zipcoder.casino.allCasino.card.CardGame;
 import io.zipcoder.casino.allCasino.interfaces.Game;
+import io.zipcoder.casino.allCasino.ioMessages.GameConsole;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Scanner;
 
 
 
 public class War extends CardGame implements Game {
 
-    ArrayList<Card> player = new ArrayList<Card>();
-    ArrayList<Card> opponent = new ArrayList<Card>();
+    GameConsole gc;
+    public ArrayList<Card> player;
+    public ArrayList<Card> opponent;
+    public ArrayList<Card> pile;
 
-    ArrayList<Card> pile = new ArrayList<Card>();
-
-
-    public War(){
-
+    {
+        gc = new GameConsole();
+        player = new ArrayList<Card>();
+        opponent = new ArrayList<Card>();
+        pile = new ArrayList<Card>();
     }
 
-//   public static void main(String[] args){
-//        War war = new War();
-//        war.playGame();
-//    }
-
-    public static String getInput(String prompt) {
-        System.out.print(prompt);
-        Scanner scanner = new Scanner(System.in);
-        return scanner.nextLine();
+    public static void main(String[] args){
+        War war = new War();
+        war.playGame();
     }
 
     public void playGame() {
@@ -39,127 +35,37 @@ public class War extends CardGame implements Game {
 
         while(!isOver()){
 
-            System.out.println("Players = " +this.player.size() + " \nOpponent = " + this.opponent.size());
-            System.out.println("Press Enter to Draw a Card: ");
+            this.headerDisplay();
 
             Card playerNC   = getNextCard(this.player);
             Card opponentNC = getNextCard(this.opponent);
 
-
-            System.out.println("-----------------------------------");
-            System.out.println(opponentNC.toString());
-            getInput(" ");
-            System.out.println(playerNC.toString());
-            System.out.println("-----------------------------------");
+            this.cardsDisplay(opponentNC, playerNC);
 
             if(playerNC.compareTo(opponentNC) == 0){
-                this.pile.add(playerNC);
-                this.pile.add(opponentNC);
-                if(this.canGoToWarAndResult()){
+                this.cardsTo(this.pile, playerNC, opponentNC);
+                if(this.canGoToWar()){
                     this.goToWar();
+                } else{
+                    this.cantGoToWarResult();
                 }
             } else if(playerNC.compareTo(opponentNC) > 0){
-                System.out.println("You win this round!");
-                System.out.println("");
-                this.player.add(playerNC);
-                this.player.add(opponentNC);
+                gc.println("You win this round!");
+                this.cardsTo(this.player, playerNC, opponentNC);
             } else {
-                System.out.println("You lose this round!");
-                this.opponent.add(playerNC);
-                this.opponent.add(opponentNC);
+                gc.println("You lose this round!");
+                this.cardsTo(this.opponent, playerNC, opponentNC);
             }
 
             Collections.shuffle(this.opponent);
             Collections.shuffle(this.player);
-
-
-
         }
 
-
-        System.out.println("Players = " +this.player.size() + " \nOpponent = " + this.opponent.size());
-
-        if(isWinner()){
-            System.out.println("You Win");
-        } else {
-            System.out.println("You lose");
-        }
-
-
-
-
+        this.endResultDisplay();
 
     }
 
-    public Card getNextCard(ArrayList<Card> cards){
-        Card toReturn = cards.get(0);
-        cards.remove(0);
-        return toReturn;
-    }
-
-    public void goToWar(){
-
-        System.out.println("War!!");
-
-        for(int i = 1; i <= 3; i++){
-            this.pile.add(getNextCard(this.player));
-        }
-
-        for(int i = 1; i <= 3; i++){
-            this.pile.add(getNextCard(this.opponent));
-        }
-
-        Card playerNC  = getNextCard(this.player);
-        Card opponentNC = getNextCard(this.opponent);
-
-        System.out.println("Pile size -  " + this.pile.size());
-        System.out.println("Press Enter to Draw a Card: ");
-
-        System.out.println("-----------------------------------");
-        System.out.println(opponentNC.toString());
-        getInput("");
-        System.out.println(playerNC.toString());
-        System.out.println("-----------------------------------");
-
-        if(playerNC.compareTo(opponentNC) == 0){
-            this.pile.add(playerNC);
-            this.pile.add(opponentNC);
-            if(this.canGoToWarAndResult()){
-                this.goToWar();
-            }
-        } else if (playerNC.compareTo(opponentNC) > 0){
-            System.out.println("You win this War!");
-            this.player.add(playerNC);
-            this.player.add(opponentNC);
-            this.pileTo(this.player);
-        } else {
-            System.out.println("You lose this War!");
-            this.opponent.add(playerNC);
-            this.opponent.add(opponentNC);
-            this.pileTo(this.opponent);
-        }
-
-    }
-
-    public boolean canGoToWarAndResult(){
-        boolean canWar;
-        if(this.player.size() >=  4 && this.opponent.size() >= 4){
-            canWar = true;
-        } else {
-            canWar = false;
-            if(this.player.size() > 4){
-                System.out.println("The opponent doesn't have enough cards to go to war");
-                this.pileTo(this.player);
-                this.cardsTo(this.player,this.opponent);
-            } else {
-                System.out.println("The Player doesn't have enough cards to go to war");
-                this.pileTo(this.opponent);
-                this.cardsTo(this.opponent,this.player);
-            }
-        }
-        return canWar;
-    }
-
+    //Miscellaneous Methods//////////////////////////////////////
     public void deal() {
         CardDeck deck = new CardDeck();
         deck.shuffle();
@@ -169,46 +75,21 @@ public class War extends CardGame implements Game {
         }
     }
 
-    public void cardsTo(ArrayList<Card> to, ArrayList<Card> from){
-        for(int i = 0; i < from.size(); i++){
-            to.add(getNextCard(from));
-        }
-        from.clear();
-    }
-
-    public void pileTo(ArrayList<Card> player){
-        for(int i = 0; i < this.pile.size(); i++){
-            player.add(this.pile.get(i));
-        }
-        this.pile.clear();
+    public Card getNextCard(ArrayList<Card> cards){
+        Card toReturn = cards.get(0);
+        cards.remove(0);
+        return toReturn;
     }
 
     public boolean isOver(){
         return this.player.size() == 0 || this.opponent.size() == 0 ? true : false;
     }
+    //////////////////////////////////////////////////////////////
 
-    public boolean isWinner(){
-        boolean isWin = false;
-        if(this.player.size() > this.opponent.size()){
-            isWin = true;
-        } else {
-            isWin = false;
-        }
-        return isWin;
-    }
-
-    public ArrayList<Card> getWin() {
-        ArrayList<Card> winner = null;
-        if(this.player.size() > this.opponent.size()){
-            winner = this.player;
-        }else {
-            winner =this.opponent;
-        }
-        return winner;
-    }
-
+    //Game Methods////////////////////////////////////////////
+    @Override
     public boolean getWinner() {
-        return false;
+        return this.player.size() > this.opponent.size() ? true : false;
     }
 
     @Override
@@ -217,7 +98,113 @@ public class War extends CardGame implements Game {
         this.opponent.clear();
         //this.playGame();
     }
+    //////////////////////////////////////////////////////////
 
+    //Display/////////////////////////////////////////////////////
+    public void headerDisplay(){
+        gc.println("Players = " +this.player.size() + " \nOpponent = " + this.opponent.size());
+
+        if(this.pile.size() > 0){
+            gc.println("Pile size -  " + this.pile.size());
+        }
+
+        gc.println("Press Enter to Draw a Card: ");
+    }
+
+    public void cardsDisplay(Card opponentNC, Card playerNC){
+        gc.println("-----------------------------------");
+        gc.println(opponentNC.toString());
+
+        gc.stringScan("");
+
+        gc.println(playerNC.toString());
+        gc.println("-----------------------------------");
+    }
+
+    public void endResultDisplay(){
+        gc.print("Players = " +this.player.size() + " \nOpponent = " + this.opponent.size());
+
+        if(getWinner()){
+            gc.print("You Win");
+        } else {
+            gc.print("You lose");
+        }
+    }
+    //////////////////////////////////////////////////////////////
+
+    //Methods of War!!!!/////////////////////////
+    public void goToWar(){
+
+        gc.println("War!!");
+
+        for(int i = 1; i <= 3; i++){
+            this.pile.add(getNextCard(this.player));
+        }
+
+        for(int i = 1; i <= 3; i++){
+            this.pile.add(getNextCard(this.opponent));
+        }
+
+        this.headerDisplay();
+
+        Card playerNC  = getNextCard(this.player);
+        Card opponentNC = getNextCard(this.opponent);
+
+
+
+        this.cardsDisplay(playerNC, opponentNC);
+
+        if(playerNC.compareTo(opponentNC) == 0){
+            this.cardsTo(this.pile, playerNC, opponentNC);
+            if(this.canGoToWar()){
+                this.goToWar();
+            } else {
+                this.cantGoToWarResult();
+            }
+        } else if (playerNC.compareTo(opponentNC) > 0){
+            gc.println("You win this War!");
+            this.cardsTo(this.player, playerNC, opponentNC);
+            this.cardsTo(this.player, this.pile);
+        } else {
+            gc.println("You lose this War!");
+            this.cardsTo(this.opponent, playerNC, opponentNC);
+            this.cardsTo(this.opponent, this.pile);
+        }
+
+    }
+
+    public boolean canGoToWar(){
+        return this.player.size() >=  4 && this.opponent.size() >= 4 ? true : false;
+    }
+
+    public void cantGoToWarResult(){
+        if(this.player.size() > 4){
+            gc.println("The opponent doesn't have enough cards to go to war");
+            this.cardsTo(this.player, this.pile);
+            this.cardsTo(this.player, this.opponent);
+        } else {
+            gc.println("The Player doesn't have enough cards to go to war");
+            this.cardsTo(this.opponent, this.pile);
+            this.cardsTo(this.opponent,this.player);
+        }
+    }
+    /////////////////////////////////////////////
+
+    //Card to Methods//////////////////////////////////////////////////
+    public void cardsTo(ArrayList<Card> to, ArrayList<Card> from){
+        for(int i = 0; i < from.size(); i++){
+            to.add(from.get(i));
+        }
+        from.clear();
+    }
+
+    public void cardsTo(ArrayList<Card> pile, Card c1, Card c2){
+        pile.add(c1);
+        pile.add(c2);
+    }
+    ///////////////////////////////////////////////////////////////////
+
+    //Testing Methods//////////////////////////////////////////////
     public ArrayList<Card> getPlayer(){
         return this.player;
     }
@@ -225,7 +212,7 @@ public class War extends CardGame implements Game {
     public ArrayList<Card> getOpponent(){
         return this.opponent;
     }
-
+    ///////////////////////////////////////////////////////////////
 
 
 }
