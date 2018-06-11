@@ -94,19 +94,24 @@ public class Baccarat extends CardGame implements Game, Gamble {
 
     public void placeBet(int helloKittyFunBucks) {
         pot = helloKittyFunBucks * 2;
+        betOnWho();
+    }
+
+    public void betOnWho(){
         String betOn;
         betOn = console.stringScan("Are You Betting On Player or Banker?");
         do{
-        if(betOn.equalsIgnoreCase("Player")){
-            playerBetOn = betOn;
-        }
-        else if(betOn.equalsIgnoreCase("Banker")){
-            playerBetOn = betOn;
-        }
-        else {
-            console.println("Please Choose Player of Banker");
-        }
+            if(betOn.equalsIgnoreCase("Player")){
+                playerBetOn = betOn;
+            }
+            else if(betOn.equalsIgnoreCase("Banker")){
+                playerBetOn = betOn;
+            }
+            else {
+                console.println("Please Choose Player of Banker");
+            }
         } while(playerBetOn == null);
+
     }
 
     public int payOut() {
@@ -220,10 +225,51 @@ public class Baccarat extends CardGame implements Game, Gamble {
             console.println("Banker Wins!");
         } else {
             winner = null;
-            System.out.println("Tie! Return All Bets!");
+            console.println("Tie! Return All Bets!");
             playerHand.showHand("Final Player Hand: \n");
             bankerHand.showHand("Final Banker Hand: \n");
         }
     }
+
+    //methods below are solely for unit testing purposes
+    public CardDeck getDeck(){
+        return this.deck;
+    }
+
+    public boolean getPlayerStands(){ return playerStands;}
+    public boolean getBankerStands(){ return bankerStands;}
+
+    public BaccaratHand getPlayerHand() {
+        return playerHand;
+    }
+
+    public BaccaratHand getBankerHand() {
+        return bankerHand;
+    }
+
+    public void setWinner(BaccaratPlayer winner) {
+        this.winner = winner;
+    }
+
+    public void setPlayerHand(Card c1, Card c2) {
+        this.playerHand.add(c1);
+        this.playerHand.add(c2);
+    }
+
+    public void setPlayerBetOn(String playerBetOn) {
+        this.playerBetOn = playerBetOn;
+    }
+    public String getPlayerBetOn() {
+        return playerBetOn;
+    }
+
+    public int getPot() {
+        return pot;
+    }
+
+    public void setPot(int pot) {
+        this.pot = pot;
+    }
+
 }
 
